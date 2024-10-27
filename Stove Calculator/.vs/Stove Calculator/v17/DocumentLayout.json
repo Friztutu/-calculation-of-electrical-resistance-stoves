@@ -1,14 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\-calculation-of-electrical-resistance-stoves\\Stove Calculator\\",
+  "WorkspaceRootPath": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{08AC02E2-B73A-456D-9E97-2C754BD9B038}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\-calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{08AC02E2-B73A-456D-9E97-2C754BD9B038}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{08AC02E2-B73A-456D-9E97-2C754BD9B038}|Stove Calculator\\Stove Calculator.csproj|C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\-calculation-of-electrical-resistance-stoves\\Stove Calculator\\stove calculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{08AC02E2-B73A-456D-9E97-2C754BD9B038}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\-calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Stove Calculator\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\-calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainWindow.xaml",
-              "RelativeToolTip": "Stove Calculator\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-04T15:00:53.322Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\-calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Stove Calculator\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\-calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Stove Calculator\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Form1.cs",
+              "RelativeDocumentMoniker": "Stove Calculator\\Form1.cs",
+              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Form1.cs [Design]",
+              "RelativeToolTip": "Stove Calculator\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T15:00:50.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T11:46:30.065Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
