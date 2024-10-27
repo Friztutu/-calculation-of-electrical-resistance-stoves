@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vezr7SOjauM=",
+  "dgSpecHash": "H+EIoPKsSi8=",
   "success": true,
   "projectFilePath": "C:\\Users\\erofe\\OneDrive\\Рабочий стол\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Stove Calculator.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\erofe\\.nuget\\packages\\fontawesome.sharp\\6.6.0\\fontawesome.sharp.6.6.0.nupkg.sha512"
+  ],
   "logs": []
 }

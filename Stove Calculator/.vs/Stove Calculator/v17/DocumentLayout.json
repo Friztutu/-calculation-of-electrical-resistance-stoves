@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\tubefurnaceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\tubefurnaceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\validator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\validator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\chamberfurnaceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\chamberfurnaceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\chamberfurnaceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\chamberfurnaceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|c:\\users\\erofe\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\stove calculator\\stove calculator\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}|Stove Calculator\\Stove Calculator.csproj|solutionrelative:stove calculator\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Form1.cs",
-              "RelativeDocumentMoniker": "Stove Calculator\\Form1.cs",
-              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]*",
-              "RelativeToolTip": "Stove Calculator\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]*",
+              "DocumentIndex": 0,
+              "Title": "TubeFurnaceForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\TubeFurnaceForm.cs",
+              "RelativeDocumentMoniker": "Stove Calculator\\TubeFurnaceForm.cs",
+              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\TubeFurnaceForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "Stove Calculator\\TubeFurnaceForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T11:51:10.229Z",
+              "WhenOpened": "2024-10-27T18:47:49.749Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Form1.cs",
-              "RelativeDocumentMoniker": "Stove Calculator\\Form1.cs",
-              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Form1.cs*",
-              "RelativeToolTip": "Stove Calculator\\Form1.cs*",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowDwAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "ChamberFurnaceForm.cs",
+              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\ChamberFurnaceForm.cs",
+              "RelativeDocumentMoniker": "Stove Calculator\\ChamberFurnaceForm.cs",
+              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\ChamberFurnaceForm.cs",
+              "RelativeToolTip": "Stove Calculator\\ChamberFurnaceForm.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T11:50:53.479Z",
+              "WhenOpened": "2024-10-27T18:41:37.742Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Validator.cs",
-              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Validator.cs",
-              "RelativeDocumentMoniker": "Stove Calculator\\Validator.cs",
-              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\Validator.cs",
-              "RelativeToolTip": "Stove Calculator\\Validator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ChamberFurnaceForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\ChamberFurnaceForm.cs",
+              "RelativeDocumentMoniker": "Stove Calculator\\ChamberFurnaceForm.cs",
+              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\ChamberFurnaceForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "Stove Calculator\\ChamberFurnaceForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:05:20.637Z",
+              "WhenOpened": "2024-10-27T18:36:23.112Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainForm.cs",
+              "RelativeDocumentMoniker": "Stove Calculator\\MainForm.cs",
+              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainForm.cs",
+              "RelativeToolTip": "Stove Calculator\\MainForm.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAiwLYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T18:30:52.749Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainForm.cs",
+              "RelativeDocumentMoniker": "Stove Calculator\\MainForm.cs",
+              "ToolTip": "C:\\Users\\erofe\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\projects\\my projects\\calculation-of-electrical-resistance-stoves\\Stove Calculator\\Stove Calculator\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "Stove Calculator\\MainForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T15:24:49.816Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
             }
           ]
         }
