@@ -26,6 +26,9 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+    <PackageReference Include="Gnostice.DocumentStudio.WinForms.Free" Version="24.1.289" />
+    <PackageReference Include="PdfPig" Version="0.1.9" />
+    <PackageReference Include="Syncfusion.PdfViewer.Windows" Version="27.1.56" />
   </ItemGroup>
 
 </Project>

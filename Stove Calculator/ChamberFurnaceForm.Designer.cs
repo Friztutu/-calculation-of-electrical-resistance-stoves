@@ -31,21 +31,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChamberFurnaceForm));
             iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             panel1 = new Panel();
+            CalculateButton = new FontAwesome.Sharp.IconButton();
             richTextBox1 = new RichTextBox();
             pictureBox1 = new PictureBox();
             label12 = new Label();
-            textBox3 = new TextBox();
+            StoveWidthTextBox = new TextBox();
             label13 = new Label();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
             label4 = new Label();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            TemperatureOuterSurface = new TextBox();
+            AmbientGasTemperature = new TextBox();
+            MaximumSampleTemperature = new TextBox();
+            StoveHeightTextBox = new TextBox();
+            StoveLengthTextBox = new TextBox();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -53,8 +54,12 @@
             label2 = new Label();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             label1 = new Label();
+            panel2 = new Panel();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
+            label14 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // iconSplitButton1
@@ -71,21 +76,22 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(CalculateButton);
             panel1.Controls.Add(richTextBox1);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label12);
-            panel1.Controls.Add(textBox3);
+            panel1.Controls.Add(StoveWidthTextBox);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(label11);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label9);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox6);
-            panel1.Controls.Add(textBox5);
-            panel1.Controls.Add(textBox4);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(TemperatureOuterSurface);
+            panel1.Controls.Add(AmbientGasTemperature);
+            panel1.Controls.Add(MaximumSampleTemperature);
+            panel1.Controls.Add(StoveHeightTextBox);
+            panel1.Controls.Add(StoveLengthTextBox);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label5);
@@ -96,8 +102,24 @@
             panel1.Location = new Point(13, 12);
             panel1.Margin = new Padding(4, 3, 4, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(522, 854);
+            panel1.Size = new Size(522, 774);
             panel1.TabIndex = 2;
+            // 
+            // CalculateButton
+            // 
+            CalculateButton.FlatAppearance.BorderSize = 0;
+            CalculateButton.FlatStyle = FlatStyle.Flat;
+            CalculateButton.IconChar = FontAwesome.Sharp.IconChar.CaretSquareRight;
+            CalculateButton.IconColor = Color.White;
+            CalculateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            CalculateButton.Location = new Point(165, 280);
+            CalculateButton.Name = "CalculateButton";
+            CalculateButton.Size = new Size(188, 55);
+            CalculateButton.TabIndex = 25;
+            CalculateButton.Text = "Рассчитать";
+            CalculateButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            CalculateButton.UseVisualStyleBackColor = true;
+            CalculateButton.Click += CalculateButton_Click;
             // 
             // richTextBox1
             // 
@@ -105,7 +127,7 @@
             richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             richTextBox1.ForeColor = SystemColors.Control;
-            richTextBox1.Location = new Point(23, 563);
+            richTextBox1.Location = new Point(22, 613);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(481, 162);
             richTextBox1.TabIndex = 24;
@@ -114,7 +136,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(23, 302);
+            pictureBox1.Location = new Point(22, 377);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(481, 230);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -130,12 +152,13 @@
             label12.TabIndex = 20;
             label12.Text = "м";
             // 
-            // textBox3
+            // StoveWidthTextBox
             // 
-            textBox3.Location = new Point(73, 163);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 30);
-            textBox3.TabIndex = 19;
+            StoveWidthTextBox.Location = new Point(73, 163);
+            StoveWidthTextBox.Name = "StoveWidthTextBox";
+            StoveWidthTextBox.Size = new Size(125, 30);
+            StoveWidthTextBox.TabIndex = 19;
+            StoveWidthTextBox.KeyPress += StoveWidthTextBox_KeyPress;
             // 
             // label13
             // 
@@ -191,40 +214,45 @@
             label4.TabIndex = 14;
             label4.Text = "м";
             // 
-            // textBox6
+            // TemperatureOuterSurface
             // 
-            textBox6.Location = new Point(339, 214);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(125, 30);
-            textBox6.TabIndex = 13;
+            TemperatureOuterSurface.Location = new Point(339, 214);
+            TemperatureOuterSurface.Name = "TemperatureOuterSurface";
+            TemperatureOuterSurface.Size = new Size(125, 30);
+            TemperatureOuterSurface.TabIndex = 13;
+            TemperatureOuterSurface.KeyPress += TemperatureOuterSurface_KeyPress;
             // 
-            // textBox5
+            // AmbientGasTemperature
             // 
-            textBox5.Location = new Point(339, 160);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 30);
-            textBox5.TabIndex = 12;
+            AmbientGasTemperature.Location = new Point(339, 160);
+            AmbientGasTemperature.Name = "AmbientGasTemperature";
+            AmbientGasTemperature.Size = new Size(125, 30);
+            AmbientGasTemperature.TabIndex = 12;
+            AmbientGasTemperature.KeyPress += AmbientGasTemperature_KeyPress;
             // 
-            // textBox4
+            // MaximumSampleTemperature
             // 
-            textBox4.Location = new Point(339, 106);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 30);
-            textBox4.TabIndex = 11;
+            MaximumSampleTemperature.Location = new Point(339, 106);
+            MaximumSampleTemperature.Name = "MaximumSampleTemperature";
+            MaximumSampleTemperature.Size = new Size(125, 30);
+            MaximumSampleTemperature.TabIndex = 11;
+            MaximumSampleTemperature.KeyPress += MaximumSampleTemperature_KeyPress;
             // 
-            // textBox2
+            // StoveHeightTextBox
             // 
-            textBox2.Location = new Point(74, 106);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 30);
-            textBox2.TabIndex = 9;
+            StoveHeightTextBox.Location = new Point(74, 106);
+            StoveHeightTextBox.Name = "StoveHeightTextBox";
+            StoveHeightTextBox.Size = new Size(125, 30);
+            StoveHeightTextBox.TabIndex = 9;
+            StoveHeightTextBox.KeyPress += StoveHeightTextBox_KeyPress;
             // 
-            // textBox1
+            // StoveLengthTextBox
             // 
-            textBox1.Location = new Point(74, 219);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 30);
-            textBox1.TabIndex = 8;
+            StoveLengthTextBox.Location = new Point(74, 219);
+            StoveLengthTextBox.Name = "StoveLengthTextBox";
+            StoveLengthTextBox.Size = new Size(125, 30);
+            StoveLengthTextBox.TabIndex = 8;
+            StoveLengthTextBox.KeyPress += StoveLengthTextBox_KeyPress;
             // 
             // label7
             // 
@@ -294,21 +322,57 @@
             label1.TabIndex = 0;
             label1.Text = "Начальные данные";
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(iconButton2);
+            panel2.Controls.Add(label14);
+            panel2.Location = new Point(542, 12);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(692, 774);
+            panel2.TabIndex = 3;
+            // 
+            // iconButton2
+            // 
+            iconButton2.FlatAppearance.BorderSize = 0;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.ArrowRightFromFile;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.Location = new Point(323, 6);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(45, 59);
+            iconButton2.TabIndex = 3;
+            iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(375, 24);
+            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(90, 22);
+            label14.TabIndex = 2;
+            label14.Text = "Результат";
+            // 
             // ChamberFurnaceForm
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(52, 52, 52);
-            ClientSize = new Size(1301, 878);
+            ClientSize = new Size(1246, 798);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             ForeColor = SystemColors.Control;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "ChamberFurnaceForm";
             Text = "ChamberFurnace";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -316,18 +380,18 @@
         private FontAwesome.Sharp.IconSplitButton iconSplitButton1;
         private Panel panel1;
         private Label label12;
-        private TextBox textBox3;
+        private TextBox StoveWidthTextBox;
         private Label label13;
         private Label label11;
         private Label label10;
         private Label label9;
         private Label label8;
         private Label label4;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox TemperatureOuterSurface;
+        private TextBox AmbientGasTemperature;
+        private TextBox MaximumSampleTemperature;
+        private TextBox StoveHeightTextBox;
+        private TextBox StoveLengthTextBox;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -337,5 +401,9 @@
         private Label label1;
         private PictureBox pictureBox1;
         private RichTextBox richTextBox1;
+        private Panel panel2;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private Label label14;
+        private FontAwesome.Sharp.IconButton CalculateButton;
     }
 }

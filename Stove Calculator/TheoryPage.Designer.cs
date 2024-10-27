@@ -28,35 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(387, 385);
-            label1.Name = "label1";
-            label1.Size = new Size(78, 28);
-            label1.TabIndex = 1;
-            label1.Text = "Теория";
             // 
             // TheoryPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(52, 52, 52);
-            ClientSize = new Size(946, 798);
-            Controls.Add(label1);
+            ClientSize = new Size(1264, 845);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "TheoryPage";
             Text = "TheoryPage";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Syncfusion.Windows.Forms.PdfViewer.PdfDocumentView pdfDocumentView1;
     }
 }

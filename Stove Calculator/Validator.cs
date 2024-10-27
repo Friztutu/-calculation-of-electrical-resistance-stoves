@@ -11,14 +11,12 @@ namespace Stove_Calculator
         public bool isCorrectSymbol(string text ,int symbolCode)
         {
             bool isCorrect = true;
-            if (symbolCode == 45 && text == "")
-            {
-                isCorrect = false;
-            } if(symbolCode != 44 && (symbolCode > 57 || symbolCode < 48) && symbolCode != 8)
-            {
-                isCorrect = false;
-            }
 
+            if (symbolCode == 46 && text == "")
+                isCorrect = false;
+            else if(symbolCode != 46 && (symbolCode > 57 || symbolCode < 48) && symbolCode != 8)
+                isCorrect = false;
+            
             return isCorrect;
         }
     }

@@ -82,7 +82,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1200, 55);
+            panel1.Size = new Size(1500, 55);
             panel1.TabIndex = 21;
             panel1.DoubleClick += panel1_DoubleClick;
             panel1.MouseDown += panel1_MouseDown;
@@ -99,7 +99,7 @@
             iconButton9.IconColor = Color.White;
             iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton9.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton9.Location = new Point(1011, 0);
+            iconButton9.Location = new Point(1311, 0);
             iconButton9.Name = "iconButton9";
             iconButton9.Size = new Size(59, 55);
             iconButton9.TabIndex = 23;
@@ -117,7 +117,7 @@
             iconButton8.IconColor = Color.White;
             iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton8.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton8.Location = new Point(1076, 0);
+            iconButton8.Location = new Point(1376, 0);
             iconButton8.Name = "iconButton8";
             iconButton8.Size = new Size(59, 55);
             iconButton8.TabIndex = 23;
@@ -135,7 +135,7 @@
             iconButton7.IconColor = Color.White;
             iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton7.ImageAlign = ContentAlignment.MiddleLeft;
-            iconButton7.Location = new Point(1141, 0);
+            iconButton7.Location = new Point(1441, 0);
             iconButton7.Name = "iconButton7";
             iconButton7.Size = new Size(59, 55);
             iconButton7.TabIndex = 22;
@@ -410,14 +410,14 @@
             panel4.Dock = DockStyle.Fill;
             panel4.Location = new Point(236, 55);
             panel4.Name = "panel4";
-            panel4.Size = new Size(964, 845);
+            panel4.Size = new Size(1264, 845);
             panel4.TabIndex = 23;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1200, 900);
+            ClientSize = new Size(1500, 900);
             Controls.Add(panel4);
             Controls.Add(panel2);
             Controls.Add(panel1);

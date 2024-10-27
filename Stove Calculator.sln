@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stove Calculator", "Stove Calculator\Stove Calculator.csproj", "{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05FFB1C4-BDF3-4341-A2C2-687A0F11A6D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FFBF6B4-462A-4C15-BEAD-6369A06601BC}
+	EndGlobalSection
+EndGlobal
