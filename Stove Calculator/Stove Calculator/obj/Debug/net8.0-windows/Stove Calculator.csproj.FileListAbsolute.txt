@@ -1,0 +1,17 @@
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\bin\Debug\net8.0-windows\Stove Calculator.exe
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\bin\Debug\net8.0-windows\Stove Calculator.deps.json
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\bin\Debug\net8.0-windows\Stove Calculator.runtimeconfig.json
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\bin\Debug\net8.0-windows\Stove Calculator.dll
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\bin\Debug\net8.0-windows\Stove Calculator.pdb
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove_Calculator.Form1.resources
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.csproj.GenerateResource.cache
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.AssemblyInfoInputs.cache
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.AssemblyInfo.cs
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.csproj.CoreCompileInputs.cache
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.sourcelink.json
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.dll
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\refint\Stove Calculator.dll
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.pdb
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\Stove Calculator.genruntimeconfig.cache
+C:\Users\erofe\OneDrive\Рабочий стол\projects\my projects\calculation-of-electrical-resistance-stoves\Stove Calculator\Stove Calculator\obj\Debug\net8.0-windows\ref\Stove Calculator.dll

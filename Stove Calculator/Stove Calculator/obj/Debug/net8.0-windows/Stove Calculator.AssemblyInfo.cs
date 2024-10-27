@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Stove Calculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d0c48ae8be2f6aa652369181287e732ecb95f33")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ac2e6bbc8ea996d334f4464b495958dc513ea0b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Stove Calculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Stove Calculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
