@@ -5,7 +5,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stove_Calculator
+namespace Stove_Calculator.Calculators
 {
     public class ChamberFurnaceCalculator
     {
@@ -16,15 +16,15 @@ namespace Stove_Calculator
         private double ambientGasTemperature;
         private double outerSurfaceTemperature;
 
-        public ChamberFurnaceCalculator(double height, double width, double length, 
+        public ChamberFurnaceCalculator(double height, double width, double length,
             double sampleTemp, double gasTemp, double surfaceTemp)
         {
-            this.stoveWidth = width;
-            this.stoveHeight = height;
-            this.stoveLength = length;
-            this.maximumSampleTemperature = sampleTemp;
-            this.ambientGasTemperature = gasTemp; 
-            this.outerSurfaceTemperature = surfaceTemp;
+            stoveWidth = width;
+            stoveHeight = height;
+            stoveLength = length;
+            maximumSampleTemperature = sampleTemp;
+            ambientGasTemperature = gasTemp;
+            outerSurfaceTemperature = surfaceTemp;
         }
     }
 }

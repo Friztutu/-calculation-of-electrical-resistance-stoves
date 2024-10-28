@@ -22,6 +22,13 @@ namespace Stove_Calculator
 
         private void SetButtonColors(Panel panel, Color backColor)
         {
+            panel6.BackColor = defaultBackgroundButton;
+            panel8.BackColor = defaultBackgroundButton;
+            panel10.BackColor = defaultBackgroundButton;
+            panel12.BackColor = defaultBackgroundButton;
+            panel14.BackColor = defaultBackgroundButton;
+            panel15.BackColor = defaultBackgroundButton;
+
             panel.BackColor = backColor;
         }
 
@@ -34,22 +41,12 @@ namespace Stove_Calculator
         {
             SetButtonColors(panel6, activeBackgroundButton);
 
-            panel8.BackColor = defaultBackgroundButton;
-            panel10.BackColor = defaultBackgroundButton;
-            panel12.BackColor = defaultBackgroundButton;
-            panel14.BackColor = defaultBackgroundButton;
-
             PanelForm(new ChamberFurnaceForm());
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
             SetButtonColors(panel8, activeBackgroundButton);
-
-            panel6.BackColor = defaultBackgroundButton;
-            panel10.BackColor = defaultBackgroundButton;
-            panel12.BackColor = defaultBackgroundButton;
-            panel14.BackColor = defaultBackgroundButton;
 
             PanelForm(new TubeFurnaceForm());
         }
@@ -58,22 +55,12 @@ namespace Stove_Calculator
         {
             SetButtonColors(panel10, activeBackgroundButton);
 
-            panel6.BackColor = defaultBackgroundButton;
-            panel8.BackColor = defaultBackgroundButton;
-            panel12.BackColor = defaultBackgroundButton;
-            panel14.BackColor = defaultBackgroundButton;
-
             PanelForm(new TheoryPage());
         }
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
             SetButtonColors(panel12, activeBackgroundButton);
-
-            panel6.BackColor = defaultBackgroundButton;
-            panel8.BackColor = defaultBackgroundButton;
-            panel10.BackColor = defaultBackgroundButton;
-            panel14.BackColor = defaultBackgroundButton;
 
             PanelForm(new UserGuideForm());
         }
@@ -82,12 +69,14 @@ namespace Stove_Calculator
         {
             SetButtonColors(panel14, activeBackgroundButton);
 
-            panel6.BackColor = defaultBackgroundButton;
-            panel8.BackColor = defaultBackgroundButton;
-            panel10.BackColor = defaultBackgroundButton;
-            panel12.BackColor = defaultBackgroundButton;
-
             PanelForm(new AboutForm());
+        }
+
+        private void iconButton11_Click_1(object sender, EventArgs e)
+        {
+            SetButtonColors(panel15, activeBackgroundButton);
+
+            PanelForm(new TableForms());
         }
 
         private void iconButton7_Click_1(object sender, EventArgs e)
