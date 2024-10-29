@@ -120,12 +120,6 @@
   <metadata name="iconSplitButton1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>L1, L2, L3 - геометрические размеры рабочей камеры(см. схему) [м];
-tм - предельная температура нагрева образцов [℃];
-tокр - температура окружающей газовой среды [℃];
-tнар - температура наружной поверхности корпуса печи [℃];</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -378,5 +372,11 @@ tнар - температура наружной поверхности кор�
         MWnAgAGD3WkiIiJlCwM6aCL8g2GUIv1glxrkISIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIi
         IiIiIiIiIiIiUjF85zv/H8/mqJ8SVcalAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>L1, L2, L3 - геометрические размеры рабочей камеры(см. схему) [м];
+tм - предельная температура нагрева образцов [℃];
+tокр - температура окружающей газовой среды [℃];
+tнар - температура наружной поверхности корпуса печи [℃];</value>
   </data>
 </root>

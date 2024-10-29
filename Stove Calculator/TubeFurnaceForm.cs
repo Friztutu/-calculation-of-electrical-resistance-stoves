@@ -60,7 +60,7 @@ namespace Stove_Calculator
                 float ambientGasTemperature = float.Parse(AmbientGasTemperature.Text);
                 float outerSurfaceTemperature = float.Parse(TemperatureOuterSurface.Text);
             }
-            catch(FormatException error)
+            catch (FormatException error)
             {
                 MessageBox.Show("Ошибка ввода данных!!");
             }
@@ -72,6 +72,11 @@ namespace Stove_Calculator
             {
                 MessageBox.Show("Одно из введеных чисел слишком мало или слишком велико");
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
