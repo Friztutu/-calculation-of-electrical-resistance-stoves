@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stove_Calculator
+namespace Stove_Calculator.Calculators
 {
     public class TubeFurnaceCalculator
     {
@@ -15,14 +15,14 @@ namespace Stove_Calculator
         private double ambientGasTemperature;
         private double outerSurfaceTemperature;
 
-        public TubeFurnaceCalculator(double diameter, double length, 
+        public TubeFurnaceCalculator(double diameter, double length,
             double sampleTemp, double gasTemp, double surfaceTemp)
         {
-            this.stoveDiameter = diameter;
-            this.stoveLength = length;
-            this.maximumSampleTemperature = sampleTemp;
-            this.ambientGasTemperature = gasTemp;
-            this.outerSurfaceTemperature = surfaceTemp;
+            stoveDiameter = diameter;
+            stoveLength = length;
+            maximumSampleTemperature = sampleTemp;
+            ambientGasTemperature = gasTemp;
+            outerSurfaceTemperature = surfaceTemp;
         }
     }
 }

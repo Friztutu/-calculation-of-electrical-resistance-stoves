@@ -36,6 +36,10 @@
             iconButton8 = new FontAwesome.Sharp.IconButton();
             iconButton7 = new FontAwesome.Sharp.IconButton();
             panel2 = new Panel();
+            panel15 = new Panel();
+            panel16 = new Panel();
+            iconButton11 = new FontAwesome.Sharp.IconButton();
+            iconButton10 = new FontAwesome.Sharp.IconButton();
             panel14 = new Panel();
             panel6 = new Panel();
             panel10 = new Panel();
@@ -58,6 +62,7 @@
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panel16.SuspendLayout();
             panel13.SuspendLayout();
             panel11.SuspendLayout();
             panel9.SuspendLayout();
@@ -146,6 +151,9 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(46, 46, 50);
+            panel2.Controls.Add(panel15);
+            panel2.Controls.Add(panel16);
+            panel2.Controls.Add(iconButton10);
             panel2.Controls.Add(panel14);
             panel2.Controls.Add(panel6);
             panel2.Controls.Add(panel10);
@@ -164,10 +172,72 @@
             panel2.Size = new Size(236, 845);
             panel2.TabIndex = 22;
             // 
+            // panel15
+            // 
+            panel15.BackColor = Color.Yellow;
+            panel15.Location = new Point(0, 360);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(12, 71);
+            panel15.TabIndex = 25;
+            // 
+            // panel16
+            // 
+            panel16.Controls.Add(iconButton11);
+            panel16.Cursor = Cursors.Hand;
+            panel16.Font = new Font("Times New Roman", 12F);
+            panel16.ForeColor = SystemColors.Control;
+            panel16.Location = new Point(12, 360);
+            panel16.Margin = new Padding(3, 10, 3, 3);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(233, 71);
+            panel16.TabIndex = 26;
+            // 
+            // iconButton11
+            // 
+            iconButton11.Dock = DockStyle.Bottom;
+            iconButton11.FlatAppearance.BorderSize = 0;
+            iconButton11.FlatStyle = FlatStyle.Flat;
+            iconButton11.IconChar = FontAwesome.Sharp.IconChar.TableCells;
+            iconButton11.IconColor = Color.White;
+            iconButton11.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton11.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton11.Location = new Point(0, 0);
+            iconButton11.Name = "iconButton11";
+            iconButton11.Padding = new Padding(10, 0, 0, 0);
+            iconButton11.Size = new Size(233, 71);
+            iconButton11.TabIndex = 22;
+            iconButton11.Text = "Табличные значения";
+            iconButton11.TextAlign = ContentAlignment.MiddleLeft;
+            iconButton11.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton11.UseVisualStyleBackColor = true;
+            iconButton11.Click += iconButton11_Click_1;
+            // 
+            // iconButton10
+            // 
+            iconButton10.Cursor = Cursors.Hand;
+            iconButton10.Dock = DockStyle.Bottom;
+            iconButton10.FlatAppearance.BorderSize = 0;
+            iconButton10.FlatStyle = FlatStyle.Flat;
+            iconButton10.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            iconButton10.ForeColor = SystemColors.Control;
+            iconButton10.IconChar = FontAwesome.Sharp.IconChar.Sun;
+            iconButton10.IconColor = Color.White;
+            iconButton10.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton10.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButton10.Location = new Point(0, 703);
+            iconButton10.Margin = new Padding(10, 3, 3, 3);
+            iconButton10.Name = "iconButton10";
+            iconButton10.Padding = new Padding(10, 0, 0, 0);
+            iconButton10.Size = new Size(236, 71);
+            iconButton10.TabIndex = 24;
+            iconButton10.Text = "Включить светлую тему";
+            iconButton10.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton10.UseVisualStyleBackColor = true;
+            // 
             // panel14
             // 
             panel14.BackColor = Color.Yellow;
-            panel14.Location = new Point(0, 507);
+            panel14.Location = new Point(0, 598);
             panel14.Name = "panel14";
             panel14.Size = new Size(12, 71);
             panel14.TabIndex = 20;
@@ -183,7 +253,7 @@
             // panel10
             // 
             panel10.BackColor = Color.Yellow;
-            panel10.Location = new Point(0, 353);
+            panel10.Location = new Point(0, 444);
             panel10.Name = "panel10";
             panel10.Size = new Size(12, 71);
             panel10.TabIndex = 20;
@@ -200,7 +270,7 @@
             // panel12
             // 
             panel12.BackColor = Color.Yellow;
-            panel12.Location = new Point(0, 430);
+            panel12.Location = new Point(0, 521);
             panel12.Name = "panel12";
             panel12.Size = new Size(12, 71);
             panel12.TabIndex = 20;
@@ -234,7 +304,7 @@
             panel13.Cursor = Cursors.Hand;
             panel13.Font = new Font("Times New Roman", 12F);
             panel13.ForeColor = SystemColors.Control;
-            panel13.Location = new Point(3, 507);
+            panel13.Location = new Point(12, 598);
             panel13.Margin = new Padding(3, 10, 3, 3);
             panel13.Name = "panel13";
             panel13.Size = new Size(233, 71);
@@ -265,7 +335,7 @@
             panel11.Cursor = Cursors.Hand;
             panel11.Font = new Font("Times New Roman", 12F);
             panel11.ForeColor = SystemColors.Control;
-            panel11.Location = new Point(3, 430);
+            panel11.Location = new Point(12, 521);
             panel11.Margin = new Padding(3, 10, 3, 3);
             panel11.Name = "panel11";
             panel11.Size = new Size(233, 71);
@@ -296,7 +366,7 @@
             panel9.Cursor = Cursors.Hand;
             panel9.Font = new Font("Times New Roman", 12F);
             panel9.ForeColor = SystemColors.Control;
-            panel9.Location = new Point(3, 353);
+            panel9.Location = new Point(12, 444);
             panel9.Margin = new Padding(3, 10, 3, 3);
             panel9.Name = "panel9";
             panel9.Size = new Size(233, 71);
@@ -428,6 +498,7 @@
             FormClosing += MainForm_FormClosing;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel16.ResumeLayout(false);
             panel13.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel9.ResumeLayout(false);
@@ -465,5 +536,9 @@
         private FontAwesome.Sharp.IconButton iconButton7;
         private FontAwesome.Sharp.IconButton iconButton9;
         private FontAwesome.Sharp.IconButton iconButton8;
+        private FontAwesome.Sharp.IconButton iconButton10;
+        private Panel panel15;
+        private Panel panel16;
+        private FontAwesome.Sharp.IconButton iconButton11;
     }
 }
