@@ -55,16 +55,20 @@
             label11 = new Label();
             label5 = new Label();
             HeaderInputPanel = new Panel();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             OutputMainPanel = new Panel();
+            panel2 = new Panel();
+            comboBox1 = new ComboBox();
+            label1 = new Label();
             panel1 = new Panel();
             iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             InputMainPanel.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             HeaderInputPanel.SuspendLayout();
             OutputMainPanel.SuspendLayout();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -93,7 +97,6 @@
             // 
             // panel5
             // 
-            panel5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             panel5.Controls.Add(panel4);
             panel5.Controls.Add(CalculateButton);
             panel5.Controls.Add(richTextBox1);
@@ -115,6 +118,7 @@
             panel5.Controls.Add(label13);
             panel5.Controls.Add(label11);
             panel5.Controls.Add(label5);
+            panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(0, 65);
             panel5.Name = "panel5";
             panel5.Size = new Size(522, 733);
@@ -347,15 +351,31 @@
             // 
             // HeaderInputPanel
             // 
-            HeaderInputPanel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             HeaderInputPanel.Controls.Add(iconButton1);
+            HeaderInputPanel.Dock = DockStyle.Top;
             HeaderInputPanel.Location = new Point(0, 0);
             HeaderInputPanel.Name = "HeaderInputPanel";
             HeaderInputPanel.Size = new Size(522, 65);
             HeaderInputPanel.TabIndex = 26;
             // 
+            // iconButton1
+            // 
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowRightToFile;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.Location = new Point(143, 7);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(236, 51);
+            iconButton1.TabIndex = 1;
+            iconButton1.Text = "Начальные данные";
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = true;
+            // 
             // OutputMainPanel
             // 
+            OutputMainPanel.Controls.Add(panel2);
             OutputMainPanel.Controls.Add(panel1);
             OutputMainPanel.Dock = DockStyle.Right;
             OutputMainPanel.Location = new Point(523, 0);
@@ -363,10 +383,48 @@
             OutputMainPanel.Size = new Size(723, 798);
             OutputMainPanel.TabIndex = 3;
             // 
+            // panel2
+            // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(label1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 65);
+            panel2.Margin = new Padding(0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(723, 733);
+            panel2.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.FromArgb(52, 52, 52);
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.ForeColor = SystemColors.Control;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(295, 46);
+            comboBox1.Margin = new Padding(0);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(222, 30);
+            comboBox1.TabIndex = 1;
+            comboBox1.Visible = false;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 54);
+            label1.Margin = new Padding(0);
+            label1.Name = "label1";
+            label1.Size = new Size(281, 22);
+            label1.TabIndex = 0;
+            label1.Text = "Выберите материал огнеупора: ";
+            label1.Visible = false;
+            // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             panel1.Controls.Add(iconButton2);
+            panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(723, 65);
@@ -386,21 +444,6 @@
             iconButton2.Text = "Результат";
             iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton2.UseVisualStyleBackColor = true;
-            // 
-            // iconButton1
-            // 
-            iconButton1.FlatAppearance.BorderSize = 0;
-            iconButton1.FlatStyle = FlatStyle.Flat;
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.ArrowRightToFile;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.Location = new Point(143, 7);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(236, 51);
-            iconButton1.TabIndex = 1;
-            iconButton1.Text = "Начальные данные";
-            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton1.UseVisualStyleBackColor = true;
             // 
             // ChamberFurnaceForm
             // 
@@ -423,6 +466,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             HeaderInputPanel.ResumeLayout(false);
             OutputMainPanel.ResumeLayout(false);
+            OutputMainPanel.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -458,5 +504,8 @@
         private Panel panel1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Panel panel2;
+        private Label label1;
+        private ComboBox comboBox1;
     }
 }

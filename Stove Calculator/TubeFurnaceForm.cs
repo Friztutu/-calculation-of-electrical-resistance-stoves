@@ -76,7 +76,7 @@ namespace Stove_Calculator
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+           
         }
     }
 }
