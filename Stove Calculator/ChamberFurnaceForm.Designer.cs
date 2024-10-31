@@ -62,6 +62,8 @@
             label1 = new Label();
             panel1 = new Panel();
             iconButton2 = new FontAwesome.Sharp.IconButton();
+            label14 = new Label();
+            textBox1 = new TextBox();
             InputMainPanel.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -387,6 +389,8 @@
             // 
             panel2.AutoSize = true;
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(label14);
             panel2.Controls.Add(comboBox1);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Fill;
@@ -444,6 +448,26 @@
             iconButton2.Text = "Результат";
             iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton2.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(14, 104);
+            label14.Name = "label14";
+            label14.Size = new Size(231, 22);
+            label14.TabIndex = 2;
+            label14.Text = "Толщина слоя огнеупора: ";
+            label14.Click += label14_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(52, 52, 52);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.ForeColor = SystemColors.Control;
+            textBox1.Location = new Point(295, 96);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 23);
+            textBox1.TabIndex = 3;
             // 
             // ChamberFurnaceForm
             // 
@@ -507,5 +531,7 @@
         private Panel panel2;
         private Label label1;
         private ComboBox comboBox1;
+        private TextBox textBox1;
+        private Label label14;
     }
 }

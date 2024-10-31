@@ -86,6 +86,9 @@ namespace Stove_Calculator
                 }
 
                 comboBox1.SelectedIndex = 0;
+
+                textBox1.Text = calc.FireproofWidth.ToString();
+
             }
             catch (FormatException)
             {
@@ -107,7 +110,12 @@ namespace Stove_Calculator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
