@@ -1,4 +1,5 @@
-﻿using Stove_Calculator.Calculators;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Stove_Calculator.Calculators;
 using Stove_Calculator.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +64,56 @@ namespace Stove_Calculator
                 e.Handled = true;
         }
 
+        private void fireproofWidthTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (validator.isCorrectSymbol(fireproofWidthTextBox.Text, e.KeyChar) == false)
+                e.Handled = true;
+        }
+
+        private void fireproofSurfaceTemperatureTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (validator.isCorrectSymbol(fireproofSurfaceTemperatureTextBox.Text, e.KeyChar) == false)
+                e.Handled = true;
+        }
+
+        private void openResult()
+        {
+            comboBox1.Visible = true;
+            comboBox2.Visible = true;
+            label1.Visible = true;
+            label14.Visible = true;
+            label15.Visible = true;
+            label16.Visible = true;
+            label17.Visible = true;
+            label18.Visible = true;
+            label19.Visible = true;
+            label20.Visible = true;
+            label21.Visible = true;
+            label22.Visible = true;
+            fireproofWidthTextBox.Visible = true;
+            fireproofSurfaceTemperatureTextBox.Visible = true;
+            thermalInsulationWidthTextBox.Visible = true;
+            heatFlowTextBox.Visible = true;
+        }
+
+        private void updateData()
+        {
+            if (calc.FireproofSurfaceTemperature < 0 || double.IsNaN(calc.FireproofSurfaceTemperature))
+                fireproofSurfaceTemperatureTextBox.Text = "Уменьшите толщину огнеупора";
+            else
+                fireproofSurfaceTemperatureTextBox.Text = string.Format("{0:f3}", calc.FireproofSurfaceTemperature);
+
+            if (calc.thermalInsulations.Count == 0) return;
+
+            foreach (ThermalInsulation thermalInsulation in calc.thermalInsulations)
+            {
+                comboBox2.Items.Add(thermalInsulation.Name);
+            }
+
+            
+            comboBox2.SelectedIndex = 0;
+        }
+
         private void CalculateButton_Click(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
@@ -77,8 +129,7 @@ namespace Stove_Calculator
 
                 calc = new(stoveHeight, stoveWidth, stoveLength, maximumSampleTemperature, ambientGasTemperature, outerSurfaceTemperature);
 
-                comboBox1.Visible = true;
-                label1.Visible = true;
+                openResult();
 
                 foreach (Fireproof fireproof in calc.fireproofs)
                 {
@@ -86,9 +137,6 @@ namespace Stove_Calculator
                 }
 
                 comboBox1.SelectedIndex = 0;
-
-                textBox1.Text = calc.FireproofWidth.ToString();
-
             }
             catch (FormatException)
             {
@@ -110,12 +158,24 @@ namespace Stove_Calculator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            calc.SelectedFireproof = calc.fireproofs[comboBox1.SelectedIndex];
+            updateData();
         }
 
-        private void label14_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            if (fireproofWidthTextBox.Text == "") return;
 
+            calc.FireproofWidth = Double.Parse(fireproofWidthTextBox.Text);
+            updateData();
+        }
+
+        private void fireproofSurfaceTemperatureTextBox_TextChanged(object sender, EventArgs e)
+        {
+            //if (fireproofSurfaceTemperatureTextBox.Text == "") return;
+
+            //calc.FireproofSurfaceTemperature = Double.Parse(fireproofSurfaceTemperatureTextBox.Text);
+            //updateData();
         }
     }
 }
