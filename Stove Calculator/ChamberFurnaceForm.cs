@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Printing;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -26,7 +27,7 @@ namespace Stove_Calculator
 
         private readonly Validator validator = new();
 
-        private ChamberFurnaceCalculator calc;
+        private ChamberFurnace calc;
 
         private void StoveHeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -105,13 +106,14 @@ namespace Stove_Calculator
 
             if (calc.thermalInsulations.Count == 0) return;
 
+            comboBox2.Items.Clear();
+
             foreach (ThermalInsulation thermalInsulation in calc.thermalInsulations)
             {
                 comboBox2.Items.Add(thermalInsulation.Name);
             }
 
-            
-            comboBox2.SelectedIndex = 0;
+            thermalInsulationWidthTextBox.Text = calc.InsulationWidth.ToString();
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -176,6 +178,12 @@ namespace Stove_Calculator
 
             //calc.FireproofSurfaceTemperature = Double.Parse(fireproofSurfaceTemperatureTextBox.Text);
             //updateData();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calc.SelectedInsulation = calc.thermalInsulations[comboBox2.SelectedIndex];
+            updateData();
         }
     }
 }

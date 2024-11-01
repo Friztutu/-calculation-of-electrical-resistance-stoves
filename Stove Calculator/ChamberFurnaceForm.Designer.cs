@@ -496,6 +496,7 @@
             comboBox2.Size = new Size(230, 30);
             comboBox2.TabIndex = 28;
             comboBox2.Visible = false;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // label18
             // 
@@ -615,7 +616,7 @@
             iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButton2.Location = new Point(243, 7);
             iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(236, 51);
+            iconButton2.Size = new Size(228, 51);
             iconButton2.TabIndex = 1;
             iconButton2.Text = "Результат";
             iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;

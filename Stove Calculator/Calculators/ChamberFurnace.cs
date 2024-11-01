@@ -15,7 +15,7 @@ using System.Runtime.Intrinsics.X86;
 
 namespace Stove_Calculator.Calculators
 {
-    public class ChamberFurnaceCalculator
+    public class ChamberFurnace
     {
         private double stoveHeight;
         private double stoveWidth;
@@ -33,6 +33,8 @@ namespace Stove_Calculator.Calculators
         private double fireproofSurfaceTemperature;
 
         public ImmutableList<ThermalInsulation> thermalInsulations;
+        private ThermalInsulation selectedInsulation;
+        private double insulationWidth;
 
         public Fireproof SelectedFireproof
         {
@@ -45,6 +47,20 @@ namespace Stove_Calculator.Calculators
             {
                 selectedFireproof = value;
                 CalculateFireproofSurfaceTemperature();
+            }
+        }
+
+        public ThermalInsulation SelectedInsulation
+        {
+            get
+            {
+                return selectedInsulation;
+            }
+
+            set
+            {
+                selectedInsulation = value;
+                CalculateWidthInsulation();
             }
         }
         public double FireproofWidth
@@ -75,7 +91,14 @@ namespace Stove_Calculator.Calculators
             }
         }
 
-        public ChamberFurnaceCalculator(double height, double width, double length,
+        public double InsulationWidth
+        {
+            get
+            {
+                return insulationWidth;
+            }
+        }
+        public ChamberFurnace(double height, double width, double length,
             double sampleTemp, double gasTemp, double surfaceTemp)
         {
             this.stoveWidth = width;
@@ -132,10 +155,11 @@ namespace Stove_Calculator.Calculators
             double q1 = y1 * (outerSurfaceTemperature - ambientGasTemperature);
 
             double sqrtExpression = Math.Pow(2 * selectedFireproof.AValue, 2) - 4 * selectedFireproof.BValue * 
-                (2 * fireproofWidth * q1 - 2 * selectedFireproof.AValue * maxTemperatureHeater - selectedFireproof.BValue * Math.Pow(maxTemperatureHeater, 2));
+                (2 * fireproofWidth * q1 - 2 * selectedFireproof.AValue * maximumSampleTemperature - selectedFireproof.BValue * Math.Pow(maximumSampleTemperature, 2));
 
             fireproofSurfaceTemperature = (-2 * selectedFireproof.AValue + Math.Sqrt(sqrtExpression)) / (2 * selectedFireproof.BValue);
 
+            
             thermalInsulations = GetSuitableThermalInsulation();
         }
 
@@ -144,10 +168,19 @@ namespace Stove_Calculator.Calculators
             double y1 = 9.304 + 0.05815 * outerSurfaceTemperature;
             double q1 = y1 * (outerSurfaceTemperature - ambientGasTemperature);
 
-            double firstParenthesis = selectedFireproof.AValue + selectedFireproof.BValue * ((maxTemperatureHeater + fireproofSurfaceTemperature) / 2);
-            double secondParenthesis = (maxTemperatureHeater -  fireproofSurfaceTemperature) / q1;
+            double firstParenthesis = selectedFireproof.AValue + selectedFireproof.BValue * ((maximumSampleTemperature + fireproofSurfaceTemperature) / 2);
+            double secondParenthesis = (maximumSampleTemperature -  fireproofSurfaceTemperature) / q1;
 
             fireproofWidth = firstParenthesis * secondParenthesis;
+        }
+
+        private void CalculateWidthInsulation()
+        {
+            double x2 = selectedInsulation.AValue + (selectedInsulation.BValue * ((fireproofSurfaceTemperature + outerSurfaceTemperature) / 2));
+            double y1 = 9.304 + 0.05815 * outerSurfaceTemperature;
+            double q1 = y1 * (outerSurfaceTemperature - ambientGasTemperature);
+
+            insulationWidth = (x2 * (fireproofSurfaceTemperature - outerSurfaceTemperature) / q1);
         }
     }
 }
