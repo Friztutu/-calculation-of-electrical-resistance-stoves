@@ -55,16 +55,34 @@
             label11 = new Label();
             label5 = new Label();
             HeaderInputPanel = new Panel();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
             OutputMainPanel = new Panel();
+            panel2 = new Panel();
+            label22 = new Label();
+            heatFlowTextBox = new TextBox();
+            label21 = new Label();
+            thermalInsulationWidthTextBox = new TextBox();
+            label20 = new Label();
+            label19 = new Label();
+            comboBox2 = new ComboBox();
+            label18 = new Label();
+            fireproofSurfaceTemperatureTextBox = new TextBox();
+            fireproofWidthTextBox = new TextBox();
+            label17 = new Label();
+            label16 = new Label();
+            label15 = new Label();
+            label14 = new Label();
+            comboBox1 = new ComboBox();
+            label1 = new Label();
             panel1 = new Panel();
             iconButton2 = new FontAwesome.Sharp.IconButton();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             InputMainPanel.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             HeaderInputPanel.SuspendLayout();
             OutputMainPanel.SuspendLayout();
+            panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -93,7 +111,6 @@
             // 
             // panel5
             // 
-            panel5.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             panel5.Controls.Add(panel4);
             panel5.Controls.Add(CalculateButton);
             panel5.Controls.Add(richTextBox1);
@@ -115,6 +132,7 @@
             panel5.Controls.Add(label13);
             panel5.Controls.Add(label11);
             panel5.Controls.Add(label5);
+            panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(0, 65);
             panel5.Name = "panel5";
             panel5.Size = new Size(522, 733);
@@ -153,7 +171,7 @@
             CalculateButton.Name = "CalculateButton";
             CalculateButton.Size = new Size(188, 61);
             CalculateButton.TabIndex = 25;
-            CalculateButton.Text = "Рассчитать";
+            CalculateButton.Text = "Продолжить";
             CalculateButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             CalculateButton.UseVisualStyleBackColor = true;
             CalculateButton.Click += CalculateButton_Click;
@@ -347,45 +365,12 @@
             // 
             // HeaderInputPanel
             // 
-            HeaderInputPanel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             HeaderInputPanel.Controls.Add(iconButton1);
+            HeaderInputPanel.Dock = DockStyle.Top;
             HeaderInputPanel.Location = new Point(0, 0);
             HeaderInputPanel.Name = "HeaderInputPanel";
             HeaderInputPanel.Size = new Size(522, 65);
             HeaderInputPanel.TabIndex = 26;
-            // 
-            // OutputMainPanel
-            // 
-            OutputMainPanel.Controls.Add(panel1);
-            OutputMainPanel.Dock = DockStyle.Right;
-            OutputMainPanel.Location = new Point(523, 0);
-            OutputMainPanel.Name = "OutputMainPanel";
-            OutputMainPanel.Size = new Size(723, 798);
-            OutputMainPanel.TabIndex = 3;
-            // 
-            // panel1
-            // 
-            panel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            panel1.Controls.Add(iconButton2);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(723, 65);
-            panel1.TabIndex = 4;
-            // 
-            // iconButton2
-            // 
-            iconButton2.FlatAppearance.BorderSize = 0;
-            iconButton2.FlatStyle = FlatStyle.Flat;
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.ArrowRightToFile;
-            iconButton2.IconColor = Color.White;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.Location = new Point(243, 7);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(236, 51);
-            iconButton2.TabIndex = 1;
-            iconButton2.Text = "Результат";
-            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
-            iconButton2.UseVisualStyleBackColor = true;
             // 
             // iconButton1
             // 
@@ -401,6 +386,241 @@
             iconButton1.Text = "Начальные данные";
             iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // OutputMainPanel
+            // 
+            OutputMainPanel.Controls.Add(panel2);
+            OutputMainPanel.Controls.Add(panel1);
+            OutputMainPanel.Dock = DockStyle.Right;
+            OutputMainPanel.Location = new Point(523, 0);
+            OutputMainPanel.Name = "OutputMainPanel";
+            OutputMainPanel.Size = new Size(723, 798);
+            OutputMainPanel.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel2.Controls.Add(label22);
+            panel2.Controls.Add(heatFlowTextBox);
+            panel2.Controls.Add(label21);
+            panel2.Controls.Add(thermalInsulationWidthTextBox);
+            panel2.Controls.Add(label20);
+            panel2.Controls.Add(label19);
+            panel2.Controls.Add(comboBox2);
+            panel2.Controls.Add(label18);
+            panel2.Controls.Add(fireproofSurfaceTemperatureTextBox);
+            panel2.Controls.Add(fireproofWidthTextBox);
+            panel2.Controls.Add(label17);
+            panel2.Controls.Add(label16);
+            panel2.Controls.Add(label15);
+            panel2.Controls.Add(label14);
+            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(label1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 65);
+            panel2.Margin = new Padding(0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(723, 733);
+            panel2.TabIndex = 5;
+            // 
+            // label22
+            // 
+            label22.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label22.AutoSize = true;
+            label22.Location = new Point(629, 251);
+            label22.Name = "label22";
+            label22.Size = new Size(32, 22);
+            label22.TabIndex = 34;
+            label22.Text = "Вт";
+            label22.Visible = false;
+            // 
+            // heatFlowTextBox
+            // 
+            heatFlowTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            heatFlowTextBox.Location = new Point(393, 248);
+            heatFlowTextBox.Name = "heatFlowTextBox";
+            heatFlowTextBox.Size = new Size(230, 30);
+            heatFlowTextBox.TabIndex = 33;
+            heatFlowTextBox.Visible = false;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(14, 251);
+            label21.Name = "label21";
+            label21.Size = new Size(224, 22);
+            label21.TabIndex = 32;
+            label21.Text = "Полный тепловой поток:";
+            label21.Visible = false;
+            // 
+            // thermalInsulationWidthTextBox
+            // 
+            thermalInsulationWidthTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            thermalInsulationWidthTextBox.Location = new Point(393, 209);
+            thermalInsulationWidthTextBox.Name = "thermalInsulationWidthTextBox";
+            thermalInsulationWidthTextBox.Size = new Size(230, 30);
+            thermalInsulationWidthTextBox.TabIndex = 31;
+            thermalInsulationWidthTextBox.Visible = false;
+            // 
+            // label20
+            // 
+            label20.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label20.AutoSize = true;
+            label20.Location = new Point(629, 217);
+            label20.Name = "label20";
+            label20.Size = new Size(23, 22);
+            label20.TabIndex = 30;
+            label20.Text = "м";
+            label20.Visible = false;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(14, 212);
+            label19.Name = "label19";
+            label19.Size = new Size(305, 22);
+            label19.TabIndex = 29;
+            label19.Text = "Введите толщину слоя огнеупора: ";
+            label19.Visible = false;
+            // 
+            // comboBox2
+            // 
+            comboBox2.BackColor = Color.FromArgb(52, 52, 52);
+            comboBox2.FlatStyle = FlatStyle.Flat;
+            comboBox2.ForeColor = SystemColors.Control;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(393, 171);
+            comboBox2.Margin = new Padding(0);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(230, 30);
+            comboBox2.TabIndex = 28;
+            comboBox2.Visible = false;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(14, 174);
+            label18.Margin = new Padding(0);
+            label18.Name = "label18";
+            label18.Size = new Size(324, 22);
+            label18.TabIndex = 27;
+            label18.Text = "Выберите материал теплоизоляции: ";
+            label18.Visible = false;
+            // 
+            // fireproofSurfaceTemperatureTextBox
+            // 
+            fireproofSurfaceTemperatureTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            fireproofSurfaceTemperatureTextBox.Location = new Point(393, 134);
+            fireproofSurfaceTemperatureTextBox.Name = "fireproofSurfaceTemperatureTextBox";
+            fireproofSurfaceTemperatureTextBox.Size = new Size(230, 30);
+            fireproofSurfaceTemperatureTextBox.TabIndex = 26;
+            fireproofSurfaceTemperatureTextBox.Visible = false;
+            fireproofSurfaceTemperatureTextBox.TextChanged += fireproofSurfaceTemperatureTextBox_TextChanged;
+            fireproofSurfaceTemperatureTextBox.KeyPress += fireproofSurfaceTemperatureTextBox_KeyPress;
+            // 
+            // fireproofWidthTextBox
+            // 
+            fireproofWidthTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            fireproofWidthTextBox.Location = new Point(393, 94);
+            fireproofWidthTextBox.Name = "fireproofWidthTextBox";
+            fireproofWidthTextBox.Size = new Size(230, 30);
+            fireproofWidthTextBox.TabIndex = 25;
+            fireproofWidthTextBox.Visible = false;
+            fireproofWidthTextBox.TextChanged += textBox1_TextChanged;
+            fireproofWidthTextBox.KeyPress += fireproofWidthTextBox_KeyPress;
+            // 
+            // label17
+            // 
+            label17.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label17.AutoSize = true;
+            label17.Location = new Point(629, 142);
+            label17.Name = "label17";
+            label17.Size = new Size(31, 22);
+            label17.TabIndex = 24;
+            label17.Text = "°С";
+            label17.Visible = false;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(14, 139);
+            label16.Name = "label16";
+            label16.Size = new Size(345, 22);
+            label16.TabIndex = 22;
+            label16.Text = "Температура на границе раздела слоев:";
+            label16.Visible = false;
+            // 
+            // label15
+            // 
+            label15.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label15.AutoSize = true;
+            label15.Location = new Point(629, 102);
+            label15.Name = "label15";
+            label15.Size = new Size(23, 22);
+            label15.TabIndex = 21;
+            label15.Text = "м";
+            label15.Visible = false;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(14, 102);
+            label14.Name = "label14";
+            label14.Size = new Size(305, 22);
+            label14.TabIndex = 2;
+            label14.Text = "Введите толщину слоя огнеупора: ";
+            label14.Visible = false;
+            // 
+            // comboBox1
+            // 
+            comboBox1.BackColor = Color.FromArgb(52, 52, 52);
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.ForeColor = SystemColors.Control;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(393, 54);
+            comboBox1.Margin = new Padding(0);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(230, 30);
+            comboBox1.TabIndex = 1;
+            comboBox1.Visible = false;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(14, 62);
+            label1.Margin = new Padding(0);
+            label1.Name = "label1";
+            label1.Size = new Size(281, 22);
+            label1.TabIndex = 0;
+            label1.Text = "Выберите материал огнеупора: ";
+            label1.Visible = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(iconButton2);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(723, 65);
+            panel1.TabIndex = 4;
+            // 
+            // iconButton2
+            // 
+            iconButton2.FlatAppearance.BorderSize = 0;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.ArrowRightToFile;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.Location = new Point(243, 7);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(228, 51);
+            iconButton2.TabIndex = 1;
+            iconButton2.Text = "Результат";
+            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton2.UseVisualStyleBackColor = true;
             // 
             // ChamberFurnaceForm
             // 
@@ -423,6 +643,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             HeaderInputPanel.ResumeLayout(false);
             OutputMainPanel.ResumeLayout(false);
+            OutputMainPanel.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -458,5 +681,22 @@
         private Panel panel1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private Panel panel2;
+        private Label label1;
+        private ComboBox comboBox1;
+        private Label label14;
+        private Label label16;
+        private Label label15;
+        private Label label17;
+        private TextBox fireproofSurfaceTemperatureTextBox;
+        private TextBox fireproofWidthTextBox;
+        private ComboBox comboBox2;
+        private Label label18;
+        private TextBox heatFlowTextBox;
+        private Label label21;
+        private TextBox thermalInsulationWidthTextBox;
+        private Label label20;
+        private Label label19;
+        private Label label22;
     }
 }

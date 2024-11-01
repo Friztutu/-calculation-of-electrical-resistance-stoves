@@ -54,11 +54,11 @@ namespace Stove_Calculator
         {
             try
             {
-                float stoveDiameter = float.Parse(StoveDiameterTextBox.Text);
-                float stoveLength = float.Parse(StoveLengthTextBox.Text);
-                float maximumSampleTemperature = float.Parse(MaximumSampleTemperature.Text);
-                float ambientGasTemperature = float.Parse(AmbientGasTemperature.Text);
-                float outerSurfaceTemperature = float.Parse(TemperatureOuterSurface.Text);
+                double stoveDiameter = double.Parse(StoveDiameterTextBox.Text);
+                double stoveLength = double.Parse(StoveLengthTextBox.Text);
+                double maximumSampleTemperature = double.Parse(MaximumSampleTemperature.Text);
+                double ambientGasTemperature = double.Parse(AmbientGasTemperature.Text);
+                double outerSurfaceTemperature = double.Parse(TemperatureOuterSurface.Text);
             }
             catch (FormatException error)
             {
@@ -76,7 +76,7 @@ namespace Stove_Calculator
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
+           
         }
     }
 }

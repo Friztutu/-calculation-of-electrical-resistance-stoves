@@ -307,9 +307,9 @@
             // 
             panel2.Controls.Add(panel4);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(542, 0);
+            panel2.Location = new Point(534, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(704, 798);
+            panel2.Size = new Size(712, 798);
             panel2.TabIndex = 2;
             // 
             // panel4
@@ -318,7 +318,7 @@
             panel4.Controls.Add(iconButton2);
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(704, 65);
+            panel4.Size = new Size(712, 65);
             panel4.TabIndex = 5;
             // 
             // iconButton2
