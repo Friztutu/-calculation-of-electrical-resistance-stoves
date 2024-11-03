@@ -76,6 +76,10 @@
             label1 = new Label();
             panel1 = new Panel();
             iconButton2 = new FontAwesome.Sharp.IconButton();
+            comboBox3 = new ComboBox();
+            comboBox4 = new ComboBox();
+            label23 = new Label();
+            label24 = new Label();
             InputMainPanel.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
@@ -111,6 +115,10 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(label24);
+            panel5.Controls.Add(label23);
+            panel5.Controls.Add(comboBox4);
+            panel5.Controls.Add(comboBox3);
             panel5.Controls.Add(panel4);
             panel5.Controls.Add(CalculateButton);
             panel5.Controls.Add(richTextBox1);
@@ -141,7 +149,7 @@
             // panel4
             // 
             panel4.Controls.Add(pictureBox1);
-            panel4.Location = new Point(0, 272);
+            panel4.Location = new Point(0, 326);
             panel4.Name = "panel4";
             panel4.Size = new Size(522, 253);
             panel4.TabIndex = 26;
@@ -166,7 +174,7 @@
             CalculateButton.IconChar = FontAwesome.Sharp.IconChar.CaretSquareRight;
             CalculateButton.IconColor = Color.White;
             CalculateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            CalculateButton.Location = new Point(151, 193);
+            CalculateButton.Location = new Point(143, 251);
             CalculateButton.MaximumSize = new Size(188, 61);
             CalculateButton.Name = "CalculateButton";
             CalculateButton.Size = new Size(188, 61);
@@ -183,9 +191,9 @@
             richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             richTextBox1.ForeColor = SystemColors.Control;
-            richTextBox1.Location = new Point(23, 548);
+            richTextBox1.Location = new Point(23, 615);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(481, 173);
+            richTextBox1.Size = new Size(481, 106);
             richTextBox1.TabIndex = 24;
             richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
@@ -622,6 +630,44 @@
             iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton2.UseVisualStyleBackColor = true;
             // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "Дверца", "Заглушка" });
+            comboBox3.Location = new Point(72, 189);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(126, 30);
+            comboBox3.TabIndex = 27;
+            // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Items.AddRange(new object[] { "1", "2" });
+            comboBox4.Location = new Point(339, 189);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(126, 30);
+            comboBox4.TabIndex = 28;
+            // 
+            // label23
+            // 
+            label23.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label23.AutoSize = true;
+            label23.Location = new Point(23, 189);
+            label23.Name = "label23";
+            label23.Size = new Size(21, 22);
+            label23.TabIndex = 29;
+            label23.Text = "п";
+            // 
+            // label24
+            // 
+            label24.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label24.AutoSize = true;
+            label24.Location = new Point(279, 189);
+            label24.Name = "label24";
+            label24.Size = new Size(19, 22);
+            label24.TabIndex = 30;
+            label24.Text = "с";
+            // 
             // ChamberFurnaceForm
             // 
             AutoScaleDimensions = new SizeF(11F, 22F);
@@ -698,5 +744,9 @@
         private Label label20;
         private Label label19;
         private Label label22;
+        private Label label24;
+        private Label label23;
+        private ComboBox comboBox4;
+        private ComboBox comboBox3;
     }
 }

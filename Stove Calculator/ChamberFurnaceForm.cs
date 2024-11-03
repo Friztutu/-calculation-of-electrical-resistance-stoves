@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Stove_Calculator.Analyzers;
 using Stove_Calculator.Calculators;
 using Stove_Calculator.Models;
 using System;
@@ -28,6 +29,8 @@ namespace Stove_Calculator
         private readonly Validator validator = new();
 
         private ChamberFurnace calc;
+        private List<Fireproof> fireproofs;
+        private List<ThermalInsulation> insulations;
 
         private void StoveHeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -99,21 +102,31 @@ namespace Stove_Calculator
 
         private void updateData()
         {
-            if (calc.FireproofSurfaceTemperature < 0 || double.IsNaN(calc.FireproofSurfaceTemperature))
+            if (calc.LiningFireproofSurfaceTemperature < 0 || double.IsNaN(calc.LiningFireproofSurfaceTemperature))
+            {
                 fireproofSurfaceTemperatureTextBox.Text = "Уменьшите толщину огнеупора";
-            else
-                fireproofSurfaceTemperatureTextBox.Text = string.Format("{0:f3}", calc.FireproofSurfaceTemperature);
+            } else
+            {
+                fireproofSurfaceTemperatureTextBox.Text = string.Format("{0:f2}", calc.LiningFireproofSurfaceTemperature);
+            }
 
-            if (calc.thermalInsulations.Count == 0) return;
+            if (calc.LiningFireproofSurfaceTemperature >= 1100)
+            {
+                comboBox2.Items.Clear();
+                comboBox2.Text = "";
+                thermalInsulationWidthTextBox.Clear();
+                return;
+            }
 
+            insulations = ThermalInsulationAnalyzer.GetSuitableThermalInsulation(calc.LiningFireproofSurfaceTemperature, calc.MaxSampleTemperature); 
             comboBox2.Items.Clear();
 
-            foreach (ThermalInsulation thermalInsulation in calc.thermalInsulations)
+            foreach (ThermalInsulation thermalInsulation in insulations)
             {
                 comboBox2.Items.Add(thermalInsulation.Name);
             }
 
-            thermalInsulationWidthTextBox.Text = calc.InsulationWidth.ToString();
+            comboBox2.SelectedIndex = 0;
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -125,15 +138,24 @@ namespace Stove_Calculator
                 double stoveHeight = double.Parse(StoveHeightTextBox.Text);
                 double stoveWidth = double.Parse(StoveWidthTextBox.Text);
                 double stoveLength = double.Parse(StoveLengthTextBox.Text);
-                double maximumSampleTemperature = double.Parse(MaximumSampleTemperature.Text);
+                double maxSampleTemperature = double.Parse(MaximumSampleTemperature.Text);
                 double ambientGasTemperature = double.Parse(AmbientGasTemperature.Text);
                 double outerSurfaceTemperature = double.Parse(TemperatureOuterSurface.Text);
+                double defaultFireproofWidth = 0;
+                bool isWithDoor = comboBox3.Text == "Дверца";
+                bool isDoubleLayer = comboBox4.Text == "2";
 
-                calc = new(stoveHeight, stoveWidth, stoveLength, maximumSampleTemperature, ambientGasTemperature, outerSurfaceTemperature);
+                calc = new(
+                    stoveLength, stoveHeight, stoveWidth,
+                    maxSampleTemperature, ambientGasTemperature, outerSurfaceTemperature,
+                    defaultFireproofWidth, isWithDoor, isDoubleLayer
+                    );
+
+                fireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(calc.MaxSampleTemperature);
 
                 openResult();
 
-                foreach (Fireproof fireproof in calc.fireproofs)
+                foreach (Fireproof fireproof in fireproofs)
                 {
                     comboBox1.Items.Add(fireproof.Name);
                 }
@@ -160,7 +182,7 @@ namespace Stove_Calculator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            calc.SelectedFireproof = calc.fireproofs[comboBox1.SelectedIndex];
+            calc.LiningFireproof = fireproofs[comboBox1.SelectedIndex];
             updateData();
         }
 
@@ -168,7 +190,7 @@ namespace Stove_Calculator
         {
             if (fireproofWidthTextBox.Text == "") return;
 
-            calc.FireproofWidth = Double.Parse(fireproofWidthTextBox.Text);
+            calc.LiningFireproofWidth = Double.Parse(fireproofWidthTextBox.Text);
             updateData();
         }
 
@@ -182,8 +204,8 @@ namespace Stove_Calculator
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            calc.SelectedInsulation = calc.thermalInsulations[comboBox2.SelectedIndex];
-            updateData();
+            calc.LiningInsulation = insulations[comboBox2.SelectedIndex];
+            thermalInsulationWidthTextBox.Text = calc.LiningInsulationWidth.ToString();
         }
     }
 }
