@@ -9,7 +9,7 @@ namespace Stove_Calculator.Analyzers
 {
     public class ThermalInsulationAnalyzer
     {
-        public static List<ThermalInsulation> GetSuitableThermalInsulation(double fireproofSurfaceTemperature, double maxSampleTemperature)
+        public static List<ThermalInsulation> GetSuitableLiningThermalInsulation(double fireproofSurfaceTemperature, double maxSampleTemperature)
         {
             List<ThermalInsulation> query;
 
@@ -17,6 +17,21 @@ namespace Stove_Calculator.Analyzers
             {
                 var blogs = from b in context.ThermalInsulation
                             where b.MaxTemperatureOfUse >= fireproofSurfaceTemperature
+                            orderby b.MaxTemperatureOfUse, b.AValue + b.BValue * maxSampleTemperature, b.Density descending
+                            select b;
+
+                query = blogs.ToList();
+                return query;
+            }
+        }
+
+        public static List<ThermalInsulation> GetSuitableOverlapThermalInsulation(double maxSampleTemperature)
+        {
+            List<ThermalInsulation> query;
+
+            using (var context = new ThermalInsulationContext())
+            {
+                var blogs = from b in context.ThermalInsulation
                             orderby b.MaxTemperatureOfUse, b.AValue + b.BValue * maxSampleTemperature, b.Density descending
                             select b;
 

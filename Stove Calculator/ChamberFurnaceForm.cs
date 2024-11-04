@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+﻿using AngleSharp.Text;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Stove_Calculator.Analyzers;
 using Stove_Calculator.Calculators;
 using Stove_Calculator.Models;
@@ -29,8 +30,10 @@ namespace Stove_Calculator
         private readonly Validator validator = new();
 
         private ChamberFurnace calc;
-        private List<Fireproof> fireproofs;
-        private List<ThermalInsulation> insulations;
+        private List<Fireproof> linigFireproofs;
+        private List<ThermalInsulation> liningInsulations;
+        private List<Fireproof> overlapFireproofs;
+        private List<ThermalInsulation> overlapInsulations;
 
         private void StoveHeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -84,6 +87,7 @@ namespace Stove_Calculator
         {
             comboBox1.Visible = true;
             comboBox2.Visible = true;
+            comboBox5.Visible = true;
             label1.Visible = true;
             label14.Visible = true;
             label15.Visible = true;
@@ -94,10 +98,18 @@ namespace Stove_Calculator
             label20.Visible = true;
             label21.Visible = true;
             label22.Visible = true;
+            label22.Visible = true;
+            label25.Visible = true;
+            label26.Visible = true;
+            label27.Visible = true;
+            label28.Visible = true;
+            label29.Visible = true;
             fireproofWidthTextBox.Visible = true;
             fireproofSurfaceTemperatureTextBox.Visible = true;
             thermalInsulationWidthTextBox.Visible = true;
             heatFlowTextBox.Visible = true;
+            textBox1.Visible = true;
+            textBox2.Visible = true;
         }
 
         private void updateData()
@@ -105,7 +117,8 @@ namespace Stove_Calculator
             if (calc.LiningFireproofSurfaceTemperature < 0 || double.IsNaN(calc.LiningFireproofSurfaceTemperature))
             {
                 fireproofSurfaceTemperatureTextBox.Text = "Уменьшите толщину огнеупора";
-            } else
+            }
+            else
             {
                 fireproofSurfaceTemperatureTextBox.Text = string.Format("{0:f2}", calc.LiningFireproofSurfaceTemperature);
             }
@@ -115,18 +128,32 @@ namespace Stove_Calculator
                 comboBox2.Items.Clear();
                 comboBox2.Text = "";
                 thermalInsulationWidthTextBox.Clear();
+                textBox2.Clear();
+                textBox1.Clear();
                 return;
             }
 
-            insulations = ThermalInsulationAnalyzer.GetSuitableThermalInsulation(calc.LiningFireproofSurfaceTemperature, calc.MaxSampleTemperature); 
+            liningInsulations = ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(calc.LiningFireproofSurfaceTemperature, calc.MaxSampleTemperature);
             comboBox2.Items.Clear();
 
-            foreach (ThermalInsulation thermalInsulation in insulations)
+            foreach (ThermalInsulation thermalInsulation in liningInsulations)
             {
                 comboBox2.Items.Add(thermalInsulation.Name);
             }
 
             comboBox2.SelectedIndex = 0;
+
+            overlapFireproofs = FireproofAnalyzer.GetSuitableOverlapFireproofs(calc.MaxSampleTemperature);
+            comboBox5.Items.Clear();
+
+            foreach (Fireproof fireproof in overlapFireproofs) 
+            {
+                comboBox5.Items.Add(fireproof.Name);
+            }
+
+            comboBox5.SelectedIndex = 0;
+
+            textBox2.Text = calc.OverlapFireproofSurfaceTemperature.ToString();
         }
 
         private void CalculateButton_Click(object sender, EventArgs e)
@@ -151,11 +178,11 @@ namespace Stove_Calculator
                     defaultFireproofWidth, isWithDoor, isDoubleLayer
                     );
 
-                fireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(calc.MaxSampleTemperature);
+                linigFireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(calc.MaxSampleTemperature);
 
                 openResult();
 
-                foreach (Fireproof fireproof in fireproofs)
+                foreach (Fireproof fireproof in linigFireproofs)
                 {
                     comboBox1.Items.Add(fireproof.Name);
                 }
@@ -182,7 +209,7 @@ namespace Stove_Calculator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            calc.LiningFireproof = fireproofs[comboBox1.SelectedIndex];
+            calc.LiningFireproof = linigFireproofs[comboBox1.SelectedIndex];
             updateData();
         }
 
@@ -204,8 +231,20 @@ namespace Stove_Calculator
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            calc.LiningInsulation = insulations[comboBox2.SelectedIndex];
+            calc.LiningInsulation = liningInsulations[comboBox2.SelectedIndex];
             thermalInsulationWidthTextBox.Text = calc.LiningInsulationWidth.ToString();
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            calc.OverlapFireproofWidth = textBox1.Text.ToDouble();
+            updateData();
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            calc.OverlapFireproof = overlapFireproofs[comboBox5.SelectedIndex];
+            textBox2.Text = calc.OverlapFireproofSurfaceTemperature.ToString();
         }
     }
 }

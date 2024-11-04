@@ -26,7 +26,7 @@ namespace Stove_Calculator.Calculators
         // Getters
         public double FurnanceHeight => _furnanceHeight;
         public double FurnanceWidth => _furnanceWidth;
-
+        
         public ChamberFurnace(
             double furnanceLength, double furnanceHeight, double furnanceWidth, 
             double maxSampleTemperature, double ambientGasTemperature, double outerSurfaceTemperature, double fireproofWidth,
@@ -41,10 +41,17 @@ namespace Stove_Calculator.Calculators
 
             if(_liningFireproofSurfaceTemperature <= 1100)
             {
-                this._liningInsulation = ThermalInsulationAnalyzer.GetSuitableThermalInsulation(_liningFireproofSurfaceTemperature, _maxSampleTemperature)[0];
+                this._liningInsulation = ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(_liningFireproofSurfaceTemperature, _maxSampleTemperature)[0];
                 CalculateInsulationWidth();
                 this._overlapFireproof = FireproofAnalyzer.GetSuitableOverlapFireproofs(_maxSampleTemperature)[0];
                 this._overlapFireproofWidth = 0;
+
+                if(isDoubleLayer)
+                {
+                    this._overlapInsulation = ThermalInsulationAnalyzer.GetSuitableOverlapThermalInsulation(this._maxSampleTemperature)[0];
+                }
+
+                CalculateOverlapSurfaceTemperature();
             } 
         }
  
@@ -82,7 +89,7 @@ namespace Stove_Calculator.Calculators
                 double fourthBracket = 2 * _overlapFireproof.AValue * _maxSampleTemperature + _overlapFireproof.BValue * Math.Pow(_maxSampleTemperature, 2)
                     + 2 * _overlapFireproofWidth * 9.304 * _ambientGasTemperature;
 
-                _liningFireproofSurfaceTemperature = firstBracket * (-secondBracket + Math.Sqrt(Math.Pow(secondBracket, 2) + thirdBracket * fourthBracket));
+                _overlapFireproofSurfaceTemperature = firstBracket * (-secondBracket + Math.Sqrt(Math.Pow(secondBracket, 2) + thirdBracket * fourthBracket));
             }
         }
     }
