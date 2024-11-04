@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Stove_Calculator.Calculators
 {
-    public class TubeFurnaceCalculator
+    public class TubeFurnace
     {
         private double stoveDiameter;
         private double stoveLength;
@@ -15,7 +15,7 @@ namespace Stove_Calculator.Calculators
         private double ambientGasTemperature;
         private double outerSurfaceTemperature;
 
-        public TubeFurnaceCalculator(double diameter, double length,
+        public TubeFurnace(double diameter, double length,
             double sampleTemp, double gasTemp, double surfaceTemp)
         {
             stoveDiameter = diameter;
