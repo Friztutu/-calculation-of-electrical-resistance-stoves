@@ -14,6 +14,7 @@ using RSAExtensions;
 using System.Runtime.Intrinsics.X86;
 using Stove_Calculator.Furnaces;
 using Stove_Calculator.Analyzers;
+using System.Windows.Media.Animation;
 
 namespace Stove_Calculator.Calculators
 {
@@ -29,30 +30,11 @@ namespace Stove_Calculator.Calculators
         
         public ChamberFurnace(
             double furnanceLength, double furnanceHeight, double furnanceWidth, 
-            double maxSampleTemperature, double ambientGasTemperature, double outerSurfaceTemperature, double fireproofWidth,
+            double maxSampleTemperature, double ambientGasTemperature, double outerSurfaceTemperature,
             bool isWithDoor, bool isDoubleLayer) 
-            : base(furnanceLength, maxSampleTemperature, ambientGasTemperature, outerSurfaceTemperature, fireproofWidth, isWithDoor, isDoubleLayer) 
+            : base(furnanceLength, maxSampleTemperature, ambientGasTemperature, outerSurfaceTemperature, isWithDoor, isDoubleLayer) 
         {
             this._furnanceHeight = furnanceHeight;
-            this._furnanceWidth = furnanceWidth;
-
-            this._liningFireproof = FireproofAnalyzer.GetSuitableLiningFireproofs(_maxSampleTemperature)[0];
-            CalculateFireprooSurfaceTemperature();
-
-            if(_liningFireproofSurfaceTemperature <= 1100)
-            {
-                this._liningInsulation = ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(_liningFireproofSurfaceTemperature, _maxSampleTemperature)[0];
-                CalculateInsulationWidth();
-                this._overlapFireproof = FireproofAnalyzer.GetSuitableOverlapFireproofs(_maxSampleTemperature)[0];
-                this._overlapFireproofWidth = 0;
-
-                if(isDoubleLayer)
-                {
-                    this._overlapInsulation = ThermalInsulationAnalyzer.GetSuitableOverlapThermalInsulation(this._maxSampleTemperature)[0];
-                }
-
-                CalculateOverlapSurfaceTemperature();
-            } 
         }
  
         protected override void CalculateFireprooSurfaceTemperature()
@@ -79,7 +61,33 @@ namespace Stove_Calculator.Calculators
         {
             if (IsDoubleLayer)
             {
-                
+
+                // TODO: переписать эту залупистику, я ебал, там формул и расчётов
+                double t4, t5, t7, x3, q21, x4, y2, q22;
+                bool isCorrect = false;
+
+                t4 = 0;
+
+                do
+                {
+                    t4++;
+                    double firstBracket = (2 * (_overlapFireproof.BValue * _overlapInsulationWidth + _overlapInsulation.BValue * _overlapFireproofWidth));
+                    double secondBracket = (2 * _overlapFireproof.AValue * _overlapInsulationWidth + 2 * _overlapInsulation.AValue * _overlapFireproofWidth);
+                    double thirdBracket1 = 2 * _overlapFireproof.AValue * _overlapInsulationWidth * (_maxSampleTemperature + 100) +
+                        _overlapFireproof.BValue + _overlapInsulationWidth * Math.Pow((_maxSampleTemperature + 100), 2);
+                    double thirdBracket2 = 2 * _overlapInsulation.AValue * _overlapFireproofWidth * t4 +
+                        _overlapInsulation.BValue + _overlapFireproofWidth * Math.Pow(t4, 2);
+
+                    t5 = 1 / firstBracket * (-secondBracket + Math.Sqrt(Math.Pow(secondBracket, 2) + 2 * firstBracket * (thirdBracket1 + thirdBracket2)));
+
+                    x3 = _overlapFireproof.AValue + (_overlapFireproof.BValue * ((_maxSampleTemperature + 100) + t5) / 2);
+                    q21 = x3 * ((_maxSampleTemperature + 100) - t5) / _overlapFireproofWidth;
+                    t7 = (-(0.05815 - 9.304 * _ambientGasTemperature) + Math.Sqrt(Math.Pow((0.05815 - 9.304 * _ambientGasTemperature), 2) + 4 * 0.05815 * (9.304 * _ambientGasTemperature + q21))) / (2 * 0.05815);
+                } while (Math.Round(t4) == Math.Round(t7) || t4 > 600);
+
+                x4 = _overlapInsulation.AValue + (_overlapInsulation.BValue * (t5 + (_maxSampleTemperature + 100)) / 2);
+                y2 = 9.304 + 0.05815 * t4;
+                q22 = (x4 * (t5 - t4)) / _liningInsulationWidth;
             }
             else
             {

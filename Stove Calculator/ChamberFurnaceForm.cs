@@ -168,14 +168,13 @@ namespace Stove_Calculator
                 double maxSampleTemperature = double.Parse(MaximumSampleTemperature.Text);
                 double ambientGasTemperature = double.Parse(AmbientGasTemperature.Text);
                 double outerSurfaceTemperature = double.Parse(TemperatureOuterSurface.Text);
-                double defaultFireproofWidth = 0;
                 bool isWithDoor = comboBox3.Text == "Дверца";
                 bool isDoubleLayer = comboBox4.Text == "2";
 
                 calc = new(
                     stoveLength, stoveHeight, stoveWidth,
                     maxSampleTemperature, ambientGasTemperature, outerSurfaceTemperature,
-                    defaultFireproofWidth, isWithDoor, isDoubleLayer
+                    isWithDoor, isDoubleLayer
                     );
 
                 linigFireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(calc.MaxSampleTemperature);

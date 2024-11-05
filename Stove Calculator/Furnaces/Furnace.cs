@@ -142,7 +142,7 @@ namespace Stove_Calculator.Furnaces
         }
 
         public Furnace(
-            double furnanceLength, double maxSampleTemperature, double ambientGasTemperature, double outerSurfaceTemperature, double fireproofWidth,
+            double furnanceLength, double maxSampleTemperature, double ambientGasTemperature, double outerSurfaceTemperature,
             bool isWithDoor, bool isDoubleLayer
             )
         {
@@ -152,7 +152,6 @@ namespace Stove_Calculator.Furnaces
             this._outerSurfaceTemperature = outerSurfaceTemperature;
             this._isWithDoor = isWithDoor;
             this._isDoubleLayer = isDoubleLayer;
-            this._liningFireproofWidth = fireproofWidth;
         }
 
         abstract protected void CalculateFireprooSurfaceTemperature();

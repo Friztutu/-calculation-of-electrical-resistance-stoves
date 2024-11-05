@@ -1,171 +1,181 @@
 using FontAwesome.Sharp;
+using System.Runtime.InteropServices;
 
 namespace Stove_Calculator
 {
     public partial class MainForm : Form
     {
+
+        // Fields
+        private IconButton currentBtn;
+        private Panel leftBorderBtn;
+        private Form currentChildForm;
+
         public MainForm()
         {
             InitializeComponent();
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(10, 85);
+            panelMenu.Controls.Add(leftBorderBtn);
+
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        private Form active;
-
-        private Validator validator = new();
-
-        private Color activeBackgroundButton = Color.FromArgb(0, 192, 0);
-        private Color defaultBackgroundButton = Color.FromArgb(255, 255, 0);
-
-        bool dragging = false;
-        Point dragCursorPoint;
-        Point dragFormPoint;
-
-        private void SetButtonColors(Panel panel, Color backColor)
+        private struct RGBColors
         {
-            panel6.BackColor = defaultBackgroundButton;
-            panel8.BackColor = defaultBackgroundButton;
-            panel10.BackColor = defaultBackgroundButton;
-            panel12.BackColor = defaultBackgroundButton;
-            panel14.BackColor = defaultBackgroundButton;
-            panel15.BackColor = defaultBackgroundButton;
-
-            panel.BackColor = backColor;
+            public static Color color1 = Color.FromArgb(172, 126, 241);
+            public static Color color2 = Color.FromArgb(249, 118, 176);
+            public static Color color3 = Color.FromArgb(253, 138, 114);
+            public static Color color4 = Color.FromArgb(95, 77, 221);
+            public static Color color5 = Color.FromArgb(249, 88, 155);
         }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void ActivateButton(object senderBtn, Color color)
         {
-            Application.Exit();
-        }
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            SetButtonColors(panel6, activeBackgroundButton);
-
-            PanelForm(new ChamberFurnaceForm());
-        }
-
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            SetButtonColors(panel8, activeBackgroundButton);
-
-            PanelForm(new TubeFurnaceForm());
-        }
-
-        private void iconButton3_Click(object sender, EventArgs e)
-        {
-            SetButtonColors(panel10, activeBackgroundButton);
-
-            PanelForm(new TheoryPage());
-        }
-
-        private void iconButton4_Click(object sender, EventArgs e)
-        {
-            SetButtonColors(panel12, activeBackgroundButton);
-
-            PanelForm(new UserGuideForm());
-        }
-
-        private void iconButton5_Click(object sender, EventArgs e)
-        {
-            SetButtonColors(panel14, activeBackgroundButton);
-
-            PanelForm(new AboutForm());
-        }
-
-        private void iconButton11_Click_1(object sender, EventArgs e)
-        {
-            SetButtonColors(panel15, activeBackgroundButton);
-
-            PanelForm(new TableForms());
-        }
-
-        private void iconButton7_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void iconButton6_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void iconButton9_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void iconButton8_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
+            if (senderBtn != null)
             {
-                this.WindowState = FormWindowState.Normal;
-                this.StartPosition = FormStartPosition.CenterScreen;
+                DisableButton();
+
+                currentBtn = (IconButton)senderBtn;
+                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.ForeColor = color;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.IconColor = color;
+                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+
+                leftBorderBtn.BackColor = color;
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
+
+                iconCurrentChildForm.IconChar = currentBtn.IconChar;
+                iconCurrentChildForm.IconColor = color;
+                lblTitleChildForm.Text = currentBtn.Text;
+            }
+        }
+
+        private void DisableButton()
+        {
+            if (currentBtn != null)
+            {
+                currentBtn.BackColor = Color.FromArgb(31, 30, 68);
+                currentBtn.ForeColor = Color.White;
+                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.IconColor = Color.White;
+                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+
+            currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelDesktop.Controls.Add(childForm);
+            panelDesktop.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+
+        }
+
+        private void chamberBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new ChamberFurnaceForm());
+        }
+
+        private void tubeBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color2);
+            OpenChildForm(new TubeFurnaceForm());
+        }
+
+        private void tableBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new TableForms());
+        }
+
+        private void theoryBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new TheoryPage());
+        }
+
+        private void guideBtn_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new UserGuideForm());
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            currentChildForm.Close();
+            Reset();
+        }
+
+        private void Reset()
+        {
+            DisableButton();
+            leftBorderBtn.Visible = false;
+            iconCurrentChildForm.IconChar = IconChar.House;
+            iconCurrentChildForm.IconColor = Color.MediumPurple;
+            lblTitleChildForm.Text = "Главная страница";
+        }
+
+        // Drag Form
+        //Drag Form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void maximizeBtn_Click(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
             }
             else
             {
-                this.WindowState = FormWindowState.Maximized;
+                WindowState = FormWindowState.Normal;
             }
         }
 
-        private void panel16_Paint(object sender, PaintEventArgs e)
+        private void minimizeBtn_Click(object sender, EventArgs e)
         {
-
+            WindowState = FormWindowState.Minimized;
         }
 
-        private void panel10_Paint(object sender, PaintEventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-
+            tmrClock.Start();
         }
 
-        private void panel1_DoubleClick(object sender, EventArgs e)
+        private void tmrClock_Tick(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-                this.StartPosition = FormStartPosition.CenterScreen;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            dragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = this.Location;
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            dragging = false;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(dif));
-            }
-        }
-
-        private void PanelForm(Form form)
-        {
-            if (active != null)
-            {
-                active.Close();
-            }
-
-            active = form;
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            this.panel4.Controls.Add(form);
-            this.panel4.Tag = form;
-            form.BringToFront();
-            form.Show();
+            lblClock.Text = DateTime.Now.ToString("T");
         }
     }
 }
