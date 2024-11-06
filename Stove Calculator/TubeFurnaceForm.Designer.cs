@@ -155,7 +155,6 @@
             MaximumSampleTemperature.Name = "MaximumSampleTemperature";
             MaximumSampleTemperature.Size = new Size(125, 30);
             MaximumSampleTemperature.TabIndex = 11;
-            MaximumSampleTemperature.KeyPress += MaximumSampleTemperature_KeyPress;
             // 
             // AmbientGasTemperature
             // 
@@ -163,7 +162,6 @@
             AmbientGasTemperature.Name = "AmbientGasTemperature";
             AmbientGasTemperature.Size = new Size(125, 30);
             AmbientGasTemperature.TabIndex = 12;
-            AmbientGasTemperature.KeyPress += AmbientGasTemperature_KeyPress;
             // 
             // TemperatureOuterSurface
             // 
@@ -171,15 +169,13 @@
             TemperatureOuterSurface.Name = "TemperatureOuterSurface";
             TemperatureOuterSurface.Size = new Size(125, 30);
             TemperatureOuterSurface.TabIndex = 13;
-            TemperatureOuterSurface.KeyPress += TemperatureOuterSurface_KeyPress;
             // 
             // StoveLengthTextBox
             // 
             StoveLengthTextBox.Location = new Point(69, 33);
             StoveLengthTextBox.Name = "StoveLengthTextBox";
             StoveLengthTextBox.Size = new Size(125, 30);
-            StoveLengthTextBox.TabIndex = 9;
-            StoveLengthTextBox.KeyPress += StoveLengthTextBox_KeyPress;
+            StoveLengthTextBox.TabIndex = 9;;
             // 
             // StoveDiameterTextBox
             // 
@@ -187,7 +183,6 @@
             StoveDiameterTextBox.Name = "StoveDiameterTextBox";
             StoveDiameterTextBox.Size = new Size(125, 30);
             StoveDiameterTextBox.TabIndex = 8;
-            StoveDiameterTextBox.KeyPress += StoveDiameterTextBox_KeyPress;
             // 
             // label4
             // 

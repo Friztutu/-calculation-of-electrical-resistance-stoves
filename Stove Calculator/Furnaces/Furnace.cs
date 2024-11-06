@@ -36,110 +36,12 @@ namespace Stove_Calculator.Furnaces
         protected double _liningInsulationWidth;
 
         // GETTERS
-        public double FurnanceLength => _furnanceLength;
+        public double FurnaceLength => _furnanceLength;
         public double MaxSampleTemperature => _maxSampleTemperature;
-        public double AmbientGasTemprerature => _ambientGasTemperature;
+        public double AmbientGasTemperature => _ambientGasTemperature;
         public double OuterSurfaceTemperature => _outerSurfaceTemperature;
         public bool IsWithDoor => _isWithDoor;
         public bool IsDoubleLayer => _isDoubleLayer;
-        public double LiningFireproofSurfaceTemperature => _liningFireproofSurfaceTemperature;
-        public double LiningInsulationWidth => _liningInsulationWidth;
-        public double OverlapFireproofSurfaceTemperature => _overlapFireproofSurfaceTemperature;
-
-
-        public Fireproof LiningFireproof
-        {
-            get => _liningFireproof;
-
-            set
-            {
-                _liningFireproof = value;
-                CalculateFireprooSurfaceTemperature();
-
-                if(_liningFireproofSurfaceTemperature <= 1100)
-                {
-                    _liningInsulation = (_liningInsulation is null) ?
-                        ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(_liningFireproofSurfaceTemperature, _maxSampleTemperature)[0] : _liningInsulation;
-                    CalculateInsulationWidth();
-                }
-                else
-                {
-                    _liningInsulation = null;
-                    _liningInsulationWidth = 0;
-                }
-            }
-        }
-
-        public double LiningFireproofWidth
-        {
-            get => _liningFireproofWidth;
-
-            set
-            {
-                _liningFireproofWidth = value;
-                CalculateFireprooSurfaceTemperature();
-
-                if(_liningFireproofSurfaceTemperature <= 1100)
-                {
-                    _liningInsulation = (_liningInsulation is null) ?
-                        ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(_liningFireproofSurfaceTemperature, _maxSampleTemperature)[0] : _liningInsulation;
-                    CalculateInsulationWidth();
-                }
-                else
-                {
-                    _liningInsulation = null;
-                    _liningInsulationWidth = 0;
-                }
-            }
-        }
-
-        public ThermalInsulation LiningInsulation
-        {
-            get => _liningInsulation;
-
-            set
-            {
-                _liningInsulation = value;
-                CalculateInsulationWidth();
-            }
-        }
-
-        public Fireproof OverlapFireproof
-        {
-            get => _overlapFireproof;
-
-            set
-            {
-                _overlapFireproof = value;
-                CalculateOverlapSurfaceTemperature();
-            }
-        }
-
-        public ThermalInsulation OverlapInsulation
-        {
-            get => _overlapInsulation;
-
-            set
-            {
-                _overlapInsulation = value;
-                _overlapFireproof = (_overlapFireproof is null) ?
-                       FireproofAnalyzer.GetSuitableOverlapFireproofs(_maxSampleTemperature)[0] : _overlapFireproof;
-                CalculateOverlapSurfaceTemperature();
-            }
-        }
-
-        public double OverlapFireproofWidth
-        {
-            get => _overlapFireproofWidth;
-
-            set
-            {
-                _overlapFireproofWidth = value;
-                _overlapFireproof = (_overlapFireproof is null) ?
-                       FireproofAnalyzer.GetSuitableOverlapFireproofs(_maxSampleTemperature)[0] : _overlapFireproof;
-                CalculateOverlapSurfaceTemperature();
-            }
-        }
 
         public Furnace(
             double furnanceLength, double maxSampleTemperature, double ambientGasTemperature, double outerSurfaceTemperature,
@@ -153,11 +55,5 @@ namespace Stove_Calculator.Furnaces
             this._isWithDoor = isWithDoor;
             this._isDoubleLayer = isDoubleLayer;
         }
-
-        abstract protected void CalculateFireprooSurfaceTemperature();
-
-        abstract protected void CalculateInsulationWidth();
-
-        abstract protected void CalculateOverlapSurfaceTemperature();
     }
 }

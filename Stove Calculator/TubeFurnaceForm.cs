@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Stove_Calculator.InputValidators;
 
 namespace Stove_Calculator
 {
@@ -18,37 +19,7 @@ namespace Stove_Calculator
             InitializeComponent();
         }
 
-        private readonly Validator validator = new();
-
-        private void StoveLengthTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(StoveLengthTextBox.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void StoveDiameterTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(StoveDiameterTextBox.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void MaximumSampleTemperature_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(MaximumSampleTemperature.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void AmbientGasTemperature_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(AmbientGasTemperature.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void TemperatureOuterSurface_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(TemperatureOuterSurface.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
+        private readonly TxtboxDataSourceValidator validator = new();
 
         private void CalculateButton_Click(object sender, EventArgs e)
         {

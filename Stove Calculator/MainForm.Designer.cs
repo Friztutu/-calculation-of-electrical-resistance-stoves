@@ -92,7 +92,7 @@
             exitBtn.IconColor = Color.White;
             exitBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             exitBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            exitBtn.Location = new Point(0, 478);
+            exitBtn.Location = new Point(0, 533);
             exitBtn.Margin = new Padding(4, 3, 4, 3);
             exitBtn.Name = "exitBtn";
             exitBtn.Padding = new Padding(10, 0, 20, 0);
@@ -114,7 +114,7 @@
             theoryBtn.IconColor = Color.White;
             theoryBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             theoryBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            theoryBtn.Location = new Point(0, 393);
+            theoryBtn.Location = new Point(0, 448);
             theoryBtn.Margin = new Padding(4, 3, 4, 3);
             theoryBtn.Name = "theoryBtn";
             theoryBtn.Padding = new Padding(10, 0, 20, 0);
@@ -136,7 +136,7 @@
             tableBtn.IconColor = Color.White;
             tableBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             tableBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            tableBtn.Location = new Point(0, 308);
+            tableBtn.Location = new Point(0, 363);
             tableBtn.Margin = new Padding(4, 3, 4, 3);
             tableBtn.Name = "tableBtn";
             tableBtn.Padding = new Padding(10, 0, 20, 0);
@@ -158,7 +158,7 @@
             tubeBtn.IconColor = Color.White;
             tubeBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             tubeBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            tubeBtn.Location = new Point(0, 223);
+            tubeBtn.Location = new Point(0, 278);
             tubeBtn.Margin = new Padding(4, 3, 4, 3);
             tubeBtn.Name = "tubeBtn";
             tubeBtn.Padding = new Padding(10, 0, 20, 0);
@@ -180,7 +180,7 @@
             chamberBtn.IconColor = Color.White;
             chamberBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             chamberBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            chamberBtn.Location = new Point(0, 138);
+            chamberBtn.Location = new Point(0, 193);
             chamberBtn.Margin = new Padding(4, 3, 4, 3);
             chamberBtn.Name = "chamberBtn";
             chamberBtn.Padding = new Padding(10, 0, 20, 0);
@@ -199,7 +199,7 @@
             panelLogo.Location = new Point(0, 0);
             panelLogo.Margin = new Padding(4, 3, 4, 3);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(344, 138);
+            panelLogo.Size = new Size(344, 193);
             panelLogo.TabIndex = 2;
             // 
             // btnHome
@@ -208,7 +208,7 @@
             btnHome.Image = (Image)resources.GetObject("btnHome.Image");
             btnHome.Location = new Point(0, 0);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(344, 138);
+            btnHome.Size = new Size(344, 193);
             btnHome.SizeMode = PictureBoxSizeMode.Zoom;
             btnHome.TabIndex = 0;
             btnHome.TabStop = false;

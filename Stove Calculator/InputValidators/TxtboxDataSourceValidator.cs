@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stove_Calculator
+namespace Stove_Calculator.InputValidators
 {
-    public class Validator
+    public class TxtboxDataSourceValidator
     {
-        public bool isCorrectSymbol(string text ,int symbolCode)
+        public static bool isCorrectSymbol(string text, int symbolCode)
         {
             bool isCorrect = true;
 
             if (symbolCode == 46 && text == "")
                 isCorrect = false;
-            else if(symbolCode != 46 && (symbolCode > 57 || symbolCode < 48) && symbolCode != 8)
+            else if (symbolCode != 46 && (symbolCode > 57 || symbolCode < 48) && symbolCode != 8)
                 isCorrect = false;
-            
+
             return isCorrect;
         }
     }

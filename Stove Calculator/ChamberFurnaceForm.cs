@@ -2,11 +2,13 @@
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Stove_Calculator.Analyzers;
 using Stove_Calculator.Calculators;
+using Stove_Calculator.InputValidators;
 using Stove_Calculator.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -22,228 +24,147 @@ namespace Stove_Calculator
 {
     public partial class ChamberFurnaceForm : Form
     {
+
+        private ChamberFurnace furnace;
+        private List<Fireproof> fireproofs;
+        private Fireproof currentFireproof;
+
         public ChamberFurnaceForm()
         {
             InitializeComponent();
+            cmbboxOverlapLayers.SelectedIndex = 0;
+            cmbboxOverlapType.SelectedIndex = 0;
+            txtboxFurnaceHeight.Text = "0.20";
+            txtboxFurnaceWidth.Text = "0.16";
+            txtboxFurnaceLength.Text = "0.15";
+            txtboxAmbientTemperature.Text = "20";
+            txtboxWorkTemperature.Text = "1350";
+            txtboxOuterSurfaceTemperature.Text = "70";
         }
 
-        private readonly Validator validator = new();
-
-        private ChamberFurnace calc;
-        private List<Fireproof> linigFireproofs;
-        private List<ThermalInsulation> liningInsulations;
-        private List<Fireproof> overlapFireproofs;
-        private List<ThermalInsulation> overlapInsulations;
-
-        private void StoveHeightTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnCalculate_Click(object sender, EventArgs e)
         {
-            if (validator.isCorrectSymbol(StoveHeightTextBox.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void StoveWidthTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(StoveWidthTextBox.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void StoveLengthTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(StoveLengthTextBox.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void MaximumSampleTemperature_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(MaximumSampleTemperature.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void AmbientGasTemperature_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(AmbientGasTemperature.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void TemperatureOuterSurface_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(TemperatureOuterSurface.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void fireproofWidthTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(fireproofWidthTextBox.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void fireproofSurfaceTemperatureTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (validator.isCorrectSymbol(fireproofSurfaceTemperatureTextBox.Text, e.KeyChar) == false)
-                e.Handled = true;
-        }
-
-        private void openResult()
-        {
-            comboBox1.Visible = true;
-            comboBox2.Visible = true;
-            comboBox5.Visible = true;
-            label1.Visible = true;
-            label14.Visible = true;
-            label15.Visible = true;
-            label16.Visible = true;
-            label17.Visible = true;
-            label18.Visible = true;
-            label19.Visible = true;
-            label20.Visible = true;
-            label21.Visible = true;
-            label22.Visible = true;
-            label22.Visible = true;
-            label25.Visible = true;
-            label26.Visible = true;
-            label27.Visible = true;
-            label28.Visible = true;
-            label29.Visible = true;
-            fireproofWidthTextBox.Visible = true;
-            fireproofSurfaceTemperatureTextBox.Visible = true;
-            thermalInsulationWidthTextBox.Visible = true;
-            heatFlowTextBox.Visible = true;
-            textBox1.Visible = true;
-            textBox2.Visible = true;
-        }
-
-        private void updateData()
-        {
-            if (calc.LiningFireproofSurfaceTemperature < 0 || double.IsNaN(calc.LiningFireproofSurfaceTemperature))
-            {
-                fireproofSurfaceTemperatureTextBox.Text = "Уменьшите толщину огнеупора";
-            }
-            else
-            {
-                fireproofSurfaceTemperatureTextBox.Text = string.Format("{0:f2}", calc.LiningFireproofSurfaceTemperature);
-            }
-
-            if (calc.LiningFireproofSurfaceTemperature >= 1100)
-            {
-                comboBox2.Items.Clear();
-                comboBox2.Text = "";
-                thermalInsulationWidthTextBox.Clear();
-                textBox2.Clear();
-                textBox1.Clear();
-                return;
-            }
-
-            liningInsulations = ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(calc.LiningFireproofSurfaceTemperature, calc.MaxSampleTemperature);
-            comboBox2.Items.Clear();
-
-            foreach (ThermalInsulation thermalInsulation in liningInsulations)
-            {
-                comboBox2.Items.Add(thermalInsulation.Name);
-            }
-
-            comboBox2.SelectedIndex = 0;
-
-            overlapFireproofs = FireproofAnalyzer.GetSuitableOverlapFireproofs(calc.MaxSampleTemperature);
-            comboBox5.Items.Clear();
-
-            foreach (Fireproof fireproof in overlapFireproofs) 
-            {
-                comboBox5.Items.Add(fireproof.Name);
-            }
-
-            comboBox5.SelectedIndex = 0;
-
-            textBox2.Text = calc.OverlapFireproofSurfaceTemperature.ToString();
-        }
-
-        private void CalculateButton_Click(object sender, EventArgs e)
-        {
-            comboBox1.Items.Clear();
-
             try
             {
-                double stoveHeight = double.Parse(StoveHeightTextBox.Text);
-                double stoveWidth = double.Parse(StoveWidthTextBox.Text);
-                double stoveLength = double.Parse(StoveLengthTextBox.Text);
-                double maxSampleTemperature = double.Parse(MaximumSampleTemperature.Text);
-                double ambientGasTemperature = double.Parse(AmbientGasTemperature.Text);
-                double outerSurfaceTemperature = double.Parse(TemperatureOuterSurface.Text);
-                bool isWithDoor = comboBox3.Text == "Дверца";
-                bool isDoubleLayer = comboBox4.Text == "2";
+                bool isDoor = cmbboxOverlapType.Text == "Дверца";
+                bool isDoubleLayer = cmbboxOverlapLayers.Text == "2";
+                double furnaceHeight = txtboxFurnaceHeight.Text.ToDouble();
+                double furnaceWidth = txtboxFurnaceWidth.Text.ToDouble();
+                double furnaceLength = txtboxFurnaceLength.Text.ToDouble();
+                double ambientTemperature = txtboxAmbientTemperature.Text.ToDouble();
+                double workTemperature = txtboxWorkTemperature.Text.ToDouble();
+                double outerSurfaceTemperature = txtboxOuterSurfaceTemperature.Text.ToDouble();
 
-                calc = new(
-                    stoveLength, stoveHeight, stoveWidth,
-                    maxSampleTemperature, ambientGasTemperature, outerSurfaceTemperature,
-                    isWithDoor, isDoubleLayer
-                    );
+                furnace = new(furnaceLength, furnaceHeight, furnaceWidth, workTemperature, ambientTemperature, outerSurfaceTemperature, isDoor, isDoubleLayer);
+                AddFireproofToCmbbox();
+                ShowLiningCalculations();
 
-                linigFireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(calc.MaxSampleTemperature);
-
-                openResult();
-
-                foreach (Fireproof fireproof in linigFireproofs)
-                {
-                    comboBox1.Items.Add(fireproof.Name);
-                }
-
-                comboBox1.SelectedIndex = 0;
             }
-            catch (FormatException)
+            catch (FormatException error)
             {
                 MessageBox.Show("Ошибка ввода данных!!");
             }
-            catch (ArgumentNullException)
+            catch (ArgumentNullException error)
             {
                 MessageBox.Show("Одно из полей равно NULL");
             }
-            catch (OverflowException)
+            catch (OverflowException error)
             {
                 MessageBox.Show("Одно из введеных чисел слишком мало или слишком велико");
             }
-            catch (InvalidOperationException)
+        }
+
+        private void FillCalculatedData()
+        {
+            
+        }
+
+        private void AddFireproofToCmbbox()
+        {
+            fireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(furnace.MaxSampleTemperature);
+
+            foreach (Fireproof fireproof in fireproofs)
             {
-                MessageBox.Show("Не один из огнеупоров не выдержит такой температуры :(");
+                cmbboxLiningFireproof.Items.Add(fireproof.Name);
+            }
+        }
+        private void ShowLiningCalculations()
+        {
+            iconPictureBox1.Visible = true;
+            lblTitleResultData.Visible = true;
+            lblLiningCalculationTitle.Visible = true;
+            label1.Visible = true;
+            label4.Visible = true;
+            label6.Visible = true;
+            label7.Visible = true;
+            label8.Visible = true;
+            label12.Visible = true;
+            cmbboxLiningFireproof.Visible = true;
+            cmbboxLiningInsulation.Visible = true;
+            txtboxLiningFireproofWidth.Visible = true;
+            label14.Visible = true;
+            btnContinueCalculations.Visible = true;
+            btnStopCalculations.Visible = true;
+        }
+        private void txtboxFurnaceHeight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TxtboxDataSourceValidator.isCorrectSymbol(txtboxFurnaceHeight.Text, e.KeyChar) == false)
+            {
+                e.Handled = true;
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtboxFurnaceWidth_KeyPress(object sender, KeyPressEventArgs e)
         {
-            calc.LiningFireproof = linigFireproofs[comboBox1.SelectedIndex];
-            updateData();
+            if (TxtboxDataSourceValidator.isCorrectSymbol(txtboxFurnaceWidth.Text, e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtboxFurnaceLength_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (fireproofWidthTextBox.Text == "") return;
-
-            calc.LiningFireproofWidth = Double.Parse(fireproofWidthTextBox.Text);
-            updateData();
+            if (TxtboxDataSourceValidator.isCorrectSymbol(txtboxFurnaceLength.Text, e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
         }
 
-        private void fireproofSurfaceTemperatureTextBox_TextChanged(object sender, EventArgs e)
+        private void txtboxAmbientTemperature_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (fireproofSurfaceTemperatureTextBox.Text == "") return;
-
-            //calc.FireproofSurfaceTemperature = Double.Parse(fireproofSurfaceTemperatureTextBox.Text);
-            //updateData();
+            if (TxtboxDataSourceValidator.isCorrectSymbol(txtboxAmbientTemperature.Text, e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtboxWorkTemperature_KeyPress(object sender, KeyPressEventArgs e)
         {
-            calc.LiningInsulation = liningInsulations[comboBox2.SelectedIndex];
-            thermalInsulationWidthTextBox.Text = calc.LiningInsulationWidth.ToString();
+            if (TxtboxDataSourceValidator.isCorrectSymbol(txtboxWorkTemperature.Text, e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void txtboxOuterSurfaceTemperature_KeyPress(object sender, KeyPressEventArgs e)
         {
-            calc.OverlapFireproofWidth = textBox1.Text.ToDouble();
-            updateData();
+            if (TxtboxDataSourceValidator.isCorrectSymbol(txtboxOuterSurfaceTemperature.Text, e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
         }
 
-        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtboxLiningFireproofWidth_KeyPress(object sender, KeyPressEventArgs e)
         {
-            calc.OverlapFireproof = overlapFireproofs[comboBox5.SelectedIndex];
-            textBox2.Text = calc.OverlapFireproofSurfaceTemperature.ToString();
+            if (TxtboxDataSourceValidator.isCorrectSymbol(txtboxLiningFireproofWidth.Text, e.KeyChar) == false)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbboxLiningFireproof_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            currentFireproof = fireproofs[cmbboxLiningFireproof.SelectedIndex];
         }
     }
 }
