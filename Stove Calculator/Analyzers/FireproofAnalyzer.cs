@@ -13,12 +13,11 @@ namespace Stove_Calculator.Analyzers
         public static List<Fireproof> GetSuitableLiningFireproofs(double maxSampleTemperature)
         {
             List<Fireproof> query;
-            double maxTemperatureHeater = maxSampleTemperature + 100;
 
             using (var context = new FireproofContext())
             {
                 var blogs = from b in context.Fireproof
-                            where b.MaxTemperatureOfUse >= maxTemperatureHeater
+                            where b.MaxTemperatureOfUse >= maxSampleTemperature
                             orderby b.MaxTemperatureOfUse, b.Density descending,
                             b.AValue + b.BValue * maxSampleTemperature
                             select b;

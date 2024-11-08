@@ -59,6 +59,7 @@
             label2 = new Label();
             lblFurnaceHeight = new Label();
             panel1 = new Panel();
+            lblLiningInsulationWidth = new Label();
             label5 = new Label();
             btnStopCalculations = new FontAwesome.Sharp.IconButton();
             btnContinueCalculations = new FontAwesome.Sharp.IconButton();
@@ -67,7 +68,7 @@
             label12 = new Label();
             cmbboxLiningInsulation = new ComboBox();
             label8 = new Label();
-            label7 = new Label();
+            lblLiningFireproofTemperature = new Label();
             label6 = new Label();
             lblLiningCalculationTitle = new Label();
             txtboxLiningFireproofWidth = new TextBox();
@@ -75,7 +76,6 @@
             cmbboxLiningFireproof = new ComboBox();
             label1 = new Label();
             lblTitleResultData = new Label();
-            label14 = new Label();
             pnlSourceData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pctboxSchemeChamberFurnace).BeginInit();
@@ -394,7 +394,7 @@
             // 
             panel1.AutoScroll = true;
             panel1.BackColor = Color.FromArgb(34, 33, 74);
-            panel1.Controls.Add(label14);
+            panel1.Controls.Add(lblLiningInsulationWidth);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(btnStopCalculations);
             panel1.Controls.Add(btnContinueCalculations);
@@ -403,7 +403,7 @@
             panel1.Controls.Add(label12);
             panel1.Controls.Add(cmbboxLiningInsulation);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
+            panel1.Controls.Add(lblLiningFireproofTemperature);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(lblLiningCalculationTitle);
             panel1.Controls.Add(txtboxLiningFireproofWidth);
@@ -416,6 +416,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(755, 811);
             panel1.TabIndex = 1;
+            // 
+            // lblLiningInsulationWidth
+            // 
+            lblLiningInsulationWidth.AutoSize = true;
+            lblLiningInsulationWidth.Location = new Point(391, 281);
+            lblLiningInsulationWidth.Name = "lblLiningInsulationWidth";
+            lblLiningInsulationWidth.Size = new Size(38, 22);
+            lblLiningInsulationWidth.TabIndex = 46;
+            lblLiningInsulationWidth.Text = "0 м";
+            lblLiningInsulationWidth.Visible = false;
             // 
             // label5
             // 
@@ -458,6 +468,7 @@
             btnContinueCalculations.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnContinueCalculations.UseVisualStyleBackColor = true;
             btnContinueCalculations.Visible = false;
+            btnContinueCalculations.Click += btnContinueCalculations_Click;
             // 
             // iconPictureBox1
             // 
@@ -503,6 +514,7 @@
             cmbboxLiningInsulation.Size = new Size(241, 30);
             cmbboxLiningInsulation.TabIndex = 35;
             cmbboxLiningInsulation.Visible = false;
+            cmbboxLiningInsulation.SelectedIndexChanged += cmbboxLiningInsulation_SelectedIndexChanged;
             // 
             // label8
             // 
@@ -514,15 +526,15 @@
             label8.Text = "Выберите материал теплоизоляции:";
             label8.Visible = false;
             // 
-            // label7
+            // lblLiningFireproofTemperature
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(391, 214);
-            label7.Name = "label7";
-            label7.Size = new Size(46, 22);
-            label7.TabIndex = 33;
-            label7.Text = "0 °C";
-            label7.Visible = false;
+            lblLiningFireproofTemperature.AutoSize = true;
+            lblLiningFireproofTemperature.Location = new Point(391, 214);
+            lblLiningFireproofTemperature.Name = "lblLiningFireproofTemperature";
+            lblLiningFireproofTemperature.Size = new Size(46, 22);
+            lblLiningFireproofTemperature.TabIndex = 33;
+            lblLiningFireproofTemperature.Text = "0 °C";
+            lblLiningFireproofTemperature.Visible = false;
             // 
             // label6
             // 
@@ -554,6 +566,7 @@
             txtboxLiningFireproofWidth.TabIndex = 30;
             txtboxLiningFireproofWidth.Text = "0";
             txtboxLiningFireproofWidth.Visible = false;
+            txtboxLiningFireproofWidth.TextChanged += txtboxLiningFireproofWidth_TextChanged;
             txtboxLiningFireproofWidth.KeyPress += txtboxLiningFireproofWidth_KeyPress;
             // 
             // label4
@@ -597,16 +610,6 @@
             lblTitleResultData.TabIndex = 26;
             lblTitleResultData.Text = "Результат";
             lblTitleResultData.Visible = false;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(391, 281);
-            label14.Name = "label14";
-            label14.Size = new Size(38, 22);
-            label14.TabIndex = 46;
-            label14.Text = "0 м";
-            label14.Visible = false;
             // 
             // ChamberFurnaceForm
             // 
@@ -663,7 +666,7 @@
         private Label lblTitleSourceData;
         private Panel panel1;
         private Label lblTitleResultData;
-        private Label label7;
+        private Label lblLiningFireproofTemperature;
         private Label label6;
         private Label lblLiningCalculationTitle;
         private TextBox txtboxLiningFireproofWidth;
@@ -679,6 +682,6 @@
         private FontAwesome.Sharp.IconButton btnContinueCalculations;
         private FontAwesome.Sharp.IconButton btnStopCalculations;
         private Label label5;
-        private Label label14;
+        private Label lblLiningInsulationWidth;
     }
 }

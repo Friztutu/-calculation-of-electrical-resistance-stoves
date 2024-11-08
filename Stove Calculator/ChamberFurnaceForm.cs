@@ -26,8 +26,18 @@ namespace Stove_Calculator
     {
 
         private ChamberFurnace furnace;
-        private List<Fireproof> fireproofs;
-        private Fireproof currentFireproof;
+
+        private struct State
+        {
+            public static List<Fireproof> fireproofs;
+            public static Fireproof currentFireproof;
+            public static List<ThermalInsulation> insulations;
+            public static ThermalInsulation currentInsulation;
+
+            public static double liningFireproofWidth;
+            public static double liningFireproofSurfaceTemperature;
+            public static double liningInsulationWidth;
+        }
 
         public ChamberFurnaceForm()
         {
@@ -55,7 +65,10 @@ namespace Stove_Calculator
                 double workTemperature = txtboxWorkTemperature.Text.ToDouble();
                 double outerSurfaceTemperature = txtboxOuterSurfaceTemperature.Text.ToDouble();
 
-                furnace = new(furnaceLength, furnaceHeight, furnaceWidth, workTemperature, ambientTemperature, outerSurfaceTemperature, isDoor, isDoubleLayer);
+                furnace = new(
+                    furnaceLength, furnaceHeight, furnaceWidth,
+                    workTemperature, ambientTemperature, outerSurfaceTemperature,
+                    isDoor, isDoubleLayer);
                 AddFireproofToCmbbox();
                 ShowLiningCalculations();
 
@@ -76,17 +89,47 @@ namespace Stove_Calculator
 
         private void FillCalculatedData()
         {
-            
+
+            State.liningFireproofWidth = txtboxLiningFireproofWidth.Text.ToDouble();
+            State.liningFireproofSurfaceTemperature = ChamberFurnaceCalculator.CalculateLiningFireproofSurfaceTemperature(
+                State.currentFireproof,
+                State.liningFireproofWidth,
+                furnace.AmbientGasTemperature,
+                furnace.OuterSurfaceTemperature,
+                furnace.MaxSampleTemperature);
+            lblLiningFireproofTemperature.Text = string.Format("{0:f2} °C", State.liningFireproofSurfaceTemperature);
+
+            cmbboxLiningInsulation.Items.Clear();
+            lblLiningInsulationWidth.Text = "0 м";
+
+            if (State.liningFireproofSurfaceTemperature > 1100) return;
+
+            AddInsulationToCmbbox();
         }
 
         private void AddFireproofToCmbbox()
         {
-            fireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(furnace.MaxSampleTemperature);
+            State.fireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(furnace.MaxSampleTemperature);
 
-            foreach (Fireproof fireproof in fireproofs)
+            foreach (Fireproof fireproof in State.fireproofs)
             {
                 cmbboxLiningFireproof.Items.Add(fireproof.Name);
             }
+
+            cmbboxLiningFireproof.SelectedIndex = 0;
+        }
+
+        private void AddInsulationToCmbbox()
+        {
+            State.insulations = ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(
+                State.liningFireproofSurfaceTemperature, furnace.MaxSampleTemperature);
+
+            foreach (ThermalInsulation insulation in State.insulations)
+            {
+                cmbboxLiningInsulation.Items.Add(insulation.Name);
+            }
+
+            cmbboxLiningInsulation.SelectedIndex = 0;
         }
         private void ShowLiningCalculations()
         {
@@ -96,13 +139,13 @@ namespace Stove_Calculator
             label1.Visible = true;
             label4.Visible = true;
             label6.Visible = true;
-            label7.Visible = true;
+            lblLiningFireproofTemperature.Visible = true;
             label8.Visible = true;
             label12.Visible = true;
             cmbboxLiningFireproof.Visible = true;
             cmbboxLiningInsulation.Visible = true;
             txtboxLiningFireproofWidth.Visible = true;
-            label14.Visible = true;
+            lblLiningInsulationWidth.Visible = true;
             btnContinueCalculations.Visible = true;
             btnStopCalculations.Visible = true;
         }
@@ -164,7 +207,31 @@ namespace Stove_Calculator
 
         private void cmbboxLiningFireproof_SelectedIndexChanged(object sender, EventArgs e)
         {
-            currentFireproof = fireproofs[cmbboxLiningFireproof.SelectedIndex];
+            State.currentFireproof = State.fireproofs[cmbboxLiningFireproof.SelectedIndex];
+            FillCalculatedData();
+        }
+
+        private void txtboxLiningFireproofWidth_TextChanged(object sender, EventArgs e)
+        {
+            FillCalculatedData();
+        }
+
+        private void cmbboxLiningInsulation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            State.currentInsulation = State.insulations[cmbboxLiningInsulation.SelectedIndex];
+
+            double liningInsulationWidth = ChamberFurnaceCalculator.CalculateInsulationWidth(
+                State.currentInsulation,
+                State.liningFireproofSurfaceTemperature,
+                furnace.OuterSurfaceTemperature,
+                furnace.AmbientGasTemperature);
+
+            lblLiningInsulationWidth.Text = string.Format("{0:f2} м", liningInsulationWidth);
+        }
+
+        private void btnContinueCalculations_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

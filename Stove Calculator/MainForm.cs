@@ -120,7 +120,11 @@ namespace Stove_Calculator
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            currentChildForm.Close();
+            if(currentChildForm is not null)
+            {
+                currentChildForm.Close();
+            }
+
             Reset();
         }
 
