@@ -15,14 +15,15 @@ using System.Runtime.Intrinsics.X86;
 using Stove_Calculator.Furnaces;
 using Stove_Calculator.Analyzers;
 using System.Windows.Media.Animation;
+using Stove_Calculator.Constans;
 
 namespace Stove_Calculator.Calculators
 {
     public class ChamberFurnace : Furnace
     {
         // Dimensions
-        private readonly double _furnanceHeight;
-        private readonly double _furnanceWidth;
+        protected readonly double _furnanceHeight;
+        protected readonly double _furnanceWidth;
 
         // Getters
         public double FurnanceHeight => _furnanceHeight;
@@ -36,6 +37,27 @@ namespace Stove_Calculator.Calculators
         {
             this._furnanceHeight = furnanceHeight;
             this._furnanceWidth = furnanceWidth;
+        }
+
+        protected override void CalculateLiningFireproofSurfaceTemperature()
+        {
+            double y1 = Constant.I + Constant.J * _outerSurfaceTemperature;
+            double q1 = y1 * (_outerSurfaceTemperature - _ambientGasTemperature);
+
+            double sqrtExpression = Math.Pow(2 * _liningFireproof.AValue, 2) - 4 * _liningFireproof.BValue *
+                (2 * _liningFireproofWidth * q1 - 2 * _liningFireproof.AValue * _workTemperature - _liningFireproof.BValue * 
+                Math.Pow(_workTemperature, 2));
+
+            _liningFireproofSurfaceTemperature = (-2 * _liningFireproof.AValue + Math.Sqrt(sqrtExpression)) / (2 * _liningFireproof.BValue);
+        }
+
+        protected override void CalculateInsulationWidth()
+        {
+            double x2 = _liningInsulation.AValue + (_liningInsulation.BValue * ((_liningFireproofSurfaceTemperature + _outerSurfaceTemperature) / 2));
+            double y1 = Constant.I + Constant.J * _outerSurfaceTemperature;
+            double q1 = y1 * (_outerSurfaceTemperature - _ambientGasTemperature);
+
+            _liningInsulationWidth = (x2 * (_liningFireproofSurfaceTemperature - _outerSurfaceTemperature) / q1);
         }
     }
 }
