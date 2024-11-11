@@ -97,7 +97,6 @@ namespace Stove_Calculator
                 lblLiningFireproofTemperature.Text = string.Format("{0:f2}", Math.Round(furnace.LiningFireproofSurfaceTemperature, 2));
 
                 pnlLining.Visible = true;
-
             }
             catch (FormatException error)
             {
@@ -110,6 +109,10 @@ namespace Stove_Calculator
             catch (OverflowException error)
             {
                 MessageBox.Show("Одно из введеных чисел слишком мало или слишком велико");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Ни один огнеупор не подойдет для такой температуры");
             }
         }
 
