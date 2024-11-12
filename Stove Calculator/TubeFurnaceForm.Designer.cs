@@ -430,7 +430,7 @@
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Times New Roman", 16F);
-            label15.Location = new Point(213, 0);
+            label15.Location = new Point(218, 5);
             label15.Name = "label15";
             label15.Size = new Size(372, 31);
             label15.TabIndex = 40;
@@ -489,6 +489,7 @@
             txtboxOverlapFireproofWidth.Size = new Size(241, 30);
             txtboxOverlapFireproofWidth.TabIndex = 50;
             txtboxOverlapFireproofWidth.Text = "0";
+            txtboxOverlapFireproofWidth.KeyPress += txtboxOverlapFireproofWidth_KeyPress;
             // 
             // label13
             // 
@@ -552,6 +553,7 @@
             txtboxOverlapInsulationWidth.Size = new Size(241, 30);
             txtboxOverlapInsulationWidth.TabIndex = 57;
             txtboxOverlapInsulationWidth.Text = "0";
+            txtboxOverlapInsulationWidth.KeyPress += txtboxOverlapInsulationWidth_KeyPress;
             // 
             // label18
             // 
@@ -661,6 +663,7 @@
             txtboxLiningFireproofWidth.TabIndex = 30;
             txtboxLiningFireproofWidth.Text = "0";
             txtboxLiningFireproofWidth.TextChanged += txtboxLiningFireproofWidth_TextChanged;
+            txtboxLiningFireproofWidth.KeyPress += txtboxLiningFireproofWidth_KeyPress;
             // 
             // lblLiningSurfaceFireproofTemperatureHint
             // 
@@ -722,6 +725,7 @@
             btnCalculateOverlap.Text = "Перейти к расчёту перекрытия";
             btnCalculateOverlap.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCalculateOverlap.UseVisualStyleBackColor = true;
+            btnCalculateOverlap.Click += btnCalculateOverlap_Click;
             // 
             // btnStopLiningCalculations
             // 
@@ -737,6 +741,7 @@
             btnStopLiningCalculations.Text = "Вернуться назад";
             btnStopLiningCalculations.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnStopLiningCalculations.UseVisualStyleBackColor = true;
+            btnStopLiningCalculations.Click += btnStopLiningCalculations_Click;
             // 
             // lblLiningFireproofWidthDimension
             // 
