@@ -118,21 +118,21 @@ namespace Stove_Calculator
         {
             furnace.LiningFireproof = State.liningFireproofs[cmbboxLiningFireproof.SelectedIndex];
             lblLiningFireproofTemperature.Text = string.Format("{0:f2} °C", Math.Round(furnace.LiningFireproofSurfaceTemperature, 2));
-            lblLiningInsulationWidth.Text = string.Format("{0:f2} °C", Math.Round(furnace.LiningInsulationWidth, 2));
+            lblLiningInsulationWidth.Text = string.Format("{0:f2} м", Math.Round(furnace.LiningInsulationWidth, 2));
         }
 
         private void cmbboxLiningInsulation_SelectedIndexChanged(object sender, EventArgs e)
         {
             furnace.LiningInsulation = State.liningInsulations[cmbboxLiningInsulation.SelectedIndex];
             lblLiningFireproofTemperature.Text = string.Format("{0:f2} °C", Math.Round(furnace.LiningFireproofSurfaceTemperature, 2));
-            lblLiningInsulationWidth.Text = string.Format("{0:f2} °C", Math.Round(furnace.LiningInsulationWidth, 2));
+            lblLiningInsulationWidth.Text = string.Format("{0:f2} м", Math.Round(furnace.LiningInsulationWidth, 2));
         }
 
         private void txtboxLiningFireproofWidth_TextChanged(object sender, EventArgs e)
         {
             furnace.LiningFireproofWidth = txtboxLiningFireproofWidth.Text.ToDouble();
             lblLiningFireproofTemperature.Text = string.Format("{0:f2} °C", Math.Round(furnace.LiningFireproofSurfaceTemperature, 2));
-            lblLiningInsulationWidth.Text = string.Format("{0:f2} °C", Math.Round(furnace.LiningInsulationWidth, 2));
+            lblLiningInsulationWidth.Text = string.Format("{0:f2} м", Math.Round(furnace.LiningInsulationWidth, 2));
         }
 
         private void btnCalculateOverlap_Click(object sender, EventArgs e)

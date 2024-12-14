@@ -59,6 +59,18 @@
             label2 = new Label();
             lblFurnaceHeight = new Label();
             panel1 = new Panel();
+            panel2 = new Panel();
+            label20 = new Label();
+            label26 = new Label();
+            label5 = new Label();
+            label25 = new Label();
+            label6 = new Label();
+            label24 = new Label();
+            label21 = new Label();
+            label23 = new Label();
+            cmbboxCarborundHeater = new ComboBox();
+            cmbboxStepT = new ComboBox();
+            label22 = new Label();
             pnlOverlap = new Panel();
             label15 = new Label();
             label7 = new Label();
@@ -92,23 +104,13 @@
             btnStopLiningCalculations = new FontAwesome.Sharp.IconButton();
             lblLiningFireproofWidthDimension = new Label();
             lblLiningInsulationWidth = new Label();
-            textBox2 = new TextBox();
-            label21 = new Label();
-            comboBox1 = new ComboBox();
-            label22 = new Label();
-            label23 = new Label();
-            label24 = new Label();
-            textBox3 = new TextBox();
-            label25 = new Label();
-            comboBox2 = new ComboBox();
-            label26 = new Label();
-            label20 = new Label();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             lblTitleResultData = new Label();
             pnlSourceData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pctboxSchemeChamberFurnace).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             pnlOverlap.SuspendLayout();
             pnlLining.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
@@ -424,21 +426,11 @@
             // panel1
             // 
             panel1.AutoScroll = true;
-            panel1.AutoScrollMargin = new Size(0, 50);
+            panel1.AutoScrollMargin = new Size(0, 100);
             panel1.BackColor = Color.FromArgb(34, 33, 74);
+            panel1.Controls.Add(panel2);
             panel1.Controls.Add(pnlOverlap);
             panel1.Controls.Add(pnlLining);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(label21);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(label22);
-            panel1.Controls.Add(label23);
-            panel1.Controls.Add(label24);
-            panel1.Controls.Add(textBox3);
-            panel1.Controls.Add(label25);
-            panel1.Controls.Add(comboBox2);
-            panel1.Controls.Add(label26);
-            panel1.Controls.Add(label20);
             panel1.Controls.Add(iconPictureBox1);
             panel1.Controls.Add(lblTitleResultData);
             panel1.Dock = DockStyle.Right;
@@ -446,6 +438,124 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(755, 811);
             panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label20);
+            panel2.Controls.Add(label26);
+            panel2.Controls.Add(label5);
+            panel2.Controls.Add(label25);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(label24);
+            panel2.Controls.Add(label21);
+            panel2.Controls.Add(label23);
+            panel2.Controls.Add(cmbboxCarborundHeater);
+            panel2.Controls.Add(cmbboxStepT);
+            panel2.Controls.Add(label22);
+            panel2.Location = new Point(0, 746);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(731, 338);
+            panel2.TabIndex = 86;
+            panel2.Visible = false;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Times New Roman", 16F);
+            label20.Location = new Point(286, 9);
+            label20.Name = "label20";
+            label20.Size = new Size(156, 31);
+            label20.TabIndex = 61;
+            label20.Text = "Нагреватели";
+            label20.Visible = false;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new Point(402, 192);
+            label26.Name = "label26";
+            label26.Size = new Size(70, 22);
+            label26.TabIndex = 85;
+            label26.Text = "label26";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(52, 53);
+            label5.Name = "label5";
+            label5.Size = new Size(315, 22);
+            label5.TabIndex = 76;
+            label5.Text = "Удельная поверхностная мощность:";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Location = new Point(53, 192);
+            label25.Name = "label25";
+            label25.Size = new Size(232, 22);
+            label25.TabIndex = 84;
+            label25.Text = "Количество нагревателей:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(403, 53);
+            label6.Name = "label6";
+            label6.Size = new Size(94, 22);
+            label6.TabIndex = 77;
+            label6.Text = "0 кВт/м^2";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new Point(402, 159);
+            label24.Name = "label24";
+            label24.Size = new Size(70, 22);
+            label24.TabIndex = 83;
+            label24.Text = "label24";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(52, 86);
+            label21.Name = "label21";
+            label21.Size = new Size(156, 22);
+            label21.TabIndex = 78;
+            label21.Text = "Тип нагревателя:";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(53, 159);
+            label23.Name = "label23";
+            label23.Size = new Size(274, 22);
+            label23.TabIndex = 82;
+            label23.Text = "Мощность одного нагревателя:";
+            // 
+            // cmbboxCarborundHeater
+            // 
+            cmbboxCarborundHeater.FormattingEnabled = true;
+            cmbboxCarborundHeater.Location = new Point(402, 83);
+            cmbboxCarborundHeater.Name = "cmbboxCarborundHeater";
+            cmbboxCarborundHeater.Size = new Size(242, 30);
+            cmbboxCarborundHeater.TabIndex = 79;
+            // 
+            // cmbboxStepT
+            // 
+            cmbboxStepT.FormattingEnabled = true;
+            cmbboxStepT.Location = new Point(403, 119);
+            cmbboxStepT.Name = "cmbboxStepT";
+            cmbboxStepT.Size = new Size(242, 30);
+            cmbboxStepT.TabIndex = 81;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(52, 122);
+            label22.Name = "label22";
+            label22.Size = new Size(63, 22);
+            label22.TabIndex = 80;
+            label22.Text = "Шаг t:";
             // 
             // pnlOverlap
             // 
@@ -814,117 +924,6 @@
             lblLiningInsulationWidth.TabIndex = 46;
             lblLiningInsulationWidth.Text = "0 м";
             // 
-            // textBox2
-            // 
-            textBox2.ForeColor = Color.Black;
-            textBox2.Location = new Point(405, 902);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(241, 30);
-            textBox2.TabIndex = 71;
-            textBox2.Text = "0";
-            textBox2.Visible = false;
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(55, 905);
-            label21.Name = "label21";
-            label21.Size = new Size(343, 22);
-            label21.TabIndex = 70;
-            label21.Text = "Введите толщину слоя теплоизоляции:";
-            label21.Visible = false;
-            // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(405, 829);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(241, 30);
-            comboBox1.TabIndex = 69;
-            comboBox1.Visible = false;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Location = new Point(55, 832);
-            label22.Name = "label22";
-            label22.Size = new Size(276, 22);
-            label22.TabIndex = 68;
-            label22.Text = "Выберите материал огнеупора:";
-            label22.Visible = false;
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Location = new Point(405, 938);
-            label23.Name = "label23";
-            label23.Size = new Size(46, 22);
-            label23.TabIndex = 67;
-            label23.Text = "0 °C";
-            label23.Visible = false;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Location = new Point(55, 938);
-            label24.Name = "label24";
-            label24.Size = new Size(350, 22);
-            label24.TabIndex = 66;
-            label24.Text = "Температура на границе раздела слоев: ";
-            label24.Visible = false;
-            // 
-            // textBox3
-            // 
-            textBox3.ForeColor = Color.Black;
-            textBox3.Location = new Point(405, 865);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(241, 30);
-            textBox3.TabIndex = 65;
-            textBox3.Text = "0";
-            textBox3.Visible = false;
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Location = new Point(55, 868);
-            label25.Name = "label25";
-            label25.Size = new Size(300, 22);
-            label25.TabIndex = 64;
-            label25.Text = "Введите толщину слоя огнеупора:";
-            label25.Visible = false;
-            // 
-            // comboBox2
-            // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(405, 793);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(241, 30);
-            comboBox2.TabIndex = 63;
-            comboBox2.Visible = false;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.Location = new Point(55, 796);
-            label26.Name = "label26";
-            label26.Size = new Size(276, 22);
-            label26.TabIndex = 62;
-            label26.Text = "Выберите материал огнеупора:";
-            label26.Visible = false;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Times New Roman", 16F);
-            label20.Location = new Point(300, 743);
-            label20.Name = "label20";
-            label20.Size = new Size(156, 31);
-            label20.TabIndex = 61;
-            label20.Text = "Нагреватели";
-            label20.Visible = false;
-            // 
             // iconPictureBox1
             // 
             iconPictureBox1.BackColor = Color.FromArgb(34, 33, 74);
@@ -970,6 +969,8 @@
             ((System.ComponentModel.ISupportInitialize)pctboxSchemeChamberFurnace).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             pnlOverlap.ResumeLayout(false);
             pnlOverlap.PerformLayout();
             pnlLining.ResumeLayout(false);
@@ -1038,16 +1039,6 @@
         private Label label18;
         private TextBox txtboxOverlapInsulationWidth;
         private Label label19;
-        private TextBox textBox2;
-        private Label label21;
-        private ComboBox comboBox1;
-        private Label label22;
-        private Label label23;
-        private Label label24;
-        private TextBox textBox3;
-        private Label label25;
-        private ComboBox comboBox2;
-        private Label label26;
         private Label label20;
         private FontAwesome.Sharp.IconButton btnStopOverlapCalculation;
         private FontAwesome.Sharp.IconButton btnCalculateHeater;
@@ -1055,5 +1046,16 @@
         private Label label4;
         private Panel pnlLining;
         private Panel pnlOverlap;
+        private Label label6;
+        private Label label5;
+        private Label label23;
+        private ComboBox cmbboxStepT;
+        private Label label22;
+        private ComboBox cmbboxCarborundHeater;
+        private Label label21;
+        private Label label26;
+        private Label label25;
+        private Label label24;
+        private Panel panel2;
     }
 }

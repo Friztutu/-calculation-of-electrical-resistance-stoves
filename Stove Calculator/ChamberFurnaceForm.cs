@@ -30,12 +30,12 @@ namespace Stove_Calculator
 
         private ChamberFurnace furnace;
         private readonly int yOffset = 36;
-
+        
         private struct State
         {
             public static List<Fireproof> liningFireproofs;
             public static List<ThermalInsulation> liningInsulations;
-
+            
             public static List<Fireproof> overlapFireproofs;
             public static List<ThermalInsulation> overlapInsulations;
         }
@@ -239,7 +239,7 @@ namespace Stove_Calculator
             lblOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(furnace.OverlapSurfaceTemperature, 2));
             label4.Text = string.Format("{0:f2} °C", Math.Round(furnace.OverlapLiningTemperature, 2));
         }
-
+        
         private void cmbboxOverlapInsulation_SelectedIndexChanged(object sender, EventArgs e)
         {
             furnace.OverlapInsulation = State.overlapInsulations[cmbboxOverlapInsulation.SelectedIndex];

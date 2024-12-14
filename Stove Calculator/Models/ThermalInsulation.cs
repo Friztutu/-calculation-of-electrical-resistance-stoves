@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace Stove_Calculator.Models
 {
     public class ThermalInsulation
     {
+        [Key]
         public required int ThermalInsulationId { get; set; }
         public required string Name { get; set; }
         public required double MaxTemperatureOfUse { get; set; }

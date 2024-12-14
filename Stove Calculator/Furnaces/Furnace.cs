@@ -9,6 +9,7 @@ using System.Windows.Media.Animation;
 using System.Reflection.Metadata;
 using Stove_Calculator.Constans;
 using Constant = Stove_Calculator.Constans.Constant;
+using SkiaSharp;
 
 namespace Stove_Calculator.Furnaces
 {
@@ -38,6 +39,14 @@ namespace Stove_Calculator.Furnaces
         protected double _liningFireproofSurfaceTemperature;
         protected ThermalInsulation _liningInsulation;
         protected double _liningInsulationWidth;
+
+        // Carborund Heater
+        protected double _specificSurfaceTheoryPower;
+        protected CarborundumHeaters _carborundHeater;
+        protected double _j;
+        protected double _specificSurfaceRealPower;
+        protected double _powerSingleHeater;
+        protected double _numberofHeaters;
 
         // GETTERS
         public double FurnaceLength => _furnanceLength;
