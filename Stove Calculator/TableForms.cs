@@ -76,7 +76,7 @@ namespace Stove_Calculator
             //this.transformersBindingSource.DataSource = dbContext8.Transformers.Local.ToBindingList();
             //this.wireBindingSource.DataSource = dbContext9.Wire.Local.ToBindingList();
         }
-        
+
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);

@@ -21,43 +21,44 @@ namespace Stove_Calculator.Calculators
 {
     public class ChamberFurnace : Furnace
     {
-        // Dimensions
-        protected readonly double _furnanceHeight;
-        protected readonly double _furnanceWidth;
-
-        // Getters
-        public double FurnanceHeight => _furnanceHeight;
-        public double FurnanceWidth => _furnanceWidth;
-        
-        public ChamberFurnace(
-            double furnanceLength, double furnanceHeight, double furnanceWidth, 
-            double maxSampleTemperature, double ambientGasTemperature, double outerSurfaceTemperature,
-            bool isWithDoor, bool isDoubleLayer) 
-            : base(furnanceLength, maxSampleTemperature, ambientGasTemperature, outerSurfaceTemperature, isWithDoor, isDoubleLayer) 
+        public unsafe static double CalculateLiningFireproofSurfaceTemperature(
+            Fireproof liningFireproof, double outerSurfaceTemperature,
+            double ambientGasTemperature, double workTemperature,
+            double liningFireproofWidth, double* x1)
         {
-            this._furnanceHeight = furnanceHeight;
-            this._furnanceWidth = furnanceWidth;
+            double y1 = Constant.I + Constant.J * outerSurfaceTemperature;
+            double q1 = y1 * (outerSurfaceTemperature - ambientGasTemperature);
+
+            double sqrtExpression = Math.Pow(2 * liningFireproof.AValue, 2) - 4 * liningFireproof.BValue *
+                (2 * liningFireproofWidth * q1 - 2 * liningFireproof.AValue * workTemperature - liningFireproof.BValue * 
+                Math.Pow(workTemperature, 2));
+
+            double liningFireproofSurfaceTemperature = (-2 * liningFireproof.AValue + Math.Sqrt(sqrtExpression)) / (2 * liningFireproof.BValue);
+            *x1 = liningFireproof.AValue + (liningFireproof.BValue * (workTemperature + liningFireproofSurfaceTemperature) / 2);
+
+            return liningFireproofSurfaceTemperature;        
         }
 
-        protected override void CalculateLiningFireproofSurfaceTemperature()
+        public static double CalculateInsulationWidth(
+            ThermalInsulation liningInsulation, double liningFireproofSurfaceTemperature,
+            double outerSurfaceTempearature, double ambientGasTemperature)
         {
-            double y1 = Constant.I + Constant.J * _outerSurfaceTemperature;
-            double q1 = y1 * (_outerSurfaceTemperature - _ambientGasTemperature);
+            double x2 = liningInsulation.AValue + (liningInsulation.BValue * ((liningFireproofSurfaceTemperature + outerSurfaceTempearature) / 2));
+            double y1 = Constant.I + Constant.J * outerSurfaceTempearature;
+            double q1 = y1 * (outerSurfaceTempearature - ambientGasTemperature);
 
-            double sqrtExpression = Math.Pow(2 * _liningFireproof.AValue, 2) - 4 * _liningFireproof.BValue *
-                (2 * _liningFireproofWidth * q1 - 2 * _liningFireproof.AValue * _workTemperature - _liningFireproof.BValue * 
-                Math.Pow(_workTemperature, 2));
+            double liningInsulationWidth = (x2 * (liningFireproofSurfaceTemperature - outerSurfaceTempearature) / q1);
 
-            _liningFireproofSurfaceTemperature = (-2 * _liningFireproof.AValue + Math.Sqrt(sqrtExpression)) / (2 * _liningFireproof.BValue);
+            return liningInsulationWidth;
         }
 
-        protected override void CalculateInsulationWidth()
+        public unsafe static void CalculateParameters(
+            bool isDoor, bool isDoubleLayer, double furnaceHeight,
+            double furnaceWidth, double furnaceLength, double overlapFireproofWidth,
+            double overlapInsulationWidth, double liningFireproofWidth, double liningInsulationWidth
+            )
         {
-            double x2 = _liningInsulation.AValue + (_liningInsulation.BValue * ((_liningFireproofSurfaceTemperature + _outerSurfaceTemperature) / 2));
-            double y1 = Constant.I + Constant.J * _outerSurfaceTemperature;
-            double q1 = y1 * (_outerSurfaceTemperature - _ambientGasTemperature);
-
-            _liningInsulationWidth = (x2 * (_liningFireproofSurfaceTemperature - _outerSurfaceTemperature) / q1);
+             
         }
     }
 }

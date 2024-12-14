@@ -60,32 +60,93 @@
             lblFurnaceHeight = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            label20 = new Label();
+            label74 = new Label();
+            label73 = new Label();
+            label69 = new Label();
+            panel10 = new Panel();
+            label70 = new Label();
+            label66 = new Label();
+            label71 = new Label();
+            label67 = new Label();
+            label72 = new Label();
+            label68 = new Label();
+            panel9 = new Panel();
+            label65 = new Label();
+            label61 = new Label();
+            label62 = new Label();
+            label63 = new Label();
+            label64 = new Label();
+            label59 = new Label();
+            label60 = new Label();
+            label53 = new Label();
+            label54 = new Label();
+            label55 = new Label();
+            label56 = new Label();
+            label57 = new Label();
+            label58 = new Label();
+            panel8 = new Panel();
+            label47 = new Label();
+            label48 = new Label();
+            label49 = new Label();
+            label50 = new Label();
+            label51 = new Label();
+            label52 = new Label();
+            label41 = new Label();
+            label42 = new Label();
+            label43 = new Label();
+            label44 = new Label();
+            label45 = new Label();
+            label46 = new Label();
+            label35 = new Label();
+            label36 = new Label();
+            label37 = new Label();
+            label38 = new Label();
+            label39 = new Label();
+            label40 = new Label();
+            label33 = new Label();
+            label34 = new Label();
+            label28 = new Label();
+            label29 = new Label();
             label26 = new Label();
-            label5 = new Label();
             label25 = new Label();
-            label6 = new Label();
+            panel7 = new Panel();
+            panel6 = new Panel();
+            panel5 = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
             label24 = new Label();
-            label21 = new Label();
             label23 = new Label();
-            cmbboxCarborundHeater = new ComboBox();
-            cmbboxStepT = new ComboBox();
             label22 = new Label();
-            pnlOverlap = new Panel();
+            label21 = new Label();
+            label20 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            pnlDoubleOverlap = new Panel();
+            pnlSingleOverlap = new Panel();
+            label4 = new Label();
+            label27 = new Label();
+            cmbboxSingleOverlapFireproof = new ComboBox();
+            label30 = new Label();
+            txtboxSingleOverlapFireproofWidth = new TextBox();
+            label31 = new Label();
+            label32 = new Label();
+            lblSingleOverlapTemperature = new Label();
+            iconButton1 = new FontAwesome.Sharp.IconButton();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
             label15 = new Label();
             label7 = new Label();
-            label4 = new Label();
-            cmbboxOverlapFireproof = new ComboBox();
+            lblDoubleOverlapLiningTemperature = new Label();
+            cmbboxDoubleOverlapFireproof = new ComboBox();
             label1 = new Label();
             label14 = new Label();
-            txtboxOverlapFireproofWidth = new TextBox();
+            txtboxDoubleOverlapFireproofWidth = new TextBox();
             label13 = new Label();
             label17 = new Label();
-            lblOverlapTemperature = new Label();
+            lblDoubleOverlapTemperature = new Label();
             label16 = new Label();
-            cmbboxOverlapInsulation = new ComboBox();
+            cmbboxDoubleOverlapInsulation = new ComboBox();
             label19 = new Label();
-            txtboxOverlapInsulationWidth = new TextBox();
+            txtboxDoubleOverlapInsulationWidth = new TextBox();
             label18 = new Label();
             btnCalculateHeater = new FontAwesome.Sharp.IconButton();
             btnStopOverlapCalculation = new FontAwesome.Sharp.IconButton();
@@ -111,7 +172,8 @@
             ((System.ComponentModel.ISupportInitialize)pctboxSchemeChamberFurnace).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            pnlOverlap.SuspendLayout();
+            pnlDoubleOverlap.SuspendLayout();
+            pnlSingleOverlap.SuspendLayout();
             pnlLining.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
             SuspendLayout();
@@ -221,7 +283,7 @@
             btnCalculate.Text = "Рассчитать";
             btnCalculate.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCalculate.UseVisualStyleBackColor = true;
-            btnCalculate.Click += btnCalculate_Click;
+            btnCalculate.Click += BtnCalculate_Click;
             // 
             // lblInfo2
             // 
@@ -295,7 +357,7 @@
             txtboxOuterSurfaceTemperature.Name = "txtboxOuterSurfaceTemperature";
             txtboxOuterSurfaceTemperature.Size = new Size(125, 30);
             txtboxOuterSurfaceTemperature.TabIndex = 14;
-            txtboxOuterSurfaceTemperature.KeyPress += txtboxOuterSurfaceTemperature_KeyPress;
+            txtboxOuterSurfaceTemperature.KeyPress += TxtboxOuterSurfaceTemperature_KeyPress;
             // 
             // txtboxWorkTemperature
             // 
@@ -304,7 +366,7 @@
             txtboxWorkTemperature.Name = "txtboxWorkTemperature";
             txtboxWorkTemperature.Size = new Size(125, 30);
             txtboxWorkTemperature.TabIndex = 13;
-            txtboxWorkTemperature.KeyPress += txtboxWorkTemperature_KeyPress;
+            txtboxWorkTemperature.KeyPress += TxtboxWorkTemperature_KeyPress;
             // 
             // txtboxAmbientTemperature
             // 
@@ -313,7 +375,7 @@
             txtboxAmbientTemperature.Name = "txtboxAmbientTemperature";
             txtboxAmbientTemperature.Size = new Size(125, 30);
             txtboxAmbientTemperature.TabIndex = 12;
-            txtboxAmbientTemperature.KeyPress += txtboxAmbientTemperature_KeyPress;
+            txtboxAmbientTemperature.KeyPress += TxtboxAmbientTemperature_KeyPress;
             // 
             // label9
             // 
@@ -376,7 +438,7 @@
             txtboxFurnaceLength.Name = "txtboxFurnaceLength";
             txtboxFurnaceLength.Size = new Size(125, 30);
             txtboxFurnaceLength.TabIndex = 5;
-            txtboxFurnaceLength.KeyPress += txtboxFurnaceLength_KeyPress;
+            txtboxFurnaceLength.KeyPress += TxtboxFurnaceLength_KeyPress;
             // 
             // txtboxFurnaceWidth
             // 
@@ -385,7 +447,7 @@
             txtboxFurnaceWidth.Name = "txtboxFurnaceWidth";
             txtboxFurnaceWidth.Size = new Size(125, 30);
             txtboxFurnaceWidth.TabIndex = 4;
-            txtboxFurnaceWidth.KeyPress += txtboxFurnaceWidth_KeyPress;
+            txtboxFurnaceWidth.KeyPress += TxtboxFurnaceWidth_KeyPress;
             // 
             // txtboxFurnaceHeight
             // 
@@ -394,7 +456,7 @@
             txtboxFurnaceHeight.Name = "txtboxFurnaceHeight";
             txtboxFurnaceHeight.Size = new Size(125, 30);
             txtboxFurnaceHeight.TabIndex = 3;
-            txtboxFurnaceHeight.KeyPress += txtboxFurnaceHeight_KeyPress;
+            txtboxFurnaceHeight.KeyPress += TxtboxFurnaceHeight_KeyPress;
             // 
             // label3
             // 
@@ -429,7 +491,7 @@
             panel1.AutoScrollMargin = new Size(0, 100);
             panel1.BackColor = Color.FromArgb(34, 33, 74);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(pnlOverlap);
+            panel1.Controls.Add(pnlDoubleOverlap);
             panel1.Controls.Add(pnlLining);
             panel1.Controls.Add(iconPictureBox1);
             panel1.Controls.Add(lblTitleResultData);
@@ -441,146 +503,762 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(label20);
+            panel2.Controls.Add(label74);
+            panel2.Controls.Add(label73);
+            panel2.Controls.Add(label69);
+            panel2.Controls.Add(panel10);
+            panel2.Controls.Add(label70);
+            panel2.Controls.Add(label66);
+            panel2.Controls.Add(label71);
+            panel2.Controls.Add(label67);
+            panel2.Controls.Add(label72);
+            panel2.Controls.Add(label68);
+            panel2.Controls.Add(panel9);
+            panel2.Controls.Add(label65);
+            panel2.Controls.Add(label61);
+            panel2.Controls.Add(label62);
+            panel2.Controls.Add(label63);
+            panel2.Controls.Add(label64);
+            panel2.Controls.Add(label59);
+            panel2.Controls.Add(label60);
+            panel2.Controls.Add(label53);
+            panel2.Controls.Add(label54);
+            panel2.Controls.Add(label55);
+            panel2.Controls.Add(label56);
+            panel2.Controls.Add(label57);
+            panel2.Controls.Add(label58);
+            panel2.Controls.Add(panel8);
+            panel2.Controls.Add(label47);
+            panel2.Controls.Add(label48);
+            panel2.Controls.Add(label49);
+            panel2.Controls.Add(label50);
+            panel2.Controls.Add(label51);
+            panel2.Controls.Add(label52);
+            panel2.Controls.Add(label41);
+            panel2.Controls.Add(label42);
+            panel2.Controls.Add(label43);
+            panel2.Controls.Add(label44);
+            panel2.Controls.Add(label45);
+            panel2.Controls.Add(label46);
+            panel2.Controls.Add(label35);
+            panel2.Controls.Add(label36);
+            panel2.Controls.Add(label37);
+            panel2.Controls.Add(label38);
+            panel2.Controls.Add(label39);
+            panel2.Controls.Add(label40);
+            panel2.Controls.Add(label33);
+            panel2.Controls.Add(label34);
+            panel2.Controls.Add(label28);
+            panel2.Controls.Add(label29);
             panel2.Controls.Add(label26);
-            panel2.Controls.Add(label5);
             panel2.Controls.Add(label25);
-            panel2.Controls.Add(label6);
+            panel2.Controls.Add(panel7);
+            panel2.Controls.Add(panel6);
+            panel2.Controls.Add(panel5);
+            panel2.Controls.Add(panel4);
+            panel2.Controls.Add(panel3);
             panel2.Controls.Add(label24);
-            panel2.Controls.Add(label21);
             panel2.Controls.Add(label23);
-            panel2.Controls.Add(cmbboxCarborundHeater);
-            panel2.Controls.Add(cmbboxStepT);
             panel2.Controls.Add(label22);
+            panel2.Controls.Add(label21);
+            panel2.Controls.Add(label20);
+            panel2.Controls.Add(label6);
+            panel2.Controls.Add(label5);
             panel2.Location = new Point(0, 746);
             panel2.Name = "panel2";
-            panel2.Size = new Size(731, 338);
-            panel2.TabIndex = 86;
-            panel2.Visible = false;
+            panel2.Size = new Size(731, 531);
+            panel2.TabIndex = 76;
             // 
-            // label20
+            // label74
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Times New Roman", 16F);
-            label20.Location = new Point(286, 9);
-            label20.Name = "label20";
-            label20.Size = new Size(156, 31);
-            label20.TabIndex = 61;
-            label20.Text = "Нагреватели";
-            label20.Visible = false;
+            label74.AutoSize = true;
+            label74.Location = new Point(614, 483);
+            label74.Name = "label74";
+            label74.Size = new Size(101, 22);
+            label74.TabIndex = 88;
+            label74.Text = "t1 = 1350.0";
+            // 
+            // label73
+            // 
+            label73.AutoSize = true;
+            label73.Location = new Point(504, 483);
+            label73.Name = "label73";
+            label73.Size = new Size(81, 22);
+            label73.TabIndex = 87;
+            label73.Text = "t0 = 20.0";
+            // 
+            // label69
+            // 
+            label69.AutoSize = true;
+            label69.Location = new Point(133, 483);
+            label69.Name = "label69";
+            label69.Size = new Size(87, 22);
+            label69.TabIndex = 80;
+            label69.Text = "L2 = 0.16";
+            // 
+            // panel10
+            // 
+            panel10.BackColor = Color.White;
+            panel10.Location = new Point(8, 454);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(720, 2);
+            panel10.TabIndex = 86;
+            // 
+            // label70
+            // 
+            label70.AutoSize = true;
+            label70.Location = new Point(248, 483);
+            label70.Name = "label70";
+            label70.Size = new Size(87, 22);
+            label70.TabIndex = 79;
+            label70.Text = "L3 = 0.15";
+            // 
+            // label66
+            // 
+            label66.AutoSize = true;
+            label66.Location = new Point(569, 415);
+            label66.Name = "label66";
+            label66.Size = new Size(111, 22);
+            label66.TabIndex = 85;
+            label66.Text = "P = 0.89284 ";
+            // 
+            // label71
+            // 
+            label71.AutoSize = true;
+            label71.Location = new Point(363, 483);
+            label71.Name = "label71";
+            label71.Size = new Size(117, 22);
+            label71.TabIndex = 78;
+            label71.Text = "L4 = 0.15000";
+            // 
+            // label67
+            // 
+            label67.AutoSize = true;
+            label67.Location = new Point(315, 415);
+            label67.Name = "label67";
+            label67.Size = new Size(95, 22);
+            label67.TabIndex = 84;
+            label67.Text = "892.84014";
+            // 
+            // label72
+            // 
+            label72.AutoSize = true;
+            label72.Location = new Point(21, 483);
+            label72.Name = "label72";
+            label72.Size = new Size(87, 22);
+            label72.TabIndex = 77;
+            label72.Text = "L1 = 0.20";
+            // 
+            // label68
+            // 
+            label68.AutoSize = true;
+            label68.Location = new Point(36, 415);
+            label68.Name = "label68";
+            label68.Size = new Size(140, 22);
+            label68.TabIndex = 83;
+            label68.Text = "Q3 = 595.22676";
+            // 
+            // panel9
+            // 
+            panel9.BackColor = Color.White;
+            panel9.Location = new Point(8, 395);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(720, 2);
+            panel9.TabIndex = 82;
+            // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Location = new Point(569, 332);
+            label65.Name = "label65";
+            label65.Size = new Size(130, 22);
+            label65.TabIndex = 81;
+            label65.Text = "Q2 = 21.34354";
+            // 
+            // label61
+            // 
+            label61.AutoSize = true;
+            label61.Location = new Point(407, 370);
+            label61.Name = "label61";
+            label61.Size = new Size(101, 22);
+            label61.TabIndex = 80;
+            label61.Text = "t5 = 716.88";
+            // 
+            // label62
+            // 
+            label62.AutoSize = true;
+            label62.Location = new Point(407, 348);
+            label62.Name = "label62";
+            label62.Size = new Size(136, 22);
+            label62.TabIndex = 79;
+            label62.Text = "q2 = 666.98552";
+            // 
+            // label63
+            // 
+            label63.AutoSize = true;
+            label63.Location = new Point(407, 326);
+            label63.Name = "label63";
+            label63.Size = new Size(125, 22);
+            label63.TabIndex = 78;
+            label63.Text = "y2 = 13.36287";
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Location = new Point(407, 304);
+            label64.Name = "label64";
+            label64.Size = new Size(91, 22);
+            label64.TabIndex = 77;
+            label64.Text = "t4 = 69.80";
+            // 
+            // label59
+            // 
+            label59.AutoSize = true;
+            label59.Location = new Point(213, 370);
+            label59.Name = "label59";
+            label59.Size = new Size(140, 22);
+            label59.TabIndex = 76;
+            label59.Text = "Q1 = 276.26984";
+            // 
+            // label60
+            // 
+            label60.AutoSize = true;
+            label60.Location = new Point(213, 348);
+            label60.Name = "label60";
+            label60.Size = new Size(91, 22);
+            label60.TabIndex = 75;
+            label60.Text = "t3 = 70.00";
+            // 
+            // label53
+            // 
+            label53.AutoSize = true;
+            label53.Location = new Point(213, 326);
+            label53.Name = "label53";
+            label53.Size = new Size(117, 22);
+            label53.TabIndex = 74;
+            label53.Text = "F3 = 1.14407";
+            // 
+            // label54
+            // 
+            label54.AutoSize = true;
+            label54.Location = new Point(213, 304);
+            label54.Name = "label54";
+            label54.Size = new Size(117, 22);
+            label54.TabIndex = 73;
+            label54.Text = "F2 = 0.52400";
+            // 
+            // label55
+            // 
+            label55.AutoSize = true;
+            label55.Location = new Point(36, 370);
+            label55.Name = "label55";
+            label55.Size = new Size(136, 22);
+            label55.TabIndex = 72;
+            label55.Text = "q1 = 668.72500";
+            // 
+            // label56
+            // 
+            label56.AutoSize = true;
+            label56.Location = new Point(36, 348);
+            label56.Name = "label56";
+            label56.Size = new Size(125, 22);
+            label56.TabIndex = 71;
+            label56.Text = "y1 = 13.37450";
+            // 
+            // label57
+            // 
+            label57.AutoSize = true;
+            label57.Location = new Point(36, 326);
+            label57.Name = "label57";
+            label57.Size = new Size(101, 22);
+            label57.TabIndex = 70;
+            label57.Text = "t2 = 715.78";
+            // 
+            // label58
+            // 
+            label58.AutoSize = true;
+            label58.Location = new Point(36, 304);
+            label58.Name = "label58";
+            label58.Size = new Size(117, 22);
+            label58.TabIndex = 69;
+            label58.Text = "F1 = 0.14000";
+            // 
+            // panel8
+            // 
+            panel8.BackColor = Color.White;
+            panel8.Location = new Point(8, 291);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(720, 2);
+            panel8.TabIndex = 68;
+            // 
+            // label47
+            // 
+            label47.AutoSize = true;
+            label47.Location = new Point(584, 266);
+            label47.Name = "label47";
+            label47.Size = new Size(117, 22);
+            label47.TabIndex = 67;
+            label47.Text = "F4 = 0.03200";
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Location = new Point(584, 244);
+            label48.Name = "label48";
+            label48.Size = new Size(101, 22);
+            label48.TabIndex = 66;
+            label48.Text = "t9 = 750.00";
+            // 
+            // label49
+            // 
+            label49.AutoSize = true;
+            label49.Location = new Point(584, 222);
+            label49.Name = "label49";
+            label49.Size = new Size(115, 22);
+            label49.TabIndex = 65;
+            label49.Text = "h4 = 0.10000";
+            // 
+            // label50
+            // 
+            label50.AutoSize = true;
+            label50.Location = new Point(584, 200);
+            label50.Name = "label50";
+            label50.Size = new Size(115, 22);
+            label50.TabIndex = 64;
+            label50.Text = "x4 = 0.10306";
+            // 
+            // label51
+            // 
+            label51.AutoSize = true;
+            label51.Location = new Point(584, 178);
+            label51.Name = "label51";
+            label51.Size = new Size(116, 22);
+            label51.TabIndex = 63;
+            label51.Text = "b4 = 0.00014";
+            // 
+            // label52
+            // 
+            label52.AutoSize = true;
+            label52.Location = new Point(584, 156);
+            label52.Name = "label52";
+            label52.Size = new Size(115, 22);
+            label52.TabIndex = 62;
+            label52.Text = "a4 = 0.04800";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Location = new Point(395, 266);
+            label41.Name = "label41";
+            label41.Size = new Size(117, 22);
+            label41.TabIndex = 61;
+            label41.Text = "F4 = 0.03200";
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Location = new Point(395, 244);
+            label42.Name = "label42";
+            label42.Size = new Size(111, 22);
+            label42.TabIndex = 60;
+            label42.Text = "t8 = 1650.00";
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new Point(395, 222);
+            label43.Name = "label43";
+            label43.Size = new Size(95, 22);
+            label43.TabIndex = 59;
+            label43.Text = "h3 = 0.100";
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Location = new Point(395, 199);
+            label44.Name = "label44";
+            label44.Size = new Size(115, 22);
+            label44.TabIndex = 58;
+            label44.Text = "x3 = 0.10535";
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.Location = new Point(395, 178);
+            label45.Name = "label45";
+            label45.Size = new Size(123, 22);
+            label45.TabIndex = 57;
+            label45.Text = "b3 = -0.00017";
+            // 
+            // label46
+            // 
+            label46.AutoSize = true;
+            label46.Location = new Point(395, 156);
+            label46.Name = "label46";
+            label46.Size = new Size(115, 22);
+            label46.TabIndex = 56;
+            label46.Text = "a3 = 0.28000";
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Location = new Point(194, 266);
+            label35.Name = "label35";
+            label35.Size = new Size(116, 22);
+            label35.TabIndex = 55;
+            label35.Text = "Fт = 0.77427";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Location = new Point(194, 244);
+            label36.Name = "label36";
+            label36.Size = new Size(101, 22);
+            label36.TabIndex = 54;
+            label36.Text = "t7 = 750.00";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Location = new Point(194, 222);
+            label37.Name = "label37";
+            label37.Size = new Size(95, 22);
+            label37.TabIndex = 53;
+            label37.Text = "h2 = 0.099";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new Point(195, 200);
+            label38.Name = "label38";
+            label38.Size = new Size(115, 22);
+            label38.TabIndex = 52;
+            label38.Text = "x2 = 0.10300";
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Location = new Point(194, 178);
+            label39.Name = "label39";
+            label39.Size = new Size(116, 22);
+            label39.TabIndex = 51;
+            label39.Text = "b2 = 0.00014";
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Location = new Point(194, 156);
+            label40.Name = "label40";
+            label40.Size = new Size(115, 22);
+            label40.TabIndex = 50;
+            label40.Text = "a2 = 0.04800";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Location = new Point(13, 266);
+            label33.Name = "label33";
+            label33.Size = new Size(107, 22);
+            label33.TabIndex = 49;
+            label33.Text = "F0=0.27085";
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Location = new Point(13, 244);
+            label34.Name = "label34";
+            label34.Size = new Size(111, 22);
+            label34.TabIndex = 48;
+            label34.Text = "t6 = 1650.00";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Location = new Point(13, 222);
+            label28.Name = "label28";
+            label28.Size = new Size(95, 22);
+            label28.TabIndex = 47;
+            label28.Text = "h1 = 0.100";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Location = new Point(13, 199);
+            label29.Name = "label29";
+            label29.Size = new Size(115, 22);
+            label29.TabIndex = 46;
+            label29.Text = "x1 = 0.10544";
             // 
             // label26
             // 
             label26.AutoSize = true;
-            label26.Location = new Point(402, 192);
+            label26.Location = new Point(13, 178);
             label26.Name = "label26";
-            label26.Size = new Size(70, 22);
-            label26.TabIndex = 85;
-            label26.Text = "label26";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(52, 53);
-            label5.Name = "label5";
-            label5.Size = new Size(315, 22);
-            label5.TabIndex = 76;
-            label5.Text = "Удельная поверхностная мощность:";
+            label26.Size = new Size(123, 22);
+            label26.TabIndex = 45;
+            label26.Text = "b1 = -0.00017";
             // 
             // label25
             // 
             label25.AutoSize = true;
-            label25.Location = new Point(53, 192);
+            label25.Location = new Point(13, 156);
             label25.Name = "label25";
-            label25.Size = new Size(232, 22);
-            label25.TabIndex = 84;
-            label25.Text = "Количество нагревателей:";
+            label25.Size = new Size(115, 22);
+            label25.TabIndex = 44;
+            label25.Text = "a1 = 0.28000";
             // 
-            // label6
+            // panel7
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(403, 53);
-            label6.Name = "label6";
-            label6.Size = new Size(94, 22);
-            label6.TabIndex = 77;
-            label6.Text = "0 кВт/м^2";
+            panel7.BackColor = Color.White;
+            panel7.Location = new Point(537, 97);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(2, 200);
+            panel7.TabIndex = 43;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.White;
+            panel6.Location = new Point(151, 97);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(2, 200);
+            panel6.TabIndex = 42;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.White;
+            panel5.Location = new Point(363, 62);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(2, 330);
+            panel5.TabIndex = 41;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.White;
+            panel4.Location = new Point(8, 139);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(720, 2);
+            panel4.TabIndex = 40;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.White;
+            panel3.Location = new Point(8, 92);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(720, 2);
+            panel3.TabIndex = 39;
             // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(402, 159);
+            label24.Location = new Point(559, 105);
             label24.Name = "label24";
-            label24.Size = new Size(70, 22);
-            label24.TabIndex = 83;
-            label24.Text = "label24";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(52, 86);
-            label21.Name = "label21";
-            label21.Size = new Size(156, 22);
-            label21.TabIndex = 78;
-            label21.Text = "Тип нагревателя:";
+            label24.Size = new Size(140, 22);
+            label24.TabIndex = 38;
+            label24.Text = "Теплоизоляция";
             // 
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new Point(53, 159);
+            label23.Location = new Point(406, 105);
             label23.Name = "label23";
-            label23.Size = new Size(274, 22);
-            label23.TabIndex = 82;
-            label23.Text = "Мощность одного нагревателя:";
-            // 
-            // cmbboxCarborundHeater
-            // 
-            cmbboxCarborundHeater.FormattingEnabled = true;
-            cmbboxCarborundHeater.Location = new Point(402, 83);
-            cmbboxCarborundHeater.Name = "cmbboxCarborundHeater";
-            cmbboxCarborundHeater.Size = new Size(242, 30);
-            cmbboxCarborundHeater.TabIndex = 79;
-            // 
-            // cmbboxStepT
-            // 
-            cmbboxStepT.FormattingEnabled = true;
-            cmbboxStepT.Location = new Point(403, 119);
-            cmbboxStepT.Name = "cmbboxStepT";
-            cmbboxStepT.Size = new Size(242, 30);
-            cmbboxStepT.TabIndex = 81;
+            label23.Size = new Size(92, 22);
+            label23.TabIndex = 37;
+            label23.Text = "Огнеупор";
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(52, 122);
+            label22.Location = new Point(178, 105);
             label22.Name = "label22";
-            label22.Size = new Size(63, 22);
-            label22.TabIndex = 80;
-            label22.Text = "Шаг t:";
+            label22.Size = new Size(140, 22);
+            label22.TabIndex = 36;
+            label22.Text = "Теплоизоляция";
             // 
-            // pnlOverlap
+            // label21
             // 
-            pnlOverlap.Controls.Add(label15);
-            pnlOverlap.Controls.Add(label7);
-            pnlOverlap.Controls.Add(label4);
-            pnlOverlap.Controls.Add(cmbboxOverlapFireproof);
-            pnlOverlap.Controls.Add(label1);
-            pnlOverlap.Controls.Add(label14);
-            pnlOverlap.Controls.Add(txtboxOverlapFireproofWidth);
-            pnlOverlap.Controls.Add(label13);
-            pnlOverlap.Controls.Add(label17);
-            pnlOverlap.Controls.Add(lblOverlapTemperature);
-            pnlOverlap.Controls.Add(label16);
-            pnlOverlap.Controls.Add(cmbboxOverlapInsulation);
-            pnlOverlap.Controls.Add(label19);
-            pnlOverlap.Controls.Add(txtboxOverlapInsulationWidth);
-            pnlOverlap.Controls.Add(label18);
-            pnlOverlap.Controls.Add(btnCalculateHeater);
-            pnlOverlap.Controls.Add(btnStopOverlapCalculation);
-            pnlOverlap.Location = new Point(0, 402);
-            pnlOverlap.Name = "pnlOverlap";
-            pnlOverlap.Size = new Size(731, 338);
-            pnlOverlap.TabIndex = 75;
-            pnlOverlap.Visible = false;
+            label21.AutoSize = true;
+            label21.Location = new Point(36, 105);
+            label21.Name = "label21";
+            label21.Size = new Size(92, 22);
+            label21.TabIndex = 35;
+            label21.Text = "Огнеупор";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(471, 62);
+            label20.Name = "label20";
+            label20.Size = new Size(114, 22);
+            label20.TabIndex = 34;
+            label20.Text = "Перекрытие";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(92, 62);
+            label6.Name = "label6";
+            label6.Size = new Size(173, 22);
+            label6.TabIndex = 33;
+            label6.Text = "Футеровка корпуса";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Times New Roman", 16F);
+            label5.Location = new Point(213, 12);
+            label5.Name = "label5";
+            label5.Size = new Size(338, 31);
+            label5.TabIndex = 32;
+            label5.Text = "Результат теплового расчета";
+            // 
+            // pnlDoubleOverlap
+            // 
+            pnlDoubleOverlap.Controls.Add(pnlSingleOverlap);
+            pnlDoubleOverlap.Controls.Add(label15);
+            pnlDoubleOverlap.Controls.Add(label7);
+            pnlDoubleOverlap.Controls.Add(lblDoubleOverlapLiningTemperature);
+            pnlDoubleOverlap.Controls.Add(cmbboxDoubleOverlapFireproof);
+            pnlDoubleOverlap.Controls.Add(label1);
+            pnlDoubleOverlap.Controls.Add(label14);
+            pnlDoubleOverlap.Controls.Add(txtboxDoubleOverlapFireproofWidth);
+            pnlDoubleOverlap.Controls.Add(label13);
+            pnlDoubleOverlap.Controls.Add(label17);
+            pnlDoubleOverlap.Controls.Add(lblDoubleOverlapTemperature);
+            pnlDoubleOverlap.Controls.Add(label16);
+            pnlDoubleOverlap.Controls.Add(cmbboxDoubleOverlapInsulation);
+            pnlDoubleOverlap.Controls.Add(label19);
+            pnlDoubleOverlap.Controls.Add(txtboxDoubleOverlapInsulationWidth);
+            pnlDoubleOverlap.Controls.Add(label18);
+            pnlDoubleOverlap.Controls.Add(btnCalculateHeater);
+            pnlDoubleOverlap.Controls.Add(btnStopOverlapCalculation);
+            pnlDoubleOverlap.Location = new Point(0, 402);
+            pnlDoubleOverlap.Name = "pnlDoubleOverlap";
+            pnlDoubleOverlap.Size = new Size(731, 338);
+            pnlDoubleOverlap.TabIndex = 75;
+            pnlDoubleOverlap.Visible = false;
+            // 
+            // pnlSingleOverlap
+            // 
+            pnlSingleOverlap.Controls.Add(label4);
+            pnlSingleOverlap.Controls.Add(label27);
+            pnlSingleOverlap.Controls.Add(cmbboxSingleOverlapFireproof);
+            pnlSingleOverlap.Controls.Add(label30);
+            pnlSingleOverlap.Controls.Add(txtboxSingleOverlapFireproofWidth);
+            pnlSingleOverlap.Controls.Add(label31);
+            pnlSingleOverlap.Controls.Add(label32);
+            pnlSingleOverlap.Controls.Add(lblSingleOverlapTemperature);
+            pnlSingleOverlap.Controls.Add(iconButton1);
+            pnlSingleOverlap.Controls.Add(iconButton2);
+            pnlSingleOverlap.Location = new Point(0, 0);
+            pnlSingleOverlap.Name = "pnlSingleOverlap";
+            pnlSingleOverlap.Size = new Size(731, 267);
+            pnlSingleOverlap.TabIndex = 76;
+            pnlSingleOverlap.Visible = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Times New Roman", 16F);
+            label4.Location = new Point(213, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(372, 31);
+            label4.TabIndex = 40;
+            label4.Text = "Перекрытие загрузочного окна";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Location = new Point(53, 62);
+            label27.Name = "label27";
+            label27.Size = new Size(276, 22);
+            label27.TabIndex = 47;
+            label27.Text = "Выберите материал огнеупора:";
+            // 
+            // cmbboxSingleOverlapFireproof
+            // 
+            cmbboxSingleOverlapFireproof.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbboxSingleOverlapFireproof.FormattingEnabled = true;
+            cmbboxSingleOverlapFireproof.Location = new Point(415, 54);
+            cmbboxSingleOverlapFireproof.Name = "cmbboxSingleOverlapFireproof";
+            cmbboxSingleOverlapFireproof.Size = new Size(241, 30);
+            cmbboxSingleOverlapFireproof.TabIndex = 48;
+            cmbboxSingleOverlapFireproof.SelectedIndexChanged += cmbboxSingleOverlapFireproof_SelectedIndexChanged;
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new Point(52, 96);
+            label30.Name = "label30";
+            label30.Size = new Size(300, 22);
+            label30.TabIndex = 49;
+            label30.Text = "Введите толщину слоя огнеупора:";
+            // 
+            // txtboxSingleOverlapFireproofWidth
+            // 
+            txtboxSingleOverlapFireproofWidth.ForeColor = Color.Black;
+            txtboxSingleOverlapFireproofWidth.Location = new Point(416, 93);
+            txtboxSingleOverlapFireproofWidth.Name = "txtboxSingleOverlapFireproofWidth";
+            txtboxSingleOverlapFireproofWidth.Size = new Size(241, 30);
+            txtboxSingleOverlapFireproofWidth.TabIndex = 50;
+            txtboxSingleOverlapFireproofWidth.Text = "0";
+            txtboxSingleOverlapFireproofWidth.TextChanged += txtboxSingleOverlapFireproofWidth_TextChanged;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Location = new Point(663, 96);
+            label31.Name = "label31";
+            label31.Size = new Size(23, 22);
+            label31.TabIndex = 51;
+            label31.Text = "м";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new Point(52, 134);
+            label32.Name = "label32";
+            label32.Size = new Size(350, 22);
+            label32.TabIndex = 52;
+            label32.Text = "Температура на границе раздела слоев: ";
+            // 
+            // lblSingleOverlapTemperature
+            // 
+            lblSingleOverlapTemperature.AutoSize = true;
+            lblSingleOverlapTemperature.Location = new Point(493, 138);
+            lblSingleOverlapTemperature.Name = "lblSingleOverlapTemperature";
+            lblSingleOverlapTemperature.Size = new Size(46, 22);
+            lblSingleOverlapTemperature.TabIndex = 53;
+            lblSingleOverlapTemperature.Text = "0 °C";
+            // 
+            // iconButton1
+            // 
+            iconButton1.FlatAppearance.BorderSize = 0;
+            iconButton1.FlatStyle = FlatStyle.Flat;
+            iconButton1.IconChar = FontAwesome.Sharp.IconChar.Play;
+            iconButton1.IconColor = Color.White;
+            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton1.Location = new Point(91, 267);
+            iconButton1.Name = "iconButton1";
+            iconButton1.Size = new Size(350, 57);
+            iconButton1.TabIndex = 59;
+            iconButton1.Text = "Перейти к расчёту нагревателей";
+            iconButton1.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // iconButton2
+            // 
+            iconButton2.FlatAppearance.BorderSize = 0;
+            iconButton2.FlatStyle = FlatStyle.Flat;
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Stop;
+            iconButton2.IconColor = Color.White;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.Location = new Point(447, 267);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(228, 57);
+            iconButton2.TabIndex = 60;
+            iconButton2.Text = "Вернуться назад";
+            iconButton2.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton2.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
@@ -601,24 +1279,24 @@
             label7.TabIndex = 47;
             label7.Text = "Выберите материал огнеупора:";
             // 
-            // label4
+            // lblDoubleOverlapLiningTemperature
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(493, 227);
-            label4.Name = "label4";
-            label4.Size = new Size(46, 22);
-            label4.TabIndex = 73;
-            label4.Text = "0 °C";
+            lblDoubleOverlapLiningTemperature.AutoSize = true;
+            lblDoubleOverlapLiningTemperature.Location = new Point(493, 227);
+            lblDoubleOverlapLiningTemperature.Name = "lblDoubleOverlapLiningTemperature";
+            lblDoubleOverlapLiningTemperature.Size = new Size(46, 22);
+            lblDoubleOverlapLiningTemperature.TabIndex = 73;
+            lblDoubleOverlapLiningTemperature.Text = "0 °C";
             // 
-            // cmbboxOverlapFireproof
+            // cmbboxDoubleOverlapFireproof
             // 
-            cmbboxOverlapFireproof.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbboxOverlapFireproof.FormattingEnabled = true;
-            cmbboxOverlapFireproof.Location = new Point(415, 54);
-            cmbboxOverlapFireproof.Name = "cmbboxOverlapFireproof";
-            cmbboxOverlapFireproof.Size = new Size(241, 30);
-            cmbboxOverlapFireproof.TabIndex = 48;
-            cmbboxOverlapFireproof.SelectedIndexChanged += cmbboxOverlapFireproof_SelectedIndexChanged;
+            cmbboxDoubleOverlapFireproof.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbboxDoubleOverlapFireproof.FormattingEnabled = true;
+            cmbboxDoubleOverlapFireproof.Location = new Point(415, 54);
+            cmbboxDoubleOverlapFireproof.Name = "cmbboxDoubleOverlapFireproof";
+            cmbboxDoubleOverlapFireproof.Size = new Size(241, 30);
+            cmbboxDoubleOverlapFireproof.TabIndex = 48;
+            cmbboxDoubleOverlapFireproof.SelectedIndexChanged += CmbboxOverlapFireproof_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -638,16 +1316,16 @@
             label14.TabIndex = 49;
             label14.Text = "Введите толщину слоя огнеупора:";
             // 
-            // txtboxOverlapFireproofWidth
+            // txtboxDoubleOverlapFireproofWidth
             // 
-            txtboxOverlapFireproofWidth.ForeColor = Color.Black;
-            txtboxOverlapFireproofWidth.Location = new Point(415, 126);
-            txtboxOverlapFireproofWidth.Name = "txtboxOverlapFireproofWidth";
-            txtboxOverlapFireproofWidth.Size = new Size(241, 30);
-            txtboxOverlapFireproofWidth.TabIndex = 50;
-            txtboxOverlapFireproofWidth.Text = "0";
-            txtboxOverlapFireproofWidth.TextChanged += txtboxOverlapFireproofWidth_TextChanged;
-            txtboxOverlapFireproofWidth.KeyPress += txtboxOverlapFireproofWidth_KeyPress;
+            txtboxDoubleOverlapFireproofWidth.ForeColor = Color.Black;
+            txtboxDoubleOverlapFireproofWidth.Location = new Point(415, 126);
+            txtboxDoubleOverlapFireproofWidth.Name = "txtboxDoubleOverlapFireproofWidth";
+            txtboxDoubleOverlapFireproofWidth.Size = new Size(241, 30);
+            txtboxDoubleOverlapFireproofWidth.TabIndex = 50;
+            txtboxDoubleOverlapFireproofWidth.Text = "0";
+            txtboxDoubleOverlapFireproofWidth.TextChanged += TxtboxOverlapFireproofWidth_TextChanged;
+            txtboxDoubleOverlapFireproofWidth.KeyPress += TxtboxOverlapFireproofWidth_KeyPress;
             // 
             // label13
             // 
@@ -667,14 +1345,14 @@
             label17.TabIndex = 52;
             label17.Text = "Температура на границе раздела слоев: ";
             // 
-            // lblOverlapTemperature
+            // lblDoubleOverlapTemperature
             // 
-            lblOverlapTemperature.AutoSize = true;
-            lblOverlapTemperature.Location = new Point(493, 196);
-            lblOverlapTemperature.Name = "lblOverlapTemperature";
-            lblOverlapTemperature.Size = new Size(46, 22);
-            lblOverlapTemperature.TabIndex = 53;
-            lblOverlapTemperature.Text = "0 °C";
+            lblDoubleOverlapTemperature.AutoSize = true;
+            lblDoubleOverlapTemperature.Location = new Point(493, 196);
+            lblDoubleOverlapTemperature.Name = "lblDoubleOverlapTemperature";
+            lblDoubleOverlapTemperature.Size = new Size(46, 22);
+            lblDoubleOverlapTemperature.TabIndex = 53;
+            lblDoubleOverlapTemperature.Text = "0 °C";
             // 
             // label16
             // 
@@ -685,15 +1363,15 @@
             label16.TabIndex = 54;
             label16.Text = "Выберите материал теплоизоляции:";
             // 
-            // cmbboxOverlapInsulation
+            // cmbboxDoubleOverlapInsulation
             // 
-            cmbboxOverlapInsulation.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbboxOverlapInsulation.FormattingEnabled = true;
-            cmbboxOverlapInsulation.Location = new Point(415, 90);
-            cmbboxOverlapInsulation.Name = "cmbboxOverlapInsulation";
-            cmbboxOverlapInsulation.Size = new Size(241, 30);
-            cmbboxOverlapInsulation.TabIndex = 55;
-            cmbboxOverlapInsulation.SelectedIndexChanged += cmbboxOverlapInsulation_SelectedIndexChanged;
+            cmbboxDoubleOverlapInsulation.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbboxDoubleOverlapInsulation.FormattingEnabled = true;
+            cmbboxDoubleOverlapInsulation.Location = new Point(415, 90);
+            cmbboxDoubleOverlapInsulation.Name = "cmbboxDoubleOverlapInsulation";
+            cmbboxDoubleOverlapInsulation.Size = new Size(241, 30);
+            cmbboxDoubleOverlapInsulation.TabIndex = 55;
+            cmbboxDoubleOverlapInsulation.SelectedIndexChanged += CmbboxOverlapInsulation_SelectedIndexChanged;
             // 
             // label19
             // 
@@ -704,16 +1382,16 @@
             label19.TabIndex = 56;
             label19.Text = "Введите толщину слоя теплоизоляции:";
             // 
-            // txtboxOverlapInsulationWidth
+            // txtboxDoubleOverlapInsulationWidth
             // 
-            txtboxOverlapInsulationWidth.ForeColor = Color.Black;
-            txtboxOverlapInsulationWidth.Location = new Point(415, 163);
-            txtboxOverlapInsulationWidth.Name = "txtboxOverlapInsulationWidth";
-            txtboxOverlapInsulationWidth.Size = new Size(241, 30);
-            txtboxOverlapInsulationWidth.TabIndex = 57;
-            txtboxOverlapInsulationWidth.Text = "0";
-            txtboxOverlapInsulationWidth.TextChanged += txtboxOverlapInsulationWidth_TextChanged;
-            txtboxOverlapInsulationWidth.KeyPress += txtboxOverlapInsulationWidth_KeyPress;
+            txtboxDoubleOverlapInsulationWidth.ForeColor = Color.Black;
+            txtboxDoubleOverlapInsulationWidth.Location = new Point(415, 163);
+            txtboxDoubleOverlapInsulationWidth.Name = "txtboxDoubleOverlapInsulationWidth";
+            txtboxDoubleOverlapInsulationWidth.Size = new Size(241, 30);
+            txtboxDoubleOverlapInsulationWidth.TabIndex = 57;
+            txtboxDoubleOverlapInsulationWidth.Text = "0";
+            txtboxDoubleOverlapInsulationWidth.TextChanged += TxtboxOverlapInsulationWidth_TextChanged;
+            txtboxDoubleOverlapInsulationWidth.KeyPress += TxtboxOverlapInsulationWidth_KeyPress;
             // 
             // label18
             // 
@@ -735,10 +1413,10 @@
             btnCalculateHeater.Name = "btnCalculateHeater";
             btnCalculateHeater.Size = new Size(350, 57);
             btnCalculateHeater.TabIndex = 59;
-            btnCalculateHeater.Text = "Перейти к расчёту нагревателей";
+            btnCalculateHeater.Text = "Завершить тепловой расчёт";
             btnCalculateHeater.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCalculateHeater.UseVisualStyleBackColor = true;
-            btnCalculateHeater.Click += btnCalculateHeater_Click;
+            btnCalculateHeater.Click += BtnCalculateHeater_Click;
             // 
             // btnStopOverlapCalculation
             // 
@@ -754,7 +1432,7 @@
             btnStopOverlapCalculation.Text = "Вернуться назад";
             btnStopOverlapCalculation.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnStopOverlapCalculation.UseVisualStyleBackColor = true;
-            btnStopOverlapCalculation.Click += btnStopOverlapCalculation_Click;
+            btnStopOverlapCalculation.Click += BtnStopOverlapCalculation_Click;
             // 
             // pnlLining
             // 
@@ -805,7 +1483,7 @@
             cmbboxLiningFireproof.Name = "cmbboxLiningFireproof";
             cmbboxLiningFireproof.Size = new Size(241, 30);
             cmbboxLiningFireproof.TabIndex = 28;
-            cmbboxLiningFireproof.SelectedIndexChanged += cmbboxLiningFireproof_SelectedIndexChanged;
+            cmbboxLiningFireproof.SelectedIndexChanged += CmbboxLiningFireproof_SelectedIndexChanged;
             // 
             // lblLiningWidthFireproofHint
             // 
@@ -824,8 +1502,8 @@
             txtboxLiningFireproofWidth.Size = new Size(241, 30);
             txtboxLiningFireproofWidth.TabIndex = 30;
             txtboxLiningFireproofWidth.Text = "0";
-            txtboxLiningFireproofWidth.TextChanged += txtboxLiningFireproofWidth_TextChanged;
-            txtboxLiningFireproofWidth.KeyPress += txtboxLiningFireproofWidth_KeyPress;
+            txtboxLiningFireproofWidth.TextChanged += TxtboxLiningFireproofWidth_TextChanged;
+            txtboxLiningFireproofWidth.KeyPress += TxtboxLiningFireproofWidth_KeyPress;
             // 
             // lblLiningSurfaceFireproofTemperatureHint
             // 
@@ -862,7 +1540,7 @@
             cmbboxLiningInsulation.Name = "cmbboxLiningInsulation";
             cmbboxLiningInsulation.Size = new Size(241, 30);
             cmbboxLiningInsulation.TabIndex = 35;
-            cmbboxLiningInsulation.SelectedIndexChanged += cmbboxLiningInsulation_SelectedIndexChanged;
+            cmbboxLiningInsulation.SelectedIndexChanged += CmbboxLiningInsulation_SelectedIndexChanged;
             // 
             // label12
             // 
@@ -887,7 +1565,7 @@
             btnCalculateOverlap.Text = "Перейти к расчёту перекрытия";
             btnCalculateOverlap.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCalculateOverlap.UseVisualStyleBackColor = true;
-            btnCalculateOverlap.Click += btnCalculateOverlap_Click;
+            btnCalculateOverlap.Click += BtnCalculateOverlap_Click;
             // 
             // btnStopLiningCalculations
             // 
@@ -903,7 +1581,7 @@
             btnStopLiningCalculations.Text = "Вернуться назад";
             btnStopLiningCalculations.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnStopLiningCalculations.UseVisualStyleBackColor = true;
-            btnStopLiningCalculations.Click += btnStopLiningCalculations_Click;
+            btnStopLiningCalculations.Click += BtnStopLiningCalculations_Click;
             // 
             // lblLiningFireproofWidthDimension
             // 
@@ -971,8 +1649,10 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            pnlOverlap.ResumeLayout(false);
-            pnlOverlap.PerformLayout();
+            pnlDoubleOverlap.ResumeLayout(false);
+            pnlDoubleOverlap.PerformLayout();
+            pnlSingleOverlap.ResumeLayout(false);
+            pnlSingleOverlap.PerformLayout();
             pnlLining.ResumeLayout(false);
             pnlLining.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
@@ -1027,35 +1707,96 @@
         private FontAwesome.Sharp.IconButton btnStopLiningCalculations;
         private Label lblLiningFireproofWidthDimension;
         private Label lblLiningInsulationWidth;
-        private Label lblOverlapTemperature;
+        private Label lblDoubleOverlapTemperature;
         private Label label17;
         private Label label13;
-        private TextBox txtboxOverlapFireproofWidth;
+        private TextBox txtboxDoubleOverlapFireproofWidth;
         private Label label14;
-        private ComboBox cmbboxOverlapFireproof;
+        private ComboBox cmbboxDoubleOverlapFireproof;
         private Label label7;
-        private ComboBox cmbboxOverlapInsulation;
-        private Label label16;
-        private Label label18;
-        private TextBox txtboxOverlapInsulationWidth;
-        private Label label19;
-        private Label label20;
         private FontAwesome.Sharp.IconButton btnStopOverlapCalculation;
         private FontAwesome.Sharp.IconButton btnCalculateHeater;
         private Label label1;
-        private Label label4;
+        private Label lblDoubleOverlapLiningTemperature;
         private Panel pnlLining;
-        private Panel pnlOverlap;
-        private Label label6;
+        private Panel pnlDoubleOverlap;
+        private Panel pnlSingleOverlap;
+        private Label label4;
+        private Label label27;
+        private ComboBox cmbboxSingleOverlapFireproof;
+        private Label label30;
+        private TextBox txtboxSingleOverlapFireproofWidth;
+        private Label label31;
+        private Label label32;
+        private Label lblSingleOverlapTemperature;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private Label label16;
+        private ComboBox cmbboxDoubleOverlapInsulation;
+        private Label label19;
+        private TextBox txtboxDoubleOverlapInsulationWidth;
+        private Label label18;
+        private Panel panel2;
         private Label label5;
+        private Label label24;
         private Label label23;
-        private ComboBox cmbboxStepT;
         private Label label22;
-        private ComboBox cmbboxCarborundHeater;
         private Label label21;
+        private Label label20;
+        private Label label6;
+        private Panel panel5;
+        private Panel panel4;
+        private Panel panel3;
+        private Panel panel8;
+        private Label label47;
+        private Label label48;
+        private Label label49;
+        private Label label50;
+        private Label label51;
+        private Label label52;
+        private Label label41;
+        private Label label42;
+        private Label label43;
+        private Label label44;
+        private Label label45;
+        private Label label46;
+        private Label label35;
+        private Label label36;
+        private Label label37;
+        private Label label38;
+        private Label label39;
+        private Label label40;
+        private Label label33;
+        private Label label34;
+        private Label label28;
+        private Label label29;
         private Label label26;
         private Label label25;
-        private Label label24;
-        private Panel panel2;
+        private Panel panel7;
+        private Panel panel6;
+        private Label label73;
+        private Label label69;
+        private Panel panel10;
+        private Label label70;
+        private Label label66;
+        private Label label71;
+        private Label label67;
+        private Label label72;
+        private Label label68;
+        private Panel panel9;
+        private Label label65;
+        private Label label61;
+        private Label label62;
+        private Label label63;
+        private Label label64;
+        private Label label59;
+        private Label label60;
+        private Label label53;
+        private Label label54;
+        private Label label55;
+        private Label label56;
+        private Label label57;
+        private Label label58;
+        private Label label74;
     }
 }
