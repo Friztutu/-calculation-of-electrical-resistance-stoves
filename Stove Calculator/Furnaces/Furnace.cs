@@ -17,16 +17,13 @@ namespace Stove_Calculator.Furnaces
     public abstract class Furnace
     {
         public static double CalculateOneLayerOverlapSurfaceTemperature(
-            Fireproof overlapFireproof, double ambientGasTemperature, 
-            double workTemperature, double overlapFireproofWidth)
+            Fireproof overlapFireproof, double t0, 
+            double t1, double h3)
         {
             double a3 = overlapFireproof.AValue;
             double b3 = overlapFireproof.BValue;
-            double h3 = overlapFireproofWidth;
             double j = Constant.J;
             double i = Constant.I;
-            double t0 = ambientGasTemperature;
-            double t1 = workTemperature;
 
             double firstBracket = 2 * (b3 + 2 * h3 * j);
             double secondBracket = 2 * a3 + 2 * h3 * i - 2 * h3 * j * t0;
@@ -40,11 +37,12 @@ namespace Stove_Calculator.Furnaces
             Fireproof overlapFireproof, ThermalInsulation overlapInsulation, 
             double overlapInsulationWidth, double overlapFireproofWidth,
             double workTemperature, double ambientGasTemperature,
-            double* overlapSurfaceTemperature, double* overlapLiningTemperature) 
+            double* overlapSurfaceTemperature, double* overlapLiningTemperature,
+            double* x3, double* q2, double* x4, double* y2) 
         {
             bool status = true;
 
-            double q2, x3, t5, tz;
+            double t5, tz;
 
             double i = Constant.I;
             double j = Constant.J;
@@ -69,15 +67,18 @@ namespace Stove_Calculator.Furnaces
 
                 t5 = (1 / firstBracket) * (-secondBracket + Math.Sqrt(Math.Pow(secondBracket, 2) + 2 * firstBracket * (thirdBracket + fouthBracket)));
 
-                x3 = a3 + (b3 * (t1 + t5) / 2);
-                q2 = (x3 * (t1 - t5)) / h3;
+                *x3 = a3 + (b3 * (t1 + t5) / 2);
+                *q2 = (*x3 * (t1 - t5)) / h3;
 
-                tz = (-(i - j * t0) + Math.Sqrt(Math.Pow(i - j * t0, 2) + 4 * j * (i * t0 + q2))) / (2 * j);
+                tz = (-(i - j * t0) + Math.Sqrt(Math.Pow(i - j * t0, 2) + 4 * j * (i * t0 + *q2))) / (2 * j);
 
             } while (Math.Round(tz, 1) != Math.Round(t4, 1) && t4 < workTemperature);
 
             *overlapSurfaceTemperature = t5;
             *overlapLiningTemperature = t4;
+
+            *x4 = a4 + (b4 * (t5 + t4) / 2);
+            *y2 = i + j * t4;
 
             return status;
         }

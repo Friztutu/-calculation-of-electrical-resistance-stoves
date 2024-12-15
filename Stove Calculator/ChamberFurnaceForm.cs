@@ -1,69 +1,30 @@
 ﻿using AngleSharp.Text;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.EntityFrameworkCore.Storage.Json;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using Stove_Calculator.Analyzers;
 using Stove_Calculator.Calculators;
+using Stove_Calculator.Errors;
 using Stove_Calculator.Furnaces;
 using Stove_Calculator.InputValidators;
 using Stove_Calculator.Models;
+using Stove_Calculator.States;
 using System.Diagnostics;
 using System.DirectoryServices.ActiveDirectory;
+using System.Runtime.CompilerServices;
+using System.Security.RightsManagement;
 
 namespace Stove_Calculator
 {
     public partial class ChamberFurnaceForm : Form
     {
-
-        private struct State
-        {
-            // Input Data
-            public static bool isDoor = true;
-            public static bool isDoubleLayer = true;
-            public static double furnaceWidth = 0.16;
-            public static double furnaceHeight = 0.2;
-            public static double furnaceLength = 0.15;
-            public static double ambientGasTemperature = 20;
-            public static double workTemperature = 1350;
-            public static double outerSurfaceTemperature = 70;
-
-            // All possible lining fireproof and insulations
-            public static List<Fireproof> liningFireproofs = FireproofAnalyzer.GetFullLiningFireproofs();
-            public static List<ThermalInsulation> liningInsulations = ThermalInsulationAnalyzer.GetFullInsulation();
-
-            // Lining parameters data
-            public static Fireproof currentLiningFireproof = liningFireproofs[0];
-            public static ThermalInsulation currentLiningInsulation = liningInsulations[0];
-            public static double liningFireproofWidth = 0;
-            public static double liningFireproofTemperature = 0;
-            public static double liningInsulationWidth = 0;
-
-            // All possible overlap fireproof and insulations
-            public static List<Fireproof> overlapFireproofs = FireproofAnalyzer.GetFullLiningFireproofs();
-            public static List<ThermalInsulation> overlapInsulations = ThermalInsulationAnalyzer.GetFullInsulation();
-
-            // Overlap parameters data
-            public static Fireproof currentOverlapFireproof = overlapFireproofs[0];
-            public static ThermalInsulation currentOverlapInsualtion = overlapInsulations[0];
-            public static double overlapFireproofWidth = 0;
-            public static double overlapInsualtionWidth = 0;
-            public static double overlapLiningTemperature = 0; // rename
-            public static double overlapSurfaceTemperature = 0;
-        }
-
+        private static readonly ChamberState chamberState = new();
         public ChamberFurnaceForm()
         {
             InitializeComponent();
-
-            cmbboxOverlapLayers.SelectedIndex = 0;
-            cmbboxOverlapType.SelectedIndex = 0;
-            txtboxFurnaceHeight.Text = string.Format("{0:f2}", State.furnaceHeight);
-            txtboxFurnaceWidth.Text = string.Format("{0:f2}", State.furnaceWidth);
-            txtboxFurnaceLength.Text = string.Format("{0:f2}", State.furnaceLength);
-            txtboxAmbientTemperature.Text = string.Format("{0:f2}", State.ambientGasTemperature);
-            txtboxWorkTemperature.Text = string.Format("{0:f2}", State.workTemperature);
-            txtboxOuterSurfaceTemperature.Text = string.Format("{0:f2}", State.outerSurfaceTemperature);
         }
 
-        private void BtnCalculate_Click(object sender, EventArgs e)
+        private unsafe void BtnCalculate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -77,34 +38,30 @@ namespace Stove_Calculator
                 cmbboxOverlapType.Enabled = false;
                 btnCalculate.Visible = false;
 
-                State.isDoor = cmbboxOverlapType.Text == "Дверца";
-                State.isDoubleLayer = cmbboxOverlapLayers.Text == "2";
-                State.furnaceHeight = txtboxFurnaceHeight.Text.ToDouble();
-                State.furnaceWidth = txtboxFurnaceWidth.Text.ToDouble();
-                State.furnaceLength = txtboxFurnaceLength.Text.ToDouble();
-                State.ambientGasTemperature = txtboxAmbientTemperature.Text.ToDouble();
-                State.workTemperature = txtboxWorkTemperature.Text.ToDouble();
-                State.outerSurfaceTemperature = txtboxOuterSurfaceTemperature.Text.ToDouble();
+                bool isDoor = cmbboxOverlapType.Text == "Дверца";
+                bool isDoubleLayer = cmbboxOverlapLayers.Text == "2";
+                double L1 = txtboxFurnaceHeight.Text.ToDouble();
+                double L2 = txtboxFurnaceWidth.Text.ToDouble();
+                double L3 = txtboxFurnaceLength.Text.ToDouble();
+                double t0 = txtboxAmbientTemperature.Text.ToDouble();
+                double t1 = txtboxWorkTemperature.Text.ToDouble();
+                double t3 = txtboxOuterSurfaceTemperature.Text.ToDouble();
 
-                State.liningFireproofs = FireproofAnalyzer.GetSuitableLiningFireproofs(State.workTemperature);
+                chamberState.GetInpuData(L1, L2, L3, t0, t1, t3, isDoor, isDoubleLayer);
 
-                foreach (Fireproof fireproof in State.liningFireproofs)
+                if (chamberState.LiningFireproofs == null) return;
+
+                cmbboxLiningFireproof.Items.Clear();
+                cmbboxLiningInsulation.Items.Clear();
+
+                foreach (Fireproof fireproof in chamberState.LiningFireproofs)
                 {
                     cmbboxLiningFireproof.Items.Add(fireproof.Name);
                 }
 
                 cmbboxLiningFireproof.SelectedIndex = 0;
-                State.currentLiningFireproof = State.liningFireproofs[0];
-                txtboxLiningFireproofWidth.Text = String.Format("{0:f2}", State.liningFireproofWidth);
-
-                State.liningFireproofTemperature = ChamberFurnace.CalculateLiningFireproofSurfaceTemperature(
-                    State.liningFireproofs[cmbboxLiningFireproof.SelectedIndex],
-                    State.outerSurfaceTemperature,
-                    State.ambientGasTemperature,
-                    State.workTemperature,
-                    State.liningFireproofWidth);
-
-                lblLiningFireproofTemperature.Text = string.Format("{0:f2}", Math.Round(State.liningFireproofTemperature, 2));
+                txtboxLiningFireproofWidth.Text = String.Format("{0:f2}", chamberState.H1);
+                lblLiningFireproofTemperature.Text = string.Format("{0:f2}", Math.Round(chamberState.T2, 2));
 
                 pnlLining.Visible = true;
             }
@@ -120,83 +77,63 @@ namespace Stove_Calculator
             {
                 MessageBox.Show("Одно из введеных чисел слишком мало или слишком велико");
             }
-            catch (ArgumentOutOfRangeException)
+            catch (NotCorrectInputDataException error)
             {
-                MessageBox.Show("Ни один огнеупор не подойдет для такой температуры");
+                MessageBox.Show(error.Message);
             }
         }
 
-        private void FillLiningCalculatedData()
+        private void UpdateLiningData()
         {
-            double maxInsulationTemperature = 1100;
+            cmbboxLiningInsulation.Items.Clear();
 
-            if (State.liningFireproofTemperature < 0)
+            if (chamberState.T2 < 0)
             {
-                lblLiningFireproofTemperature.Text = "Слишком большая толщина огнеупора";
-                lblLiningInsulationWidth.Text = "0 м";
+                lblLiningFireproofTemperature.Text = "Уменьшите толщину огнеупора.";
                 cmbboxLiningInsulation.Items.Clear();
+                lblLiningInsulationWidth.Text = "0 м";
                 return;
             }
 
-            lblLiningFireproofTemperature.Text = string.Format("{0:f2}", Math.Round(State.liningFireproofTemperature, 2));
+            lblLiningFireproofTemperature.Text = string.Format("{0:f2} °C", Math.Round(chamberState.T2, 2));
 
-            cmbboxLiningInsulation.Items.Clear();
-            lblLiningInsulationWidth.Text = "0 м";
-
-            if (State.liningFireproofTemperature > maxInsulationTemperature) return;
-
-            try
+            if (chamberState.T2 > 1100 || chamberState.LiningInsulations == null)
             {
-                State.liningInsulations = ThermalInsulationAnalyzer.GetSuitableLiningThermalInsulation(
-                State.liningFireproofTemperature, State.workTemperature);
+                cmbboxLiningInsulation.Items.Clear();
+                lblLiningInsulationWidth.Text = "0 м";
+                return;
 
-                foreach (ThermalInsulation insulation in State.liningInsulations)
-                {
-                    cmbboxLiningInsulation.Items.Add(insulation.Name);
-                }
-
-                cmbboxLiningInsulation.SelectedIndex = 0;
-                State.currentLiningInsulation = State.liningInsulations[cmbboxLiningInsulation.SelectedIndex];
             }
-            catch (InvalidOperationException)
+
+            foreach (ThermalInsulation ins in chamberState.LiningInsulations)
             {
-                lblLiningFireproofTemperature.Text = "Слишком большая толщина огнеупора";
+                cmbboxLiningInsulation.Items.Add(ins.Name);
             }
+            cmbboxLiningInsulation.SelectedIndex = 0;
+            lblLiningInsulationWidth.Text = string.Format("{0:f2} м", Math.Round(chamberState.H2, 2));
         }
-
         private void CmbboxLiningFireproof_SelectedIndexChanged(object sender, EventArgs e)
         {
-            State.currentLiningFireproof = State.liningFireproofs[cmbboxLiningFireproof.SelectedIndex];
-            State.liningFireproofTemperature = ChamberFurnace.CalculateLiningFireproofSurfaceTemperature(
-                    State.currentLiningFireproof,
-                    State.outerSurfaceTemperature,
-                    State.ambientGasTemperature,
-                    State.workTemperature,
-                    State.liningFireproofWidth);
+            if (chamberState.LiningFireproofs == null) return;
 
-            FillLiningCalculatedData();
+            chamberState.ChangeLiningFireproof(chamberState.LiningFireproofs[cmbboxLiningFireproof.SelectedIndex]);
+            UpdateLiningData();
         }
 
-        private void TxtboxLiningFireproofWidth_TextChanged(object sender, EventArgs e)
+        private unsafe void TxtboxLiningFireproofWidth_TextChanged(object sender, EventArgs e)
         {
-            State.liningFireproofWidth = txtboxLiningFireproofWidth.Text.ToDouble();
-            State.liningFireproofTemperature = ChamberFurnace.CalculateLiningFireproofSurfaceTemperature(
-                    State.currentLiningFireproof,
-                    State.outerSurfaceTemperature,
-                    State.ambientGasTemperature,
-                    State.workTemperature,
-                    State.liningFireproofWidth);
-            FillLiningCalculatedData();
+            chamberState.ChangeLiningFireroofWidth(txtboxLiningFireproofWidth.Text.ToDouble());
+            if (chamberState.LiningFireproofs == null) return;
+            chamberState.ChangeLiningFireproof(chamberState.LiningFireproofs[cmbboxLiningFireproof.SelectedIndex]);
+            UpdateLiningData();
         }
 
-        private void CmbboxLiningInsulation_SelectedIndexChanged(object sender, EventArgs e)
+        private unsafe void CmbboxLiningInsulation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            State.currentLiningInsulation = State.liningInsulations[cmbboxLiningInsulation.SelectedIndex];
-            State.liningInsulationWidth = ChamberFurnace.CalculateInsulationWidth(
-                State.currentLiningInsulation, State.liningFireproofTemperature,
-                State.outerSurfaceTemperature, State.ambientGasTemperature
-                );
-            lblLiningInsulationWidth.Text = string.Format("{0:f2} м", Math.Round(State.liningInsulationWidth, 2));
+            if (chamberState.LiningInsulations == null) return;
+
+            chamberState.ChangeLiningInsulation(chamberState.LiningInsulations[cmbboxLiningInsulation.SelectedIndex]);
+            lblLiningInsulationWidth.Text = string.Format("{0:f2} м", Math.Round(chamberState.H2, 2));
         }
 
         private void BtnStopLiningCalculations_Click(object sender, EventArgs e)
@@ -211,15 +148,17 @@ namespace Stove_Calculator
             cmbboxOverlapType.Enabled = true;
             btnCalculate.Visible = true;
 
-            cmbboxLiningFireproof.Items.Clear();
-            cmbboxLiningInsulation.Items.Clear();
-            lblLiningInsulationWidth.Text = "0 м";
+            chamberState.ResetLiningData();
             pnlLining.Visible = false;
         }
 
-        private unsafe void BtnCalculateOverlap_Click(object sender, EventArgs e)
+        private void BtnCalculateOverlap_Click(object sender, EventArgs e)
         {
-            if (State.liningInsulationWidth == 0)
+            cmbboxDoubleOverlapFireproof.Items.Clear();
+            cmbboxDoubleOverlapInsulation.Items.Clear();
+            cmbboxSingleOverlapFireproof.Items.Clear();
+
+            if (chamberState.H2 == 0)
             {
                 MessageBox.Show("Расчёт футеровки печи не был закончен");
                 return;
@@ -231,27 +170,30 @@ namespace Stove_Calculator
             cmbboxLiningInsulation.Enabled = false;
             txtboxLiningFireproofWidth.Enabled = false;
 
-            State.overlapFireproofs = FireproofAnalyzer.GetSuitableOverlapFireproofs(State.workTemperature);
-            ComboBox cmbboxOverlapFireproof = State.isDoubleLayer ? cmbboxDoubleOverlapFireproof : cmbboxSingleOverlapFireproof;
-            foreach (Fireproof fireproof in State.overlapFireproofs)
+            chamberState.StartOverlapCalcultions();
+
+            if (chamberState.OverlapFireproofs == null) return;
+
+            ComboBox cmbboxOverlapFireproof = chamberState.IsDoubleLayer ?
+                cmbboxDoubleOverlapFireproof : cmbboxSingleOverlapFireproof;
+
+            foreach (Fireproof fireproof in chamberState.OverlapFireproofs)
             {
                 cmbboxOverlapFireproof.Items.Add(fireproof.Name);
             }
 
             cmbboxOverlapFireproof.SelectedIndex = 0;
-            State.currentOverlapFireproof = State.overlapFireproofs[cmbboxOverlapFireproof.SelectedIndex];
 
-            if (State.isDoubleLayer)
+            if (chamberState.IsDoubleLayer)
             {
-                State.overlapInsulations = ThermalInsulationAnalyzer.GetSuitableOverlapThermalInsulation(State.workTemperature);
+                if (chamberState.OverlapInsulations == null) return;
 
-                foreach (ThermalInsulation insulations in State.overlapInsulations)
+                foreach (ThermalInsulation insulations in chamberState.OverlapInsulations)
                 {
                     cmbboxDoubleOverlapInsulation.Items.Add(insulations.Name);
                 }
 
                 cmbboxDoubleOverlapInsulation.SelectedIndex = 0;
-                State.currentOverlapInsualtion = State.overlapInsulations[cmbboxDoubleOverlapInsulation.SelectedIndex];
 
                 pnlDoubleOverlap.Visible = true;
             }
@@ -264,122 +206,167 @@ namespace Stove_Calculator
             pnlDoubleOverlap.Visible = true;
         }
 
+        private void UpdateOverlapData()
+        {
+            if (chamberState.IsDoubleLayer && (chamberState.H3 == 0 || chamberState.H4 == 0))
+            {
+                lblDoubleOverlapTemperature.Text = "Нет данных";
+                lblDoubleOverlapLiningTemperature.Text = "Нет данных";
+                return;
+            }
+            else if (!chamberState.IsDoubleLayer && chamberState.H3 == 0)
+            {
+                lblSingleOverlapLiningTemperature.Text = "Нет данных";
+            }
+
+            if (chamberState.IsDoubleLayer)
+            {
+                lblDoubleOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(chamberState.T4, 2));
+                lblDoubleOverlapLiningTemperature.Text = string.Format("{0:f2} °C", Math.Round(chamberState.T5, 2));
+            }
+            else
+            {
+                lblSingleOverlapLiningTemperature.Text = string.Format("{0:f2} °C", Math.Round(chamberState.T5, 2));
+            }
+        }
+
         private unsafe void CmbboxOverlapFireproof_SelectedIndexChanged(object sender, EventArgs e)
         {
-            State.currentOverlapFireproof = State.overlapFireproofs[cmbboxDoubleOverlapFireproof.SelectedIndex];
-            double overlapSurfaceTemperature = 0, overlapLiningTemperature = 0;
-            ChamberFurnace.CalculateDoubleLayerOverlapSurfaceTemperature(
-                State.currentOverlapFireproof, State.currentOverlapInsualtion,
-                State.overlapInsualtionWidth, State.overlapFireproofWidth,
-                State.workTemperature, State.ambientGasTemperature,
-                &overlapSurfaceTemperature, &overlapLiningTemperature
-                );
+            if (chamberState.OverlapFireproofs == null) return;
 
-            State.overlapSurfaceTemperature = overlapSurfaceTemperature;
-            State.overlapLiningTemperature = overlapLiningTemperature;
+            chamberState.ChangeOverlapFireproof(chamberState.OverlapFireproofs[cmbboxDoubleOverlapFireproof.SelectedIndex]);
 
-            lblDoubleOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapSurfaceTemperature, 2));
-            lblDoubleOverlapLiningTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapLiningTemperature, 2));
-
+            UpdateOverlapData();
         }
 
         private unsafe void CmbboxOverlapInsulation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            State.currentOverlapInsualtion = State.overlapInsulations[cmbboxDoubleOverlapInsulation.SelectedIndex];
+            if (chamberState.OverlapInsulations == null) return;
 
-            double overlapSurfaceTemperature = 0, overlapLiningTemperature = 0;
-            ChamberFurnace.CalculateDoubleLayerOverlapSurfaceTemperature(
-                State.currentOverlapFireproof, State.currentOverlapInsualtion,
-                State.overlapInsualtionWidth, State.overlapFireproofWidth,
-                State.workTemperature, State.ambientGasTemperature,
-                &overlapSurfaceTemperature, &overlapLiningTemperature
-                );
+            chamberState.ChangeOverlapInsulation(chamberState.OverlapInsulations[cmbboxDoubleOverlapInsulation.SelectedIndex]);
 
-            State.overlapSurfaceTemperature = overlapSurfaceTemperature;
-            State.overlapLiningTemperature = overlapLiningTemperature;
-
-            lblDoubleOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapSurfaceTemperature, 2));
-            lblDoubleOverlapLiningTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapLiningTemperature, 2));
+            UpdateOverlapData();
         }
 
         private unsafe void TxtboxOverlapFireproofWidth_TextChanged(object sender, EventArgs e)
         {
 
-            State.overlapFireproofWidth = txtboxDoubleOverlapFireproofWidth.Text.ToDouble();
+            chamberState.ChangeOverlapFireproofWidth(txtboxDoubleOverlapFireproofWidth.Text.ToDouble());
 
-            double overlapSurfaceTemperature = 0, overlapLiningTemperature = 0;
-            ChamberFurnace.CalculateDoubleLayerOverlapSurfaceTemperature(
-                State.currentOverlapFireproof, State.currentOverlapInsualtion,
-                State.overlapInsualtionWidth, State.overlapFireproofWidth,
-                State.workTemperature, State.ambientGasTemperature,
-                &overlapSurfaceTemperature, &overlapLiningTemperature
-                );
-
-            State.overlapSurfaceTemperature = overlapSurfaceTemperature;
-            State.overlapLiningTemperature = overlapLiningTemperature;
-
-            lblDoubleOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapSurfaceTemperature, 2));
-            lblDoubleOverlapLiningTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapLiningTemperature, 2));
-
+            UpdateOverlapData();
         }
 
         private unsafe void TxtboxOverlapInsulationWidth_TextChanged(object sender, EventArgs e)
         {
+            chamberState.ChangeOverlapInsulationWidth(txtboxDoubleOverlapInsulationWidth.Text.ToDouble());
 
-            State.overlapInsualtionWidth = txtboxDoubleOverlapInsulationWidth.Text.ToDouble();
-            double overlapSurfaceTemperature = 0, overlapLiningTemperature = 0;
-            ChamberFurnace.CalculateDoubleLayerOverlapSurfaceTemperature(
-                State.currentOverlapFireproof, State.currentOverlapInsualtion,
-                State.overlapInsualtionWidth, State.overlapFireproofWidth,
-                State.workTemperature, State.ambientGasTemperature,
-                &overlapSurfaceTemperature, &overlapLiningTemperature
-                );
-
-            State.overlapSurfaceTemperature = overlapSurfaceTemperature;
-            State.overlapLiningTemperature = overlapLiningTemperature;
-
-            lblDoubleOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapSurfaceTemperature, 2));
-            lblDoubleOverlapLiningTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapLiningTemperature, 2));
+            UpdateOverlapData();
         }
 
-        private void cmbboxSingleOverlapFireproof_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbboxSingleOverlapFireproof_SelectedIndexChanged(object sender, EventArgs e)
         {
-            State.currentOverlapFireproof = State.overlapFireproofs[cmbboxSingleOverlapFireproof.SelectedIndex];
-            State.overlapSurfaceTemperature = ChamberFurnace.CalculateOneLayerOverlapSurfaceTemperature(
-                State.currentOverlapFireproof, State.ambientGasTemperature,
-                State.workTemperature, State.overlapFireproofWidth
-                );
+            chamberState.ChangeOverlapFireproofWidth(txtboxDoubleOverlapFireproofWidth.Text.ToDouble());
 
-            lblSingleOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapSurfaceTemperature, 2));
+            UpdateOverlapData();
         }
 
-        private void txtboxSingleOverlapFireproofWidth_TextChanged(object sender, EventArgs e)
+        private void TxtboxSingleOverlapFireproofWidth_TextChanged(object sender, EventArgs e)
         {
-            State.overlapFireproofWidth = txtboxSingleOverlapFireproofWidth.Text.ToDouble();
-            State.overlapSurfaceTemperature = ChamberFurnace.CalculateOneLayerOverlapSurfaceTemperature(
-                State.currentOverlapFireproof, State.ambientGasTemperature,
-                State.workTemperature, State.overlapFireproofWidth
-                );
+            chamberState.ChangeOverlapInsulationWidth(txtboxDoubleOverlapInsulationWidth.Text.ToDouble());
 
-            lblSingleOverlapTemperature.Text = string.Format("{0:f2} °C", Math.Round(State.overlapSurfaceTemperature, 2));
+            UpdateOverlapData();
         }
 
         private void BtnStopOverlapCalculation_Click(object sender, EventArgs e)
         {
-            //furnace.resetOverlapCalculation();
+            chamberState.ResetOverlapData();
 
-            //cmbboxLiningFireproof.Enabled = true;
-            //cmbboxLiningInsulation.Enabled = true;
-            //txtboxLiningFireproofWidth.Enabled = true;
-            //btnCalculateOverlap.Visible = true;
-            //btnStopLiningCalculations.Visible = true;
+            pnlDoubleOverlap.Visible = false;
+            pnlSingleOverlap.Visible = false;
 
-            //pnlDoubleOverlap.Visible = false;
+            btnCalculateOverlap.Visible = true;
+            btnStopLiningCalculations.Visible = true;
+            cmbboxLiningFireproof.Enabled = true;
+            cmbboxLiningInsulation.Enabled = true;
+            txtboxLiningFireproofWidth.Enabled = true;
         }
 
         private void BtnCalculateHeater_Click(object sender, EventArgs e)
         {
-            //panel2.Visible = true;
+            if (chamberState.CurrentLiningFireproof == null || chamberState.CurrentLiningInsultion == null
+                || chamberState.CurrentOverlapFireproof == null || chamberState.CurrentOverlapInsulation == null) return;
+
+            if (chamberState.IsDoubleLayer)
+            {
+                cmbboxDoubleOverlapFireproof.Enabled = false;
+                cmbboxDoubleOverlapInsulation.Enabled = false;
+                txtboxDoubleOverlapFireproofWidth.Enabled = false;
+                txtboxDoubleOverlapInsulationWidth.Enabled = false;
+            }
+            else
+            {
+                cmbboxSingleOverlapFireproof.Enabled = false;
+                txtboxSingleOverlapFireproofWidth.Enabled = false;
+                cmbboxSingleOverlapFireproof.Items.Clear();
+            }
+
+            BtnEndThermalCalc.Visible = false;
+            btnStopOverlapCalculation.Visible = false;
+
+            chamberState.UpdateFullThermalData();
+
+            MessageBox.Show(chamberState.X1.ToString());
+            label25.Text = string.Format("a1 = {0:f5}", Math.Round(chamberState.CurrentLiningFireproof.AValue, 5));
+            label26.Text = string.Format("b1 = {0:f5}", Math.Round(chamberState.CurrentLiningFireproof.BValue, 5));
+            label29.Text = string.Format("x1 = {0:f5}", Math.Round(chamberState.X1, 5));
+            label28.Text = string.Format("h1 = {0:f5}", Math.Round(chamberState.H1, 5));
+            label34.Text = string.Format("t6 = {0:f2}", Math.Round(chamberState.CurrentLiningFireproof.MaxTemperatureOfUse, 2));
+            label33.Text = string.Format("F0 = {0:f5}", Math.Round(chamberState.F00, 5));
+
+            label40.Text = string.Format("a2 = {0:f5}", Math.Round(chamberState.CurrentLiningInsultion.AValue, 5));
+            label39.Text = string.Format("b2 = {0:f5}", Math.Round(chamberState.CurrentLiningInsultion.BValue, 5));
+            label38.Text = string.Format("x2 = {0:f5}", Math.Round(chamberState.X2, 5));
+            label37.Text = string.Format("h2 = {0:f5}", Math.Round(chamberState.H2, 5));
+            label36.Text = string.Format("t7 = {0:f2}", Math.Round(chamberState.CurrentLiningInsultion.MaxTemperatureOfUse, 2));
+            label35.Text = string.Format("Ft = {0:f5}", Math.Round(chamberState.Ftt, 5));
+
+            label46.Text = string.Format("a3 = {0:f5}", Math.Round(chamberState.CurrentOverlapFireproof.AValue, 5));
+            label45.Text = string.Format("b3 = {0:f5}", Math.Round(chamberState.CurrentOverlapFireproof.BValue, 5));
+            label44.Text = string.Format("x3 = {0:f5}", Math.Round(chamberState.X3, 5));
+            label43.Text = string.Format("h3 = {0:f5}", Math.Round(chamberState.H3, 5));
+            label42.Text = string.Format("t8 = {0:f2}", Math.Round(chamberState.CurrentOverlapFireproof.MaxTemperatureOfUse, 2));
+            label41.Text = string.Format("F4 = {0:f5}", Math.Round(chamberState.F44, 5));
+
+            label52.Text = string.Format("a4 = {0:f5}", Math.Round(chamberState.CurrentOverlapInsulation.AValue, 5));
+            label51.Text = string.Format("b4 = {0:f5}", Math.Round(chamberState.CurrentOverlapInsulation.BValue, 5));
+            label50.Text = string.Format("x4 = {0:f5}", Math.Round(chamberState.X4, 5));
+            label49.Text = string.Format("h4 = {0:f5}", Math.Round(chamberState.H4, 5));
+            label48.Text = string.Format("t9 = {0:f2}", Math.Round(chamberState.CurrentOverlapInsulation.MaxTemperatureOfUse, 2));
+            label47.Text = string.Format("F4 = {0:f5}", Math.Round(chamberState.F44, 5));
+
+            label58.Text = string.Format("F1 = {0:f5}", Math.Round(chamberState.F11, 5));
+            label57.Text = string.Format("t2 = {0:f2}", Math.Round(chamberState.T2, 2));
+            label56.Text = string.Format("y1 = {0:f5}", Math.Round(chamberState.Y1, 5));
+            label55.Text = string.Format("q1 = {0:f5}", Math.Round(chamberState.Q11, 5));
+            label54.Text = string.Format("F2 = {0:f5}", Math.Round(chamberState.F22, 5));
+            label53.Text = string.Format("F3 = {0:f5}", Math.Round(chamberState.F33, 5));
+            label60.Text = string.Format("t3 = {0:f2}", Math.Round(chamberState.T3, 2));
+            label59.Text = string.Format("Q1 = {0:f5}", Math.Round(chamberState.Q111, 5));
+
+            label64.Text = string.Format("t4 = {0:f2}", Math.Round(chamberState.T4, 2));
+            label63.Text = string.Format("y2 = {0:f5}", Math.Round(chamberState.Y2, 5));
+            label62.Text = string.Format("q2 = {0:f5}", Math.Round(chamberState.Q22, 5));
+            label61.Text = string.Format("t5 = {0:f5}", Math.Round(chamberState.T5, 2));
+            label65.Text = string.Format("Q2 = {0:f5}", Math.Round(chamberState.Q222, 5));
+
+            label72.Text = string.Format("L1 = {0:f2}", Math.Round(chamberState.L1, 2));
+            label69.Text = string.Format("L2 = {0:f2}", Math.Round(chamberState.L2, 2));
+            label70.Text = string.Format("L3 = {0:f2}", Math.Round(chamberState.L3, 2));
+            label71.Text = string.Format("L4 = {0:f5}", Math.Round(chamberState.L4, 2));
+            label73.Text = string.Format("t0 = {0:f2}", Math.Round(chamberState.T0, 2));
+            label74.Text = string.Format("t1 = {0:f2}", Math.Round(chamberState.T1, 2));
+
+            panel2.Visible = true;
         }
 
         private void TxtboxFurnaceHeight_KeyPress(object sender, KeyPressEventArgs e)
@@ -452,6 +439,27 @@ namespace Stove_Calculator
             {
                 e.Handled = true;
             }
+        }
+
+        private void iconButton4_Click(object sender, EventArgs e)
+        {
+            if (chamberState.IsDoubleLayer)
+            {
+                cmbboxDoubleOverlapFireproof.Enabled = true;
+                cmbboxDoubleOverlapInsulation.Enabled = true;
+                txtboxDoubleOverlapFireproofWidth.Enabled = true;
+                txtboxDoubleOverlapInsulationWidth.Enabled = true;
+            }
+            else
+            {
+                cmbboxSingleOverlapFireproof.Enabled = true;
+                txtboxSingleOverlapFireproofWidth.Enabled = true;
+            }
+
+            BtnEndThermalCalc.Visible = true;
+            btnStopOverlapCalculation.Visible = true;
+
+            panel2.Visible = false;
         }
     }
 }
