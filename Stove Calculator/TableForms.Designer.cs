@@ -67,7 +67,7 @@ namespace Stove_Calculator
             // 
             // carborundumHeatersBindingSource
             // 
-            carborundumHeatersBindingSource.DataSource = typeof(Models.CarborundumHeaters);
+            carborundumHeatersBindingSource.DataSource = typeof(Models.CarborundumHeater);
             // 
             // TableForms
             // 

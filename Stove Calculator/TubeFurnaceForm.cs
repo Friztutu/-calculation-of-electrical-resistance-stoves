@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AngleSharp.Text;
-using Stove_Calculator.Analyzers;
 using Stove_Calculator.Calculators;
 using Stove_Calculator.InputValidators;
 using static System.Windows.Forms.AxHost;

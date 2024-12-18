@@ -13,7 +13,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using RSAExtensions;
 using System.Runtime.Intrinsics.X86;
 using Stove_Calculator.Furnaces;
-using Stove_Calculator.Analyzers;
 using System.Windows.Media.Animation;
 using Stove_Calculator.Constans;
 using System.Security.Cryptography;

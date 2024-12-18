@@ -59,6 +59,111 @@
             label2 = new Label();
             lblFurnaceHeight = new Label();
             panel1 = new Panel();
+            panel11 = new Panel();
+            panel12 = new Panel();
+            label148 = new Label();
+            label149 = new Label();
+            label150 = new Label();
+            label151 = new Label();
+            label152 = new Label();
+            label153 = new Label();
+            label154 = new Label();
+            label155 = new Label();
+            label156 = new Label();
+            label157 = new Label();
+            label158 = new Label();
+            label159 = new Label();
+            label160 = new Label();
+            label161 = new Label();
+            label162 = new Label();
+            label163 = new Label();
+            label164 = new Label();
+            label165 = new Label();
+            label166 = new Label();
+            label167 = new Label();
+            label168 = new Label();
+            label169 = new Label();
+            label146 = new Label();
+            label147 = new Label();
+            label121 = new Label();
+            label139 = new Label();
+            label120 = new Label();
+            comboBox4 = new ComboBox();
+            label122 = new Label();
+            label124 = new Label();
+            label125 = new Label();
+            label126 = new Label();
+            label127 = new Label();
+            label128 = new Label();
+            label129 = new Label();
+            label130 = new Label();
+            label131 = new Label();
+            label132 = new Label();
+            label133 = new Label();
+            label134 = new Label();
+            label135 = new Label();
+            label136 = new Label();
+            label137 = new Label();
+            label138 = new Label();
+            label140 = new Label();
+            label141 = new Label();
+            label142 = new Label();
+            label143 = new Label();
+            label144 = new Label();
+            label145 = new Label();
+            label82 = new Label();
+            comboBox2 = new ComboBox();
+            comboBox3 = new ComboBox();
+            label83 = new Label();
+            label84 = new Label();
+            label85 = new Label();
+            label87 = new Label();
+            label86 = new Label();
+            label89 = new Label();
+            label88 = new Label();
+            label90 = new Label();
+            label91 = new Label();
+            label92 = new Label();
+            label93 = new Label();
+            label94 = new Label();
+            label95 = new Label();
+            label96 = new Label();
+            label97 = new Label();
+            label114 = new Label();
+            label115 = new Label();
+            label116 = new Label();
+            label117 = new Label();
+            label118 = new Label();
+            label119 = new Label();
+            label111 = new Label();
+            label112 = new Label();
+            label113 = new Label();
+            label110 = new Label();
+            label109 = new Label();
+            label108 = new Label();
+            label107 = new Label();
+            label106 = new Label();
+            label105 = new Label();
+            label104 = new Label();
+            label103 = new Label();
+            label102 = new Label();
+            label101 = new Label();
+            label100 = new Label();
+            label99 = new Label();
+            label98 = new Label();
+            label80 = new Label();
+            label81 = new Label();
+            comboBox1 = new ComboBox();
+            label79 = new Label();
+            label78 = new Label();
+            label77 = new Label();
+            label68 = new Label();
+            label76 = new Label();
+            label67 = new Label();
+            label66 = new Label();
+            iconButton5 = new FontAwesome.Sharp.IconButton();
+            iconButton6 = new FontAwesome.Sharp.IconButton();
+            label123 = new Label();
             panel2 = new Panel();
             iconButton3 = new FontAwesome.Sharp.IconButton();
             iconButton4 = new FontAwesome.Sharp.IconButton();
@@ -171,6 +276,8 @@
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pctboxSchemeChamberFurnace).BeginInit();
             panel1.SuspendLayout();
+            panel11.SuspendLayout();
+            panel12.SuspendLayout();
             panel2.SuspendLayout();
             pnlDoubleOverlap.SuspendLayout();
             pnlSingleOverlap.SuspendLayout();
@@ -496,6 +603,7 @@
             panel1.AutoScroll = true;
             panel1.AutoScrollMargin = new Size(0, 100);
             panel1.BackColor = Color.FromArgb(34, 33, 74);
+            panel1.Controls.Add(panel11);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(pnlDoubleOverlap);
             panel1.Controls.Add(pnlLining);
@@ -507,8 +615,1078 @@
             panel1.Size = new Size(755, 811);
             panel1.TabIndex = 1;
             // 
+            // panel11
+            // 
+            panel11.Anchor = AnchorStyles.Top;
+            panel11.BackColor = Color.FromArgb(34, 33, 74);
+            panel11.Controls.Add(panel12);
+            panel11.Controls.Add(label82);
+            panel11.Controls.Add(comboBox2);
+            panel11.Controls.Add(comboBox3);
+            panel11.Controls.Add(label83);
+            panel11.Controls.Add(label84);
+            panel11.Controls.Add(label85);
+            panel11.Controls.Add(label87);
+            panel11.Controls.Add(label86);
+            panel11.Controls.Add(label89);
+            panel11.Controls.Add(label88);
+            panel11.Controls.Add(label90);
+            panel11.Controls.Add(label91);
+            panel11.Controls.Add(label92);
+            panel11.Controls.Add(label93);
+            panel11.Controls.Add(label94);
+            panel11.Controls.Add(label95);
+            panel11.Controls.Add(label96);
+            panel11.Controls.Add(label97);
+            panel11.Controls.Add(label114);
+            panel11.Controls.Add(label115);
+            panel11.Controls.Add(label116);
+            panel11.Controls.Add(label117);
+            panel11.Controls.Add(label118);
+            panel11.Controls.Add(label119);
+            panel11.Controls.Add(label111);
+            panel11.Controls.Add(label112);
+            panel11.Controls.Add(label113);
+            panel11.Controls.Add(label110);
+            panel11.Controls.Add(label109);
+            panel11.Controls.Add(label108);
+            panel11.Controls.Add(label107);
+            panel11.Controls.Add(label106);
+            panel11.Controls.Add(label105);
+            panel11.Controls.Add(label104);
+            panel11.Controls.Add(label103);
+            panel11.Controls.Add(label102);
+            panel11.Controls.Add(label101);
+            panel11.Controls.Add(label100);
+            panel11.Controls.Add(label99);
+            panel11.Controls.Add(label98);
+            panel11.Controls.Add(label80);
+            panel11.Controls.Add(label81);
+            panel11.Controls.Add(comboBox1);
+            panel11.Controls.Add(label79);
+            panel11.Controls.Add(label78);
+            panel11.Controls.Add(label77);
+            panel11.Controls.Add(label68);
+            panel11.Controls.Add(label76);
+            panel11.Controls.Add(label67);
+            panel11.Controls.Add(label66);
+            panel11.Controls.Add(iconButton5);
+            panel11.Controls.Add(iconButton6);
+            panel11.Controls.Add(label123);
+            panel11.Location = new Point(0, 1344);
+            panel11.Name = "panel11";
+            panel11.Size = new Size(731, 975);
+            panel11.TabIndex = 77;
+            panel11.Visible = false;
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(label148);
+            panel12.Controls.Add(label149);
+            panel12.Controls.Add(label150);
+            panel12.Controls.Add(label151);
+            panel12.Controls.Add(label152);
+            panel12.Controls.Add(label153);
+            panel12.Controls.Add(label154);
+            panel12.Controls.Add(label155);
+            panel12.Controls.Add(label156);
+            panel12.Controls.Add(label157);
+            panel12.Controls.Add(label158);
+            panel12.Controls.Add(label159);
+            panel12.Controls.Add(label160);
+            panel12.Controls.Add(label161);
+            panel12.Controls.Add(label162);
+            panel12.Controls.Add(label163);
+            panel12.Controls.Add(label164);
+            panel12.Controls.Add(label165);
+            panel12.Controls.Add(label166);
+            panel12.Controls.Add(label167);
+            panel12.Controls.Add(label168);
+            panel12.Controls.Add(label169);
+            panel12.Controls.Add(label146);
+            panel12.Controls.Add(label147);
+            panel12.Controls.Add(label121);
+            panel12.Controls.Add(label139);
+            panel12.Controls.Add(label120);
+            panel12.Controls.Add(comboBox4);
+            panel12.Controls.Add(label122);
+            panel12.Controls.Add(label124);
+            panel12.Controls.Add(label125);
+            panel12.Controls.Add(label126);
+            panel12.Controls.Add(label127);
+            panel12.Controls.Add(label128);
+            panel12.Controls.Add(label129);
+            panel12.Controls.Add(label130);
+            panel12.Controls.Add(label131);
+            panel12.Controls.Add(label132);
+            panel12.Controls.Add(label133);
+            panel12.Controls.Add(label134);
+            panel12.Controls.Add(label135);
+            panel12.Controls.Add(label136);
+            panel12.Controls.Add(label137);
+            panel12.Controls.Add(label138);
+            panel12.Controls.Add(label140);
+            panel12.Controls.Add(label141);
+            panel12.Controls.Add(label142);
+            panel12.Controls.Add(label143);
+            panel12.Controls.Add(label144);
+            panel12.Controls.Add(label145);
+            panel12.Location = new Point(3, 327);
+            panel12.Name = "panel12";
+            panel12.Size = new Size(728, 559);
+            panel12.TabIndex = 171;
+            panel12.Visible = false;
+            // 
+            // label148
+            // 
+            label148.AutoSize = true;
+            label148.Location = new Point(637, 711);
+            label148.Name = "label148";
+            label148.Size = new Size(75, 22);
+            label148.TabIndex = 224;
+            label148.Text = "000.000";
+            // 
+            // label149
+            // 
+            label149.AutoSize = true;
+            label149.Location = new Point(637, 653);
+            label149.Name = "label149";
+            label149.Size = new Size(75, 22);
+            label149.TabIndex = 223;
+            label149.Text = "000.000";
+            // 
+            // label150
+            // 
+            label150.AutoSize = true;
+            label150.Location = new Point(637, 603);
+            label150.Name = "label150";
+            label150.Size = new Size(75, 22);
+            label150.TabIndex = 222;
+            label150.Text = "000.000";
+            // 
+            // label151
+            // 
+            label151.AutoSize = true;
+            label151.Location = new Point(515, 711);
+            label151.Name = "label151";
+            label151.Size = new Size(75, 22);
+            label151.TabIndex = 221;
+            label151.Text = "000.000";
+            // 
+            // label152
+            // 
+            label152.AutoSize = true;
+            label152.Location = new Point(515, 653);
+            label152.Name = "label152";
+            label152.Size = new Size(75, 22);
+            label152.TabIndex = 220;
+            label152.Text = "000.000";
+            // 
+            // label153
+            // 
+            label153.AutoSize = true;
+            label153.Location = new Point(515, 603);
+            label153.Name = "label153";
+            label153.Size = new Size(75, 22);
+            label153.TabIndex = 219;
+            label153.Text = "000.000";
+            // 
+            // label154
+            // 
+            label154.AutoSize = true;
+            label154.Location = new Point(376, 711);
+            label154.Name = "label154";
+            label154.Size = new Size(75, 22);
+            label154.TabIndex = 218;
+            label154.Text = "000.000";
+            // 
+            // label155
+            // 
+            label155.AutoSize = true;
+            label155.Location = new Point(376, 653);
+            label155.Name = "label155";
+            label155.Size = new Size(75, 22);
+            label155.TabIndex = 217;
+            label155.Text = "000.000";
+            // 
+            // label156
+            // 
+            label156.AutoSize = true;
+            label156.Location = new Point(376, 603);
+            label156.Name = "label156";
+            label156.Size = new Size(75, 22);
+            label156.TabIndex = 216;
+            label156.Text = "000.000";
+            // 
+            // label157
+            // 
+            label157.AutoSize = true;
+            label157.Location = new Point(245, 711);
+            label157.Name = "label157";
+            label157.Size = new Size(75, 22);
+            label157.TabIndex = 215;
+            label157.Text = "000.000";
+            // 
+            // label158
+            // 
+            label158.AutoSize = true;
+            label158.Location = new Point(245, 653);
+            label158.Name = "label158";
+            label158.Size = new Size(75, 22);
+            label158.TabIndex = 214;
+            label158.Text = "000.000";
+            // 
+            // label159
+            // 
+            label159.AutoSize = true;
+            label159.Location = new Point(245, 603);
+            label159.Name = "label159";
+            label159.Size = new Size(75, 22);
+            label159.TabIndex = 213;
+            label159.Text = "000.000";
+            // 
+            // label160
+            // 
+            label160.AutoSize = true;
+            label160.Location = new Point(637, 550);
+            label160.Name = "label160";
+            label160.Size = new Size(56, 22);
+            label160.TabIndex = 212;
+            label160.Text = "Uл, В";
+            // 
+            // label161
+            // 
+            label161.AutoSize = true;
+            label161.Location = new Point(522, 550);
+            label161.Name = "label161";
+            label161.Size = new Size(50, 22);
+            label161.TabIndex = 211;
+            label161.Text = "Iл, A";
+            // 
+            // label162
+            // 
+            label162.AutoSize = true;
+            label162.Location = new Point(383, 550);
+            label162.Name = "label162";
+            label162.Size = new Size(56, 22);
+            label162.TabIndex = 210;
+            label162.Text = "Uл, В";
+            // 
+            // label163
+            // 
+            label163.AutoSize = true;
+            label163.Location = new Point(257, 550);
+            label163.Name = "label163";
+            label163.Size = new Size(50, 22);
+            label163.TabIndex = 209;
+            label163.Text = "Iл, A";
+            // 
+            // label164
+            // 
+            label164.AutoSize = true;
+            label164.Location = new Point(544, 516);
+            label164.Name = "label164";
+            label164.Size = new Size(129, 22);
+            label164.TabIndex = 208;
+            label164.Text = "Параллельная";
+            // 
+            // label165
+            // 
+            label165.AutoSize = true;
+            label165.Location = new Point(286, 516);
+            label165.Name = "label165";
+            label165.Size = new Size(165, 22);
+            label165.TabIndex = 207;
+            label165.Text = "Последовательная";
+            // 
+            // label166
+            // 
+            label166.AutoSize = true;
+            label166.Location = new Point(45, 711);
+            label166.Name = "label166";
+            label166.Size = new Size(65, 22);
+            label166.TabIndex = 206;
+            label166.Text = "Звезда";
+            // 
+            // label167
+            // 
+            label167.AutoSize = true;
+            label167.Location = new Point(45, 653);
+            label167.Name = "label167";
+            label167.Size = new Size(118, 22);
+            label167.TabIndex = 205;
+            label167.Text = "Треугольник";
+            // 
+            // label168
+            // 
+            label168.AutoSize = true;
+            label168.Location = new Point(45, 603);
+            label168.Name = "label168";
+            label168.Size = new Size(114, 22);
+            label168.TabIndex = 204;
+            label168.Text = "Однофазная";
+            // 
+            // label169
+            // 
+            label169.AutoSize = true;
+            label169.Location = new Point(18, 516);
+            label169.Name = "label169";
+            label169.Size = new Size(166, 22);
+            label169.TabIndex = 203;
+            label169.Text = "Схема включения ";
+            // 
+            // label146
+            // 
+            label146.AutoSize = true;
+            label146.Location = new Point(52, 372);
+            label146.Name = "label146";
+            label146.Size = new Size(186, 22);
+            label146.TabIndex = 201;
+            label146.Text = "Сопротивление (R): ";
+            // 
+            // label147
+            // 
+            label147.AutoSize = true;
+            label147.Location = new Point(522, 372);
+            label147.Name = "label147";
+            label147.Size = new Size(52, 22);
+            label147.TabIndex = 202;
+            label147.Text = "0 Ом";
+            // 
+            // label121
+            // 
+            label121.AutoSize = true;
+            label121.Location = new Point(50, 225);
+            label121.Name = "label121";
+            label121.Size = new Size(445, 22);
+            label121.TabIndex = 199;
+            label121.Text = "Мощность рабочей части одного нагревателя (Pp): ";
+            // 
+            // label139
+            // 
+            label139.AutoSize = true;
+            label139.Location = new Point(520, 225);
+            label139.Name = "label139";
+            label139.Size = new Size(57, 22);
+            label139.TabIndex = 200;
+            label139.Text = "0 кВт";
+            // 
+            // label120
+            // 
+            label120.AutoSize = true;
+            label120.Location = new Point(50, 119);
+            label120.Name = "label120";
+            label120.Size = new Size(120, 22);
+            label120.TabIndex = 181;
+            label120.Text = "Нагреватель:";
+            // 
+            // comboBox4
+            // 
+            comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(445, 111);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(241, 30);
+            comboBox4.TabIndex = 182;
+            comboBox4.SelectedIndexChanged += comboBox4_SelectedIndexChanged;
+            // 
+            // label122
+            // 
+            label122.AutoSize = true;
+            label122.Location = new Point(52, 259);
+            label122.Name = "label122";
+            label122.Size = new Size(319, 22);
+            label122.TabIndex = 185;
+            label122.Text = "Мощность одного нагревателя (P1): ";
+            // 
+            // label124
+            // 
+            label124.AutoSize = true;
+            label124.Location = new Point(522, 259);
+            label124.Name = "label124";
+            label124.Size = new Size(57, 22);
+            label124.TabIndex = 186;
+            label124.Text = "0 кВт";
+            // 
+            // label125
+            // 
+            label125.AutoSize = true;
+            label125.Location = new Point(52, 297);
+            label125.Name = "label125";
+            label125.Size = new Size(282, 22);
+            label125.TabIndex = 187;
+            label125.Text = "Общее число нагревателей (N): ";
+            // 
+            // label126
+            // 
+            label126.AutoSize = true;
+            label126.Location = new Point(522, 297);
+            label126.Name = "label126";
+            label126.Size = new Size(48, 22);
+            label126.TabIndex = 188;
+            label126.Text = "0 шт";
+            // 
+            // label127
+            // 
+            label127.AutoSize = true;
+            label127.Location = new Point(50, 192);
+            label127.Name = "label127";
+            label127.Size = new Size(405, 22);
+            label127.TabIndex = 189;
+            label127.Text = "Удельная пов. мощность реального нагр. (W): ";
+            // 
+            // label128
+            // 
+            label128.AutoSize = true;
+            label128.Location = new Point(520, 192);
+            label128.Name = "label128";
+            label128.Size = new Size(94, 22);
+            label128.TabIndex = 190;
+            label128.Text = "0 кВт/м^2";
+            // 
+            // label129
+            // 
+            label129.AutoSize = true;
+            label129.Location = new Point(52, 335);
+            label129.Name = "label129";
+            label129.Size = new Size(160, 22);
+            label129.TabIndex = 191;
+            label129.Text = "Напряжение (U): ";
+            // 
+            // label130
+            // 
+            label130.AutoSize = true;
+            label130.Location = new Point(52, 405);
+            label130.Name = "label130";
+            label130.Size = new Size(415, 22);
+            label130.TabIndex = 192;
+            label130.Text = "Максимальный ток для одного нагревателя (I): ";
+            // 
+            // label131
+            // 
+            label131.AutoSize = true;
+            label131.Location = new Point(52, 438);
+            label131.Name = "label131";
+            label131.Size = new Size(274, 22);
+            label131.TabIndex = 193;
+            label131.Text = "Предельное напряжение (Uп): ";
+            // 
+            // label132
+            // 
+            label132.AutoSize = true;
+            label132.Location = new Point(53, 471);
+            label132.Name = "label132";
+            label132.Size = new Size(30, 22);
+            label132.TabIndex = 194;
+            label132.Text = "n: ";
+            // 
+            // label133
+            // 
+            label133.AutoSize = true;
+            label133.Location = new Point(522, 335);
+            label133.Name = "label133";
+            label133.Size = new Size(38, 22);
+            label133.TabIndex = 195;
+            label133.Text = "0 В";
+            // 
+            // label134
+            // 
+            label134.AutoSize = true;
+            label134.Location = new Point(522, 405);
+            label134.Name = "label134";
+            label134.Size = new Size(39, 22);
+            label134.TabIndex = 196;
+            label134.Text = "0 А";
+            // 
+            // label135
+            // 
+            label135.AutoSize = true;
+            label135.Location = new Point(522, 438);
+            label135.Name = "label135";
+            label135.Size = new Size(38, 22);
+            label135.TabIndex = 197;
+            label135.Text = "0 В";
+            // 
+            // label136
+            // 
+            label136.AutoSize = true;
+            label136.Location = new Point(522, 471);
+            label136.Name = "label136";
+            label136.Size = new Size(20, 22);
+            label136.TabIndex = 198;
+            label136.Text = "0";
+            // 
+            // label137
+            // 
+            label137.AutoSize = true;
+            label137.Location = new Point(520, 158);
+            label137.Name = "label137";
+            label137.Size = new Size(94, 22);
+            label137.TabIndex = 180;
+            label137.Text = "0 кВт/м^2";
+            // 
+            // label138
+            // 
+            label138.AutoSize = true;
+            label138.Location = new Point(50, 158);
+            label138.Name = "label138";
+            label138.Size = new Size(427, 22);
+            label138.TabIndex = 179;
+            label138.Text = "Удельная пов. мощность идеального нагр. (Wн): ";
+            // 
+            // label140
+            // 
+            label140.AutoSize = true;
+            label140.Location = new Point(520, 81);
+            label140.Name = "label140";
+            label140.Size = new Size(57, 22);
+            label140.TabIndex = 176;
+            label140.Text = "0 кВт";
+            // 
+            // label141
+            // 
+            label141.AutoSize = true;
+            label141.Location = new Point(49, 81);
+            label141.Name = "label141";
+            label141.Size = new Size(315, 22);
+            label141.TabIndex = 175;
+            label141.Text = "Электрическая мощность печи (P): ";
+            // 
+            // label142
+            // 
+            label142.AutoSize = true;
+            label142.Location = new Point(520, 52);
+            label142.Name = "label142";
+            label142.Size = new Size(53, 22);
+            label142.TabIndex = 174;
+            label142.Text = "0 Дж";
+            // 
+            // label143
+            // 
+            label143.AutoSize = true;
+            label143.Location = new Point(50, 48);
+            label143.Name = "label143";
+            label143.Size = new Size(262, 22);
+            label143.TabIndex = 173;
+            label143.Text = "Полный тепловой поток (Q): ";
+            // 
+            // label144
+            // 
+            label144.AutoSize = true;
+            label144.Location = new Point(520, 20);
+            label144.Name = "label144";
+            label144.Size = new Size(53, 22);
+            label144.TabIndex = 172;
+            label144.Text = "0 Дж";
+            // 
+            // label145
+            // 
+            label145.AutoSize = true;
+            label145.Location = new Point(50, 16);
+            label145.Name = "label145";
+            label145.Size = new Size(318, 22);
+            label145.TabIndex = 171;
+            label145.Text = "Неучтенные тепловые потери (Q3): ";
+            // 
+            // label82
+            // 
+            label82.AutoSize = true;
+            label82.Location = new Point(52, 248);
+            label82.Name = "label82";
+            label82.Size = new Size(120, 22);
+            label82.TabIndex = 153;
+            label82.Text = "Нагреватель:";
+            // 
+            // comboBox2
+            // 
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(447, 240);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(241, 30);
+            comboBox2.TabIndex = 154;
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged_1;
+            // 
+            // comboBox3
+            // 
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Items.AddRange(new object[] { "t = 1,5D; J = 0,48;", "t = 2D; J = 0,60;", "t = 2,5D; J = 0,67;", "t = 3D; J = 0,71;", "t = 3,5D; J = 0,75;", "t = 4D; J = 0,79;", "t = 4,5D; J = 0,81;", "t = 5D; J = 0,83;", "t = 5,5D; J = 0,84;", "t = 6D; J = 0,85;" });
+            comboBox3.Location = new Point(447, 285);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(241, 30);
+            comboBox3.TabIndex = 155;
+            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged_1;
+            // 
+            // label83
+            // 
+            label83.AutoSize = true;
+            label83.Location = new Point(52, 288);
+            label83.Name = "label83";
+            label83.Size = new Size(63, 22);
+            label83.TabIndex = 156;
+            label83.Text = "Шаг t:";
+            // 
+            // label84
+            // 
+            label84.AutoSize = true;
+            label84.Location = new Point(52, 327);
+            label84.Name = "label84";
+            label84.Size = new Size(319, 22);
+            label84.TabIndex = 157;
+            label84.Text = "Мощность одного нагревателя (P1): ";
+            // 
+            // label85
+            // 
+            label85.AutoSize = true;
+            label85.Location = new Point(522, 327);
+            label85.Name = "label85";
+            label85.Size = new Size(57, 22);
+            label85.TabIndex = 158;
+            label85.Text = "0 кВт";
+            // 
+            // label87
+            // 
+            label87.AutoSize = true;
+            label87.Location = new Point(52, 389);
+            label87.Name = "label87";
+            label87.Size = new Size(282, 22);
+            label87.TabIndex = 159;
+            label87.Text = "Общее число нагревателей (N): ";
+            // 
+            // label86
+            // 
+            label86.AutoSize = true;
+            label86.Location = new Point(522, 389);
+            label86.Name = "label86";
+            label86.Size = new Size(48, 22);
+            label86.TabIndex = 160;
+            label86.Text = "0 шт";
+            // 
+            // label89
+            // 
+            label89.AutoSize = true;
+            label89.Location = new Point(52, 358);
+            label89.Name = "label89";
+            label89.Size = new Size(416, 22);
+            label89.TabIndex = 161;
+            label89.Text = "Удельная пов. мощность реального нагр. (Wн): ";
+            // 
+            // label88
+            // 
+            label88.AutoSize = true;
+            label88.Location = new Point(522, 358);
+            label88.Name = "label88";
+            label88.Size = new Size(94, 22);
+            label88.TabIndex = 162;
+            label88.Text = "0 кВт/м^2";
+            // 
+            // label90
+            // 
+            label90.AutoSize = true;
+            label90.Location = new Point(52, 425);
+            label90.Name = "label90";
+            label90.Size = new Size(160, 22);
+            label90.TabIndex = 163;
+            label90.Text = "Напряжение (U): ";
+            // 
+            // label91
+            // 
+            label91.AutoSize = true;
+            label91.Location = new Point(52, 462);
+            label91.Name = "label91";
+            label91.Size = new Size(415, 22);
+            label91.TabIndex = 164;
+            label91.Text = "Максимальный ток для одного нагревателя (I): ";
+            // 
+            // label92
+            // 
+            label92.AutoSize = true;
+            label92.Location = new Point(52, 495);
+            label92.Name = "label92";
+            label92.Size = new Size(274, 22);
+            label92.TabIndex = 165;
+            label92.Text = "Предельное напряжение (Uп): ";
+            // 
+            // label93
+            // 
+            label93.AutoSize = true;
+            label93.Location = new Point(53, 528);
+            label93.Name = "label93";
+            label93.Size = new Size(30, 22);
+            label93.TabIndex = 166;
+            label93.Text = "n: ";
+            // 
+            // label94
+            // 
+            label94.AutoSize = true;
+            label94.Location = new Point(522, 425);
+            label94.Name = "label94";
+            label94.Size = new Size(38, 22);
+            label94.TabIndex = 167;
+            label94.Text = "0 В";
+            // 
+            // label95
+            // 
+            label95.AutoSize = true;
+            label95.Location = new Point(522, 462);
+            label95.Name = "label95";
+            label95.Size = new Size(39, 22);
+            label95.TabIndex = 168;
+            label95.Text = "0 А";
+            // 
+            // label96
+            // 
+            label96.AutoSize = true;
+            label96.Location = new Point(522, 495);
+            label96.Name = "label96";
+            label96.Size = new Size(38, 22);
+            label96.TabIndex = 169;
+            label96.Text = "0 В";
+            // 
+            // label97
+            // 
+            label97.AutoSize = true;
+            label97.Location = new Point(522, 528);
+            label97.Name = "label97";
+            label97.Size = new Size(20, 22);
+            label97.TabIndex = 170;
+            label97.Text = "0";
+            // 
+            // label114
+            // 
+            label114.AutoSize = true;
+            label114.Location = new Point(640, 760);
+            label114.Name = "label114";
+            label114.Size = new Size(75, 22);
+            label114.TabIndex = 152;
+            label114.Text = "000.000";
+            // 
+            // label115
+            // 
+            label115.AutoSize = true;
+            label115.Location = new Point(640, 702);
+            label115.Name = "label115";
+            label115.Size = new Size(75, 22);
+            label115.TabIndex = 151;
+            label115.Text = "000.000";
+            // 
+            // label116
+            // 
+            label116.AutoSize = true;
+            label116.Location = new Point(640, 652);
+            label116.Name = "label116";
+            label116.Size = new Size(75, 22);
+            label116.TabIndex = 150;
+            label116.Text = "000.000";
+            // 
+            // label117
+            // 
+            label117.AutoSize = true;
+            label117.Location = new Point(518, 760);
+            label117.Name = "label117";
+            label117.Size = new Size(75, 22);
+            label117.TabIndex = 149;
+            label117.Text = "000.000";
+            // 
+            // label118
+            // 
+            label118.AutoSize = true;
+            label118.Location = new Point(518, 702);
+            label118.Name = "label118";
+            label118.Size = new Size(75, 22);
+            label118.TabIndex = 148;
+            label118.Text = "000.000";
+            // 
+            // label119
+            // 
+            label119.AutoSize = true;
+            label119.Location = new Point(518, 652);
+            label119.Name = "label119";
+            label119.Size = new Size(75, 22);
+            label119.TabIndex = 147;
+            label119.Text = "000.000";
+            // 
+            // label111
+            // 
+            label111.AutoSize = true;
+            label111.Location = new Point(379, 760);
+            label111.Name = "label111";
+            label111.Size = new Size(75, 22);
+            label111.TabIndex = 146;
+            label111.Text = "000.000";
+            // 
+            // label112
+            // 
+            label112.AutoSize = true;
+            label112.Location = new Point(379, 702);
+            label112.Name = "label112";
+            label112.Size = new Size(75, 22);
+            label112.TabIndex = 145;
+            label112.Text = "000.000";
+            // 
+            // label113
+            // 
+            label113.AutoSize = true;
+            label113.Location = new Point(379, 652);
+            label113.Name = "label113";
+            label113.Size = new Size(75, 22);
+            label113.TabIndex = 144;
+            label113.Text = "000.000";
+            // 
+            // label110
+            // 
+            label110.AutoSize = true;
+            label110.Location = new Point(248, 760);
+            label110.Name = "label110";
+            label110.Size = new Size(75, 22);
+            label110.TabIndex = 143;
+            label110.Text = "000.000";
+            // 
+            // label109
+            // 
+            label109.AutoSize = true;
+            label109.Location = new Point(248, 702);
+            label109.Name = "label109";
+            label109.Size = new Size(75, 22);
+            label109.TabIndex = 142;
+            label109.Text = "000.000";
+            // 
+            // label108
+            // 
+            label108.AutoSize = true;
+            label108.Location = new Point(248, 652);
+            label108.Name = "label108";
+            label108.Size = new Size(75, 22);
+            label108.TabIndex = 130;
+            label108.Text = "000.000";
+            // 
+            // label107
+            // 
+            label107.AutoSize = true;
+            label107.Location = new Point(640, 599);
+            label107.Name = "label107";
+            label107.Size = new Size(56, 22);
+            label107.TabIndex = 129;
+            label107.Text = "Uл, В";
+            // 
+            // label106
+            // 
+            label106.AutoSize = true;
+            label106.Location = new Point(525, 599);
+            label106.Name = "label106";
+            label106.Size = new Size(50, 22);
+            label106.TabIndex = 128;
+            label106.Text = "Iл, A";
+            // 
+            // label105
+            // 
+            label105.AutoSize = true;
+            label105.Location = new Point(386, 599);
+            label105.Name = "label105";
+            label105.Size = new Size(56, 22);
+            label105.TabIndex = 127;
+            label105.Text = "Uл, В";
+            // 
+            // label104
+            // 
+            label104.AutoSize = true;
+            label104.Location = new Point(260, 599);
+            label104.Name = "label104";
+            label104.Size = new Size(50, 22);
+            label104.TabIndex = 126;
+            label104.Text = "Iл, A";
+            // 
+            // label103
+            // 
+            label103.AutoSize = true;
+            label103.Location = new Point(547, 565);
+            label103.Name = "label103";
+            label103.Size = new Size(129, 22);
+            label103.TabIndex = 125;
+            label103.Text = "Параллельная";
+            // 
+            // label102
+            // 
+            label102.AutoSize = true;
+            label102.Location = new Point(289, 565);
+            label102.Name = "label102";
+            label102.Size = new Size(165, 22);
+            label102.TabIndex = 124;
+            label102.Text = "Последовательная";
+            // 
+            // label101
+            // 
+            label101.AutoSize = true;
+            label101.Location = new Point(48, 760);
+            label101.Name = "label101";
+            label101.Size = new Size(65, 22);
+            label101.TabIndex = 123;
+            label101.Text = "Звезда";
+            // 
+            // label100
+            // 
+            label100.AutoSize = true;
+            label100.Location = new Point(48, 702);
+            label100.Name = "label100";
+            label100.Size = new Size(118, 22);
+            label100.TabIndex = 122;
+            label100.Text = "Треугольник";
+            // 
+            // label99
+            // 
+            label99.AutoSize = true;
+            label99.Location = new Point(48, 652);
+            label99.Name = "label99";
+            label99.Size = new Size(114, 22);
+            label99.TabIndex = 121;
+            label99.Text = "Однофазная";
+            // 
+            // label98
+            // 
+            label98.AutoSize = true;
+            label98.Location = new Point(21, 565);
+            label98.Name = "label98";
+            label98.Size = new Size(166, 22);
+            label98.TabIndex = 120;
+            label98.Text = "Схема включения ";
+            // 
+            // label80
+            // 
+            label80.AutoSize = true;
+            label80.Location = new Point(518, 204);
+            label80.Name = "label80";
+            label80.Size = new Size(94, 22);
+            label80.TabIndex = 101;
+            label80.Text = "0 кВт/м^2";
+            // 
+            // label81
+            // 
+            label81.AutoSize = true;
+            label81.Location = new Point(48, 204);
+            label81.Name = "label81";
+            label81.Size = new Size(427, 22);
+            label81.TabIndex = 100;
+            label81.Text = "Удельная пов. мощность идеального нагр. (Wн): ";
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Металлический нагреватель", "Карборундовый нагреватель", "Нагреватель из дисилицида молибдена" });
+            comboBox1.Location = new Point(443, 66);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(241, 30);
+            comboBox1.TabIndex = 99;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label79
+            // 
+            label79.AutoSize = true;
+            label79.Location = new Point(48, 74);
+            label79.Name = "label79";
+            label79.Size = new Size(161, 22);
+            label79.TabIndex = 98;
+            label79.Text = "Тип нагревателя: ";
+            // 
+            // label78
+            // 
+            label78.AutoSize = true;
+            label78.Location = new Point(518, 177);
+            label78.Name = "label78";
+            label78.Size = new Size(57, 22);
+            label78.TabIndex = 97;
+            label78.Text = "0 кВт";
+            // 
+            // label77
+            // 
+            label77.AutoSize = true;
+            label77.Location = new Point(48, 173);
+            label77.Name = "label77";
+            label77.Size = new Size(315, 22);
+            label77.TabIndex = 96;
+            label77.Text = "Электрическая мощность печи (P): ";
+            // 
+            // label68
+            // 
+            label68.AutoSize = true;
+            label68.Location = new Point(518, 144);
+            label68.Name = "label68";
+            label68.Size = new Size(53, 22);
+            label68.TabIndex = 95;
+            label68.Text = "0 Дж";
+            // 
+            // label76
+            // 
+            label76.AutoSize = true;
+            label76.Location = new Point(48, 140);
+            label76.Name = "label76";
+            label76.Size = new Size(262, 22);
+            label76.TabIndex = 94;
+            label76.Text = "Полный тепловой поток (Q): ";
+            // 
+            // label67
+            // 
+            label67.AutoSize = true;
+            label67.Location = new Point(518, 112);
+            label67.Name = "label67";
+            label67.Size = new Size(53, 22);
+            label67.TabIndex = 93;
+            label67.Text = "0 Дж";
+            // 
+            // label66
+            // 
+            label66.AutoSize = true;
+            label66.Location = new Point(48, 108);
+            label66.Name = "label66";
+            label66.Size = new Size(318, 22);
+            label66.TabIndex = 92;
+            label66.Text = "Неучтенные тепловые потери (Q3): ";
+            // 
+            // iconButton5
+            // 
+            iconButton5.FlatAppearance.BorderSize = 0;
+            iconButton5.FlatStyle = FlatStyle.Flat;
+            iconButton5.IconChar = FontAwesome.Sharp.IconChar.Play;
+            iconButton5.IconColor = Color.White;
+            iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton5.Location = new Point(80, 892);
+            iconButton5.Name = "iconButton5";
+            iconButton5.Size = new Size(350, 57);
+            iconButton5.TabIndex = 90;
+            iconButton5.Text = "Перейти к расчёту нагревателей";
+            iconButton5.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton5.UseVisualStyleBackColor = true;
+            // 
+            // iconButton6
+            // 
+            iconButton6.FlatAppearance.BorderSize = 0;
+            iconButton6.FlatStyle = FlatStyle.Flat;
+            iconButton6.IconChar = FontAwesome.Sharp.IconChar.Stop;
+            iconButton6.IconColor = Color.White;
+            iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton6.Location = new Point(436, 892);
+            iconButton6.Name = "iconButton6";
+            iconButton6.Size = new Size(228, 57);
+            iconButton6.TabIndex = 91;
+            iconButton6.Text = "Вернуться назад";
+            iconButton6.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconButton6.UseVisualStyleBackColor = true;
+            // 
+            // label123
+            // 
+            label123.AutoSize = true;
+            label123.Font = new Font("Times New Roman", 16F);
+            label123.Location = new Point(248, 9);
+            label123.Name = "label123";
+            label123.Size = new Size(246, 31);
+            label123.TabIndex = 32;
+            label123.Text = "Расчёт нагревателей";
+            // 
             // panel2
             // 
+            panel2.Anchor = AnchorStyles.Top;
+            panel2.BackColor = Color.FromArgb(34, 33, 74);
             panel2.Controls.Add(iconButton3);
             panel2.Controls.Add(iconButton4);
             panel2.Controls.Add(label32);
@@ -590,6 +1768,7 @@
             iconButton3.Text = "Перейти к расчёту нагревателей";
             iconButton3.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconButton3.UseVisualStyleBackColor = true;
+            iconButton3.Click += iconButton3_Click;
             // 
             // iconButton4
             // 
@@ -1171,7 +2350,7 @@
             pnlSingleOverlap.Controls.Add(iconButton2);
             pnlSingleOverlap.Location = new Point(0, 0);
             pnlSingleOverlap.Name = "pnlSingleOverlap";
-            pnlSingleOverlap.Size = new Size(731, 261);
+            pnlSingleOverlap.Size = new Size(731, 263);
             pnlSingleOverlap.TabIndex = 76;
             pnlSingleOverlap.Visible = false;
             // 
@@ -1302,7 +2481,7 @@
             // lblDoubleOverlapLiningTemperature
             // 
             lblDoubleOverlapLiningTemperature.AutoSize = true;
-            lblDoubleOverlapLiningTemperature.Location = new Point(493, 227);
+            lblDoubleOverlapLiningTemperature.Location = new Point(493, 199);
             lblDoubleOverlapLiningTemperature.Name = "lblDoubleOverlapLiningTemperature";
             lblDoubleOverlapLiningTemperature.Size = new Size(46, 22);
             lblDoubleOverlapLiningTemperature.TabIndex = 73;
@@ -1368,7 +2547,7 @@
             // lblDoubleOverlapTemperature
             // 
             lblDoubleOverlapTemperature.AutoSize = true;
-            lblDoubleOverlapTemperature.Location = new Point(493, 196);
+            lblDoubleOverlapTemperature.Location = new Point(493, 227);
             lblDoubleOverlapTemperature.Name = "lblDoubleOverlapTemperature";
             lblDoubleOverlapTemperature.Size = new Size(46, 22);
             lblDoubleOverlapTemperature.TabIndex = 53;
@@ -1667,6 +2846,10 @@
             ((System.ComponentModel.ISupportInitialize)pctboxSchemeChamberFurnace).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             pnlDoubleOverlap.ResumeLayout(false);
@@ -1818,5 +3001,110 @@
         private Label label32;
         private FontAwesome.Sharp.IconButton iconButton3;
         private FontAwesome.Sharp.IconButton iconButton4;
+        private Panel panel11;
+        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton iconButton6;
+        private Label label123;
+        private Label label66;
+        private ComboBox comboBox1;
+        private Label label79;
+        private Label label78;
+        private Label label77;
+        private Label label68;
+        private Label label76;
+        private Label label67;
+        private Label label80;
+        private Label label81;
+        private Label label99;
+        private Label label98;
+        private Label label111;
+        private Label label112;
+        private Label label113;
+        private Label label110;
+        private Label label109;
+        private Label label108;
+        private Label label107;
+        private Label label106;
+        private Label label105;
+        private Label label104;
+        private Label label103;
+        private Label label102;
+        private Label label101;
+        private Label label100;
+        private Label label114;
+        private Label label115;
+        private Label label116;
+        private Label label117;
+        private Label label118;
+        private Label label119;
+        private Label label82;
+        private ComboBox comboBox2;
+        private ComboBox comboBox3;
+        private Label label83;
+        private Label label84;
+        private Label label85;
+        private Label label87;
+        private Label label86;
+        private Label label89;
+        private Label label88;
+        private Label label90;
+        private Label label91;
+        private Label label92;
+        private Label label93;
+        private Label label94;
+        private Label label95;
+        private Label label96;
+        private Label label97;
+        private Panel panel12;
+        private Label label121;
+        private Label label139;
+        private Label label120;
+        private ComboBox comboBox4;
+        private Label label122;
+        private Label label124;
+        private Label label125;
+        private Label label126;
+        private Label label127;
+        private Label label128;
+        private Label label129;
+        private Label label130;
+        private Label label131;
+        private Label label132;
+        private Label label133;
+        private Label label134;
+        private Label label135;
+        private Label label136;
+        private Label label137;
+        private Label label138;
+        private Label label140;
+        private Label label141;
+        private Label label142;
+        private Label label143;
+        private Label label144;
+        private Label label145;
+        private Label label148;
+        private Label label149;
+        private Label label150;
+        private Label label151;
+        private Label label152;
+        private Label label153;
+        private Label label154;
+        private Label label155;
+        private Label label156;
+        private Label label157;
+        private Label label158;
+        private Label label159;
+        private Label label160;
+        private Label label161;
+        private Label label162;
+        private Label label163;
+        private Label label164;
+        private Label label165;
+        private Label label166;
+        private Label label167;
+        private Label label168;
+        private Label label169;
+        private Label label146;
+        private Label label147;
     }
 }

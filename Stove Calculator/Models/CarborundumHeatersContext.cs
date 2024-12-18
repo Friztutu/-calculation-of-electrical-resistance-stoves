@@ -9,14 +9,14 @@ namespace Stove_Calculator.Models
 {
     public class CarborundumHeatersContext : DbContext
     {
-        public DbSet<CarborundumHeaters> CarborundumHeaters { get; set; }
+        public DbSet<CarborundumHeater> CarborundumHeaters { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlite("Data Source=carborundumheaters.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CarborundumHeaters>().HasData(
-                new CarborundumHeaters
+            modelBuilder.Entity<CarborundumHeater>().HasData(
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 1,
                     Name = "КНМ-8*100*270",
@@ -27,7 +27,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 2.51,
                     Resistance = 2.0
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 2,
                     Name = "КНМ-8*150*270",
@@ -38,7 +38,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 3.77,
                     Resistance = 3.0
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 3,
                     Name = "КНМ-8*150*320",
@@ -49,7 +49,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 3.77,
                     Resistance = 3.0
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 4,
                     Name = "КНМ-8*150*450",
@@ -60,7 +60,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 3.77,
                     Resistance = 3.0
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 5,
                     Name = "КНМ-8*180*300",
@@ -71,7 +71,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 4.52,
                     Resistance = 3.6
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 6,
                     Name = "КНМ-8*180*350",
@@ -82,7 +82,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 4.52,
                     Resistance = 3.6
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 7,
                     Name = "КНМ-8*180*400",
@@ -93,7 +93,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 4.52,
                     Resistance = 3.6
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 8,
                     Name = "КНМ-8*180*480",
@@ -104,7 +104,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 4.52,
                     Resistance = 3.6
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 9,
                     Name = "КНМ-8*200*500",
@@ -115,7 +115,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 5.03,
                     Resistance = 4.0
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 10,
                     Name = "КНМ-8*250*450",
@@ -126,7 +126,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 6.28,
                     Resistance = 5.0
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 11,
                     Name = "КНМ-12*250*750",
@@ -137,7 +137,7 @@ namespace Stove_Calculator.Models
                     WorkSurfaceArea = 9.42,
                     Resistance = 3.0
                 },
-                new CarborundumHeaters
+                new CarborundumHeater
                 {
                     CarborunbumHeatersId = 12,
                     Name = "КНМ-14*300*250",

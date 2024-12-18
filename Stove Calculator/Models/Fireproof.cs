@@ -17,5 +17,47 @@ namespace Stove_Calculator.Models
         public required double AValue { get; set; }
         public required double BValue { get; set; }
         public required double Density { get; set; }
+
+        public static List<Fireproof> GetFullLiningFireproofs()
+        {
+            List<Fireproof> query;
+
+            using var context = new FireproofContext();
+            var blogs = from b in context.Fireproof
+                        select b;
+
+            query = [.. blogs];
+
+            return query;
+        }
+        public static List<Fireproof> GetPossibleLiningFireproofs(double workTemperature)
+        {
+            List<Fireproof> query;
+
+            using var context = new FireproofContext();
+            var blogs = from b in context.Fireproof
+                        where b.MaxTemperatureOfUse >= workTemperature
+                        select b;
+
+            query = [.. blogs];
+
+            return query;
+        }
+
+        public static List<Fireproof> GetPossibleOverlapFireproofs(double workTemperature)
+        {
+            List<Fireproof> query;
+
+            using var context = new FireproofContext();
+            var blogs = from b in context.Fireproof
+                        where b.MaxTemperatureOfUse >= workTemperature
+                        select b;
+
+            query = [.. blogs];
+
+            return query;
+        }
     }
+
+
 }
